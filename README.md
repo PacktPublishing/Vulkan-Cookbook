@@ -59,13 +59,33 @@ In this sample a basic shadow mapping algorithm is shown. In the first render pa
 
 * ### [05 - Rendering a fullscreen quad for postprocessing](./Samples/Source%20Files/12%20Advanced%20Rendering%20Techniques/05-Rendering_a_fullscreen_quad_for_postprocessing/)
 
-* ### [06 - Using input attachment for color correction postprocess effect](./Samples/Source%20Files/12%20Advanced%20Rendering%20Techniques/06-Using_input_attachment_for_color_correction_postprocess_effect/)
+* ### [06 - Using an input attachment for color correction postprocess effect](./Samples/Source%20Files/12%20Advanced%20Rendering%20Techniques/06-Using_input_attachment_for_color_correction_postprocess_effect/)
 
 ## [Other](./Samples/Source%20Files/Other/)
 
-* ### [01 - Creating a logical device](./Samples/Source%20Files/12%20Advanced%20Rendering%20Techniques/01-Creating_Logical_Device/)
+* ### [01 - Creating a logical device](./Samples/Source%20Files/Other/01-Creating_Logical_Device/)
 
-* ### [02 - Creating a swapchain](./Samples/Source%20Files/12%20Advanced%20Rendering%20Techniques/02-Creating_Swapchain/)
+* ### [02 - Creating a swapchain](./Samples/Source%20Files/Other/02-Creating_Swapchain/)
+
+* ### [03 - Using render passes](./Samples/Source%20Files/Other/03-Using_Render_Passes/)
+
+* ### [04 - Using a graphics pipeline](./Samples/Source%20Files/Other/04-Using_Graphics_Pipeline/)
+
+* ### [05 - Using combined image samplers](./Samples/Source%20Files/Other/05-Using_Combined_Image_Samplers/)
+
+* ### [06 - Using uniform buffers](./Samples/Source%20Files/Other/06-Using_Uniform_Buffers/)
+
+* ### [07 - Using push constants](./Samples/Source%20Files/Other/07-Using_Push_Constants/)
+
+* ### [08 - Using tessellation shaders](./Samples/Source%20Files/Other/08-Using_Tessellation_Shaders/)
+
+* ### [09 - Using geometry shaders](./Samples/Source%20Files/Other/09-Using_Geometry_Shaders/)
+
+* ### [10 - Using compute shaders](./Samples/Source%20Files/Other/10-Using_Compute_Shaders/)
+
+* ### [11 - Drawing vertex normals](./Samples/Source%20Files/Other/11-Drawing_Vertex_Normals/)
+
+* ### [12 - Using depth attachments](./Samples/Source%20Files/Other/12-Using_Depth_Attachments/)
 
 <hr>
 
