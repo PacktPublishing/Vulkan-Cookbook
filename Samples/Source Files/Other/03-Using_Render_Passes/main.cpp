@@ -26,27 +26,6 @@
 // 03-Using_Render_Passes
 
 #include "CookbookSampleFramework.h"
-#include "02 Image Presentation/15 Acquiring a swapchain image.h"
-#include "02 Image Presentation/16 Presenting an image.h"
-#include "03 Command Buffers and Synchronization/01 Creating a command pool.h"
-#include "03 Command Buffers and Synchronization/02 Allocating command buffers.h"
-#include "03 Command Buffers and Synchronization/03 Beginning a command buffer recording operation.h"
-#include "03 Command Buffers and Synchronization/04 Ending a command buffer recording operation.h"
-#include "03 Command Buffers and Synchronization/07 Creating a semaphore.h"
-#include "03 Command Buffers and Synchronization/08 Creating a fence.h"
-#include "03 Command Buffers and Synchronization/09 Waiting for fences.h"
-#include "03 Command Buffers and Synchronization/10 Resetting fences.h"
-#include "03 Command Buffers and Synchronization/11 Submitting command buffers to the queue.h"
-#include "03 Command Buffers and Synchronization/15 Waiting for all submitted commands to be finished.h"
-#include "03 Command Buffers and Synchronization/16 Destroying a fence.h"
-#include "03 Command Buffers and Synchronization/19 Destroying a command pool.h"
-#include "04 Resources and Memory/07 Setting an image memory barrier.h"
-#include "06 Render Passes and Framebuffers/04 Creating a render pass.h"
-#include "06 Render Passes and Framebuffers/05 Creating a framebuffer.h"
-#include "06 Render Passes and Framebuffers/08 Beginning a render pass.h"
-#include "06 Render Passes and Framebuffers/10 Ending a render pass.h"
-#include "06 Render Passes and Framebuffers/11 Destroying a framebuffer.h"
-#include "06 Render Passes and Framebuffers/12 Destroying a render pass.h"
 
 using namespace VulkanCookbook;
 

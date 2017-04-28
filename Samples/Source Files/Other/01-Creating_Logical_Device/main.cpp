@@ -27,17 +27,6 @@
 
 #include "CookbookSampleFramework.h"
 
-#include "01 Instance and Devices\03 Connecting with a Vulkan Loader library.h"
-#include "01 Instance and Devices\05 Loading function exported from a Vulkan Loader library.h"
-#include "01 Instance and Devices\06 Loading global-level functions.h"
-#include "01 Instance and Devices\08 Creating a Vulkan Instance.h"
-#include "01 Instance and Devices\09 Loading instance-level functions.h"
-#include "01 Instance and Devices\18 Creating a logical device with geometry shaders and graphics queue.h"
-#include "01 Instance and Devices\19 Destroying a logical device.h"
-#include "01 Instance and Devices\20 Destroying a Vulkan Instance.h"
-#include "01 Instance and Devices\21 Releasing a Vulkan Loader library.h"
-#include "03 Command Buffers and Synchronization/15 Waiting for all submitted commands to be finished.h"
-
 using namespace VulkanCookbook;
 
 class Sample : public VulkanCookbookSampleBase {

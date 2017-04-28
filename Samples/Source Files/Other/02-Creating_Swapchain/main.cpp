@@ -27,37 +27,6 @@
 
 #include "CookbookSampleFramework.h"
 
-#include "01 Instance and Devices/03 Connecting with a Vulkan Loader library.h"
-#include "01 Instance and Devices/05 Loading function exported from a Vulkan Loader library.h"
-#include "01 Instance and Devices/06 Loading global-level functions.h"
-#include "01 Instance and Devices/09 Loading instance-level functions.h"
-#include "01 Instance and Devices/10 Enumerating available physical devices.h"
-#include "01 Instance and Devices/14 Selecting index of a queue family with desired capabilities.h"
-#include "01 Instance and Devices/16 Loading device-level functions.h"
-#include "01 Instance and Devices/17 Getting a device queue.h"
-#include "01 Instance and Devices/19 Destroying a logical device.h"
-#include "01 Instance and Devices/20 Destroying a Vulkan Instance.h"
-#include "01 Instance and Devices/21 Releasing a Vulkan Loader library.h"
-#include "02 Image Presentation/01 Creating a Vulkan Instance with WSI extensions enabled.h"
-#include "02 Image Presentation/02 Creating a presentation surface.h"
-#include "02 Image Presentation/03 Selecting a queue family that supports presentation to a given surface.h"
-#include "02 Image Presentation/04 Creating a logical device with WSI extensions enabled.h"
-#include "02 Image Presentation/14 Creating a swapchain with R8G8B8A8 format and a MAILBOX present mode.h"
-#include "02 Image Presentation/15 Acquiring a swapchain image.h"
-#include "02 Image Presentation/16 Presenting an image.h"
-#include "02 Image Presentation/17 Destroying a swapchain.h"
-#include "02 Image Presentation/18 Destroying a presentation surface.h"
-#include "03 Command Buffers and Synchronization/01 Creating a command pool.h"
-#include "03 Command Buffers and Synchronization/02 Allocating command buffers.h"
-#include "03 Command Buffers and Synchronization/03 Beginning a command buffer recording operation.h"
-#include "03 Command Buffers and Synchronization/04 Ending a command buffer recording operation.h"
-#include "03 Command Buffers and Synchronization/11 Submitting command buffers to the queue.h"
-#include "03 Command Buffers and Synchronization/07 Creating a semaphore.h"
-#include "03 Command Buffers and Synchronization/15 Waiting for all submitted commands to be finished.h"
-#include "03 Command Buffers and Synchronization/17 Destroying a semaphore.h"
-#include "03 Command Buffers and Synchronization/19 Destroying a command pool.h"
-#include "04 Resources and Memory/07 Setting an image memory barrier.h"
-
 using namespace VulkanCookbook;
 
 class Sample : public VulkanCookbookSampleBase {
