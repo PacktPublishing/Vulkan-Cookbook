@@ -25,7 +25,8 @@ Vulkan is the next generation graphics API released by the Khronos group. It is 
 
 * ### [01 - Rendering a geometry with vertex diffuse lighting](./Samples/Source%20Files/11%20Lighting/01-Rendering_a_geometry_with_vertex_diffuse_lighting/main.cpp)
 
-Sample showing how to implement a diffuse lighting algorithm calculated only at geometry's verices using vertex shaders.<br><b>Left mouse button:</b> rotate the scene
+Sample showing how to implement a diffuse lighting algorithm calculated only at geometry's verices using vertex shaders.<br>
+<b>Left mouse button:</b> rotate the scene
 
 <img src="./Samples/Source%20Files/11%20Lighting/02-Rendering_a_geometry_with_fragment_specular_lighting/screenshot.png" width="150px" align="right">
 
@@ -45,7 +46,7 @@ Here a normal mapping technique is presented and the model is lit using the spec
 
 * ### [04 - Rendering a reflective and refractive geometry using cubemaps](./Samples/Source%20Files/11%20Lighting/04-Rendering_a_reflective_and_refractive_geometry_using_cubemaps/main.cpp)
 
-Sample presenting how to use cubemaps to render a geometry that reflects and refracts environment.<br>
+Sample presenting how to use cubemaps to render a transparent geometry that both reflects and refracts environment.<br>
 <b>Left mouse button:</b> rotate the scene
 
 <img src="./Samples/Source%20Files/11%20Lighting/05-Adding_shadows_to_the_scene/screenshot.png" width="150px" align="right">
@@ -83,7 +84,7 @@ Here an example of rendering particles is shown. Compute shaders are used to cal
 
 * ### [04 - Rendering a tesselated terrain](./Samples/Source%20Files/12%20Advanced%20Rendering%20Techniques/04-Rendering_a_tesselated_terrain/main.cpp)
 
-This code sample shows one of the ways to draw a terrain. A complete graphics pipeline is used with all five programmable stages, which are used to tessellate the terrain near the camera to improve its complexity, with level of details faiding away with increasing distance from the camera. Geometry shaders are used to calculate lighting using flat shading algorithm. Fragment shaders calculates color based on height.<br>
+This code sample shows one of the ways to draw a terrain. A complete graphics pipeline with all five programmable stages is used that tessellates the terrain near the camera to improve its complexity, with level of details faiding away with increasing distance from the camera, and with a flat shading lighting algorithm.<br>
 <b>Left mouse button:</b> rotate the scene<br>
 <b>Mouse wheel:</b> zoom in / zoom out
 
@@ -102,17 +103,41 @@ In this code another postprocessing technique is shown that uses one of the Vulk
 
 ## [Other](./Samples/Source%20Files/Other/)
 
+<img src="./Samples/Source%20Files/Other/01-Creating_Logical_Device/screenshot.png" width="150px" align="right">
+
 * ### [01 - Creating a logical device](./Samples/Source%20Files/Other/01-Creating_Logical_Device/main.cpp)
+
+Code sample that shows basic Vulkan setup - instance creation, physical device enumeration and logical device creation.
+
+<img src="./Samples/Source%20Files/Other/02-Creating_Swapchain/screenshot.png" width="150px" align="right">
 
 * ### [02 - Creating a swapchain](./Samples/Source%20Files/Other/02-Creating_Swapchain/main.cpp)
 
+Here a swapchain object is created, which allows us to render a scene directly to an application's window.
+
+<img src="./Samples/Source%20Files/Other/03-Using_Render_Passes/screenshot.png" width="150px" align="right">
+
 * ### [03 - Using render passes](./Samples/Source%20Files/Other/03-Using_Render_Passes/main.cpp)
+
+This example shows how to preapre a basic render pass - a description of attachments (render targets) needed to render a geometry.
+
+<img src="./Samples/Source%20Files/Other/04-Using_Graphics_Pipeline/screenshot.png" width="150px" align="right">
 
 * ### [04 - Using a graphics pipeline](./Samples/Source%20Files/Other/04-Using_Graphics_Pipeline/main.cpp)
 
+Sample showing how to create a graphics pipeline, setup its multiple parameters and use it to draw a scene.
+
+<img src="./Samples/Source%20Files/Other/05-Using_Combined_Image_Samplers/screenshot.png" width="150px" align="right">
+
 * ### [05 - Using combined image samplers](./Samples/Source%20Files/Other/05-Using_Combined_Image_Samplers/main.cpp)
 
+Here descriptor sets are introduced. They are required to setup an interface between application and a pipeline and to provide images (textures) to shaders.
+
+<img src="./Samples/Source%20Files/Other/06-Using_Uniform_Buffers/screenshot.png" width="150px" align="right">
+
 * ### [06 - Using uniform buffers](./Samples/Source%20Files/Other/06-Using_Uniform_Buffers/main.cpp)
+
+Another example of using descriptor sets, but this time it presented how to prepare transformation matrices and provide them to shaders.
 
 * ### [07 - Using push constants](./Samples/Source%20Files/Other/07-Using_Push_Constants/main.cpp)
 
