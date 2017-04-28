@@ -1,20 +1,24 @@
-// Permission is hereby granted, free of charge, to any person obtaining a
-// copy of this software and associated documentation files (the "Software"),
-// to deal in the Software without restriction, including without limitation
-// the rights to use, copy, modify, merge, publish, distribute, sublicense,
-// and / or sell copies of the Software, and to permit persons to whom the
-// Software is furnished to do so, subject to the following conditions:
+// MIT License
 //
-// The below copyright notice and this permission notice shall be included
-// in all copies or substantial portions of the Software.
+// Copyright( c ) 2017 Packt
+//
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files( the "Software" ), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and / or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions :
+//
+// The above copyright notice and this permission notice shall be included in all
+// copies or substantial portions of the Software.
 //
 // THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 // IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL
-// THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-// FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
-// DEALINGS IN THE SOFTWARE.
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+// SOFTWARE.
 //
 // Vulkan Cookbook
 // ISBN: 9781786468154
@@ -23,35 +27,7 @@
 // Author:   Pawel Lapinski
 // LinkedIn: https://www.linkedin.com/in/pawel-lapinski-84522329
 //
-// OS
-
-#include "01 Instance and Devices/03 Connecting with a Vulkan Loader library.h"
-#include "01 Instance and Devices/05 Loading function exported from a Vulkan Loader library.h"
-#include "01 Instance and Devices/06 Loading global-level functions.h"
-#include "01 Instance and Devices/09 Loading instance-level functions.h"
-#include "01 Instance and Devices/10 Enumerating available physical devices.h"
-#include "01 Instance and Devices/14 Selecting index of a queue family with desired capabilities.h"
-#include "01 Instance and Devices/16 Loading device-level functions.h"
-#include "01 Instance and Devices/17 Getting a device queue.h"
-#include "01 Instance and Devices/19 Destroying a logical device.h"
-#include "01 Instance and Devices/20 Destroying a Vulkan Instance.h"
-#include "01 Instance and Devices/21 Releasing a Vulkan Loader library.h"
-#include "02 Image Presentation/01 Creating a Vulkan Instance with WSI extensions enabled.h"
-#include "02 Image Presentation/02 Creating a presentation surface.h"
-#include "02 Image Presentation/03 Selecting a queue family that supports presentation to a given surface.h"
-#include "02 Image Presentation/04 Creating a logical device with WSI extensions enabled.h"
-#include "02 Image Presentation/14 Creating a swapchain with R8G8B8A8 format and a MAILBOX present mode.h"
-#include "02 Image Presentation/17 Destroying a swapchain.h"
-#include "02 Image Presentation/18 Destroying a presentation surface.h"
-#include "03 Command Buffers and Synchronization/01 Creating a command pool.h"
-#include "03 Command Buffers and Synchronization/02 Allocating command buffers.h"
-#include "03 Command Buffers and Synchronization/07 Creating a semaphore.h"
-#include "03 Command Buffers and Synchronization/08 Creating a fence.h"
-#include "03 Command Buffers and Synchronization/17 Destroying a semaphore.h"
-#include "03 Command Buffers and Synchronization/15 Waiting for all submitted commands to be finished.h"
-#include "04 Resources and Memory/08 Creating an image view.h"
-#include "04 Resources and Memory/09 Creating a 2D image and view.h"
-#include "04 Resources and Memory/17 Destroying an image view.h"
+// Cookbook Sample Framework
 
 #include "CookbookSampleFramework.h"
 
