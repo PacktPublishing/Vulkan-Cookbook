@@ -51,15 +51,33 @@ In this sample a basic shadow mapping algorithm is shown. In the first render pa
 
 * ### [01 - Drawing a skybox](./Samples/Source%20Files/12%20Advanced%20Rendering%20Techniques/01-Drawing_a_skybox/)
 
+Here it is shown how to draw a skybox, which simulates background - objects seen in a distance and/or a sky.<br>
+<b>Left mouse button:</b> look around
+
 * ### [02 - Drawing bilboards using geometry shaders](./Samples/Source%20Files/12%20Advanced%20Rendering%20Techniques/02-Drawing_bilboards_using_geometry_shaders/)
+
+This sample presents a way of drawing sprites or bilboards - flat, textured quads that are always facing the camera.<br>
+<b>Left mouse button:</b> rotate the scene
 
 * ### [03 - Drawing particles using compute and graphics pipelines](./Samples/Source%20Files/12%20Advanced%20Rendering%20Techniques/03-Drawing_particles_using_compute_and_graphics_pipelines/)
 
+Here an example of rendering particles is shown. Compute shaders are used to calculate positions of all particles in the system. Particles are rendered as bilboards, as describe in the previous example.<br>
+<b>Left mouse button:</b> rotate the scene
+
 * ### [04 - Rendering a tesselated terrain](./Samples/Source%20Files/12%20Advanced%20Rendering%20Techniques/04-Rendering_a_tesselated_terrain/)
+
+This code sample shows one of the ways to draw a terrain. A complete graphics pipeline is used with all five programmable stages, which are used to tessellate the terrain near the camera to improve its complexity, with level of details faiding away with increasing distance from the camera. Geometry shaders are used to calculate lighting using flat shading algorithm. Fragment shaders calculates color based on height.<br>
+<b>Left mouse button:</b> rotate the scene<br>
+<b>Mouse wheel:</b> zoom in / zoom out
 
 * ### [05 - Rendering a fullscreen quad for postprocessing](./Samples/Source%20Files/12%20Advanced%20Rendering%20Techniques/05-Rendering_a_fullscreen_quad_for_postprocessing/)
 
+Sample presenting a fast and easy way to prepare an image postprocessing phase in a graphics pipeline - by using a fullscreen quad drawn already in a clip space. An edge detection algorithm is shown as on of the examples of postprocessing techniques.
+
 * ### [06 - Using an input attachment for color correction postprocess effect](./Samples/Source%20Files/12%20Advanced%20Rendering%20Techniques/06-Using_input_attachment_for_color_correction_postprocess_effect/)
+
+In this code another postprocessing technique is shown that uses one of the Vulkan's specific features - input attachments, which allow reading data from render targets (attachments) in the same render pass.<br>
+<b>Left mouse button:</b> rotate the scene
 
 ## [Other](./Samples/Source%20Files/Other/)
 
