@@ -21,25 +21,34 @@ Vulkan is the next generation graphics API released by the Khronos group. It is 
 
 ## [Chapter 11 - Lighting](./Samples/Source%20Files/11%20Lighting/)
 
+<img src="./Samples/Source%20Files/11%20Lighting/01-Rendering_a_geometry_with_vertex_diffuse_lighting/screenshot.png" width="150px" align="right">
+
 * ### [01 - Rendering a geometry with vertex diffuse lighting](./Samples/Source%20Files/11%20Lighting/01-Rendering_a_geometry_with_vertex_diffuse_lighting/main.cpp)
 
-Sample showing how to implement a diffuse lighting algorithm using vertex shaders.<br>
-<b>Left mouse button:</b> rotate the scene
+Sample showing how to implement a diffuse lighting algorithm calculated only at geometry's verices using vertex shaders.<br><b>Left mouse button:</b> rotate the scene
+
+<img src="./Samples/Source%20Files/11%20Lighting/02-Rendering_a_geometry_with_fragment_specular_lighting/screenshot.png" width="150px" align="right">
 
 * ### [02 - Rendering a geometry with fragment specular lighting](./Samples/Source%20Files/11%20Lighting/02-Rendering_a_geometry_with_fragment_specular_lighting/main.cpp)
 
 This sample present the Phong specular lighting algorithm implemented on vertex and fragment shaders.<br>
 <b>Left mouse button:</b> rotate the scene
 
+<img src="./Samples/Source%20Files/11%20Lighting/03-Rendering_a_normal_mapped_geometry/screenshot.png" width="150px" align="right">
+
 * ### [03 - Rendering a normal mapped geometry](./Samples/Source%20Files/11%20Lighting/03-Rendering_a_normal_mapped_geometry/main.cpp)
 
 Here a normal mapping technique is presented and the model is lit using the specular lighting algorithm.<br>
 <b>Left mouse button:</b> rotate the scene
 
+<img src="./Samples/Source%20Files/11%20Lighting/04-Rendering_a_reflective_and_refractive_geometry_using_cubemaps/screenshot.png" width="150px" align="right">
+
 * ### [04 - Rendering a reflective and refractive geometry using cubemaps](./Samples/Source%20Files/11%20Lighting/04-Rendering_a_reflective_and_refractive_geometry_using_cubemaps/main.cpp)
 
 Sample presenting how to use cubemaps to render a geometry that reflects and refracts environment.<br>
 <b>Left mouse button:</b> rotate the scene
+
+<img src="./Samples/Source%20Files/11%20Lighting/05-Adding_shadows_to_the_scene/screenshot.png" width="150px" align="right">
 
 * ### [05 - Adding shadows to the scene](./Samples/Source%20Files/11%20Lighting/05-Adding_shadows_to_the_scene/main.cpp)
 
@@ -49,20 +58,28 @@ In this sample a basic shadow mapping algorithm is shown. In the first render pa
 
 ## [Chapter 12 - Advanced Rendering Techniques](./Samples/Source%20Files/12%20Advanced%20Rendering%20Techniques/)
 
+<img src="./Samples/Source%20Files/12%20Advanced%20Rendering%20Techniques/01-Drawing_a_skybox/screenshot.png" width="150px" align="right">
+
 * ### [01 - Drawing a skybox](./Samples/Source%20Files/12%20Advanced%20Rendering%20Techniques/01-Drawing_a_skybox/main.cpp)
 
 Here it is shown how to draw a skybox, which simulates background - objects seen in a distance and/or a sky.<br>
 <b>Left mouse button:</b> look around
+
+<img src="./Samples/Source%20Files/12%20Advanced%20Rendering%20Techniques/02-Drawing_bilboards_using_geometry_shaders/screenshot.png" width="150px" align="right">
 
 * ### [02 - Drawing bilboards using geometry shaders](./Samples/Source%20Files/12%20Advanced%20Rendering%20Techniques/02-Drawing_bilboards_using_geometry_shaders/main.cpp)
 
 This sample presents a way of drawing sprites or bilboards - flat, textured quads that are always facing the camera.<br>
 <b>Left mouse button:</b> rotate the scene
 
+<img src="./Samples/Source%20Files/12%20Advanced%20Rendering%20Techniques/03-Drawing_particles_using_compute_and_graphics_pipelines/screenshot.png" width="150px" align="right">
+
 * ### [03 - Drawing particles using compute and graphics pipelines](./Samples/Source%20Files/12%20Advanced%20Rendering%20Techniques/03-Drawing_particles_using_compute_and_graphics_pipelines/main.cpp)
 
-Here an example of rendering particles is shown. Compute shaders are used to calculate positions of all particles in the system. Particles are rendered as bilboards, as describe in the previous example.<br>
+Here an example of rendering particles is shown. Compute shaders are used to calculate positions of all particles in the system. Particles are rendered as flat bilboards (sprites).<br>
 <b>Left mouse button:</b> rotate the scene
+
+<img src="./Samples/Source%20Files/12%20Advanced%20Rendering%20Techniques/04-Rendering_a_tesselated_terrain/screenshot.png" width="150px" align="right">
 
 * ### [04 - Rendering a tesselated terrain](./Samples/Source%20Files/12%20Advanced%20Rendering%20Techniques/04-Rendering_a_tesselated_terrain/main.cpp)
 
@@ -70,9 +87,13 @@ This code sample shows one of the ways to draw a terrain. A complete graphics pi
 <b>Left mouse button:</b> rotate the scene<br>
 <b>Mouse wheel:</b> zoom in / zoom out
 
+<img src="./Samples/Source%20Files/12%20Advanced%20Rendering%20Techniques/05-Rendering_a_fullscreen_quad_for_postprocessing/screenshot.png" width="150px" align="right">
+
 * ### [05 - Rendering a fullscreen quad for postprocessing](./Samples/Source%20Files/12%20Advanced%20Rendering%20Techniques/05-Rendering_a_fullscreen_quad_for_postprocessing/main.cpp)
 
 Sample presenting a fast and easy way to prepare an image postprocessing phase in a graphics pipeline - by using a fullscreen quad drawn already in a clip space. An edge detection algorithm is shown as on of the examples of postprocessing techniques.
+
+<img src="./Samples/Source%20Files/12%20Advanced%20Rendering%20Techniques/06-Using_input_attachment_for_color_correction_postprocess_effect/screenshot.png" width="150px" align="right">
 
 * ### [06 - Using an input attachment for color correction postprocess effect](./Samples/Source%20Files/12%20Advanced%20Rendering%20Techniques/06-Using_input_attachment_for_color_correction_postprocess_effect/main.cpp)
 
