@@ -139,17 +139,41 @@ Here descriptor sets are introduced. They are required to setup an interface bet
 
 Another example of using descriptor sets, but this time it presented how to prepare transformation matrices and provide them to shaders.
 
+<img src="./Samples/Source%20Files/Other/07-Using_Push_Constants/screenshot.png" width="150px" align="right">
+
 * ### [07 - Using push constants](./Samples/Source%20Files/Other/07-Using_Push_Constants/main.cpp)
+
+This code sample presents a very fast and easy way to provide data to shaders - push constants. Though the provided data may not be too big, they are ideal for performing frequent updates.
+
+<img src="./Samples/Source%20Files/Other/08-Using_Tessellation_Shaders/screenshot.png" width="150px" align="right">
 
 * ### [08 - Using tessellation shaders](./Samples/Source%20Files/Other/08-Using_Tessellation_Shaders/main.cpp)
 
+Here we can see how to create a graphics pipeline with tessellation control and evaluation shaders enabled responsible for increasing the complexity of a rendered geometry.
+
+<img src="./Samples/Source%20Files/Other/09-Using_Geometry_Shaders/screenshot.png" width="150px" align="right">
+
 * ### [09 - Using geometry shaders](./Samples/Source%20Files/Other/09-Using_Geometry_Shaders/main.cpp)
+
+Sample presenting how to use geometry shaders and generate new primitives instead of those drawn in an application.
+
+<img src="./Samples/Source%20Files/Other/10-Using_Compute_Shaders/screenshot.png" width="150px" align="right">
 
 * ### [10 - Using compute shaders](./Samples/Source%20Files/Other/10-Using_Compute_Shaders/main.cpp)
 
+This code sample shows how to create a compute pipeline - the second type of pipelines supported in the Vulkan API. It allows us to perform mathematical computations.
+
+<img src="./Samples/Source%20Files/Other/11-Drawing_Vertex_Normals/screenshot.png" width="150px" align="right">
+
 * ### [11 - Drawing vertex normals](./Samples/Source%20Files/Other/11-Drawing_Vertex_Normals/main.cpp)
 
+Here a commonly used debugging technique is presented that uses geometry shaders to display normal vectors provided by the application.
+
+<img src="./Samples/Source%20Files/Other/12-Using_Depth_Attachments/screenshot.png" width="150px" align="right">
+
 * ### [12 - Using depth attachments](./Samples/Source%20Files/Other/12-Using_Depth_Attachments/main.cpp)
+
+In this example we can see how to setup a render pass, framebufer and a graphics pipeline to use depth attachment and enable depth test during drawing.
 
 <hr>
 
