@@ -181,43 +181,79 @@ In this example we can see how to setup a render pass, framebufer and a graphics
 
 ## [Chapter 01 - Instance and Devices](./Library/Source%20Files/01%20Instance%20and%20Devices/)
 
-* ### [03 - Connecting with a Vulkan Loader library](./Library/Source%20Files/01%20Instance%20and%20Devices/03%20Connecting%20with%20a%20Vulkan%20Loader%20library.cpp)
+* [03 - Connecting with a Vulkan Loader library](./Library/Source%20Files/01%20Instance%20and%20Devices/03%20Connecting%20with%20a%20Vulkan%20Loader%20library.cpp)
 
-* ### [05 - Loading function exported from a Vulkan Loader library](./Library/Source%20Files/01%20Instance%20and%20Devices/05%20Loading%20function%20exported%20from%20a%20Vulkan%20Loader%20library.cpp)
+* [05 - Loading function exported from a Vulkan Loader library](./Library/Source%20Files/01%20Instance%20and%20Devices/05%20Loading%20function%20exported%20from%20a%20Vulkan%20Loader%20library.cpp)
 
-* ### [06 - Loading global-level functions](./Library/Source%20Files/01%20Instance%20and%20Devices/06%20Loading%20global-level%20functions.cpp)
+* [06 - Loading global-level functions](./Library/Source%20Files/01%20Instance%20and%20Devices/06%20Loading%20global-level%20functions.cpp)
 
-* ### [07 - Checking available Instance extensions](./Library/Source%20Files/01%20Instance%20and%20Devices/07%20Checking%20available%20Instance%20extensions.cpp)
+* [07 - Checking available Instance extensions](./Library/Source%20Files/01%20Instance%20and%20Devices/07%20Checking%20available%20Instance%20extensions.cpp)
 
-* ### [08 - Creating a Vulkan Instance](./Library/Source%20Files/01%20Instance%20and%20Devices/08%20Creating%20a%20Vulkan%20Instance.cpp)
+* [08 - Creating a Vulkan Instance](./Library/Source%20Files/01%20Instance%20and%20Devices/08%20Creating%20a%20Vulkan%20Instance.cpp)
 
-* ### [09 - Loading instance-level functions](./Library/Source%20Files/01%20Instance%20and%20Devices/09%20Loading%20instance-level%20functions.cpp)
+* [09 - Loading instance-level functions](./Library/Source%20Files/01%20Instance%20and%20Devices/09%20Loading%20instance-level%20functions.cpp)
 
-* ### [10 - Enumerating available physical devices](./Library/Source%20Files/01%20Instance%20and%20Devices/10%20Enumerating%20available%20physical%20devices.cpp)
+* [10 - Enumerating available physical devices](./Library/Source%20Files/01%20Instance%20and%20Devices/10%20Enumerating%20available%20physical%20devices.cpp)
 
-* ### [11 - Checking available device extensions](./Library/Source%20Files/01%20Instance%20and%20Devices/11%20Checking%20available%20device%20extensions.cpp)
+* [11 - Checking available device extensions](./Library/Source%20Files/01%20Instance%20and%20Devices/11%20Checking%20available%20device%20extensions.cpp)
 
-* ### [12 - Getting features and properties of a physical device](./Library/Source%20Files/01%20Instance%20and%20Devices/12%20Getting%20features%20and%20properties%20of%20a%20physical%20device.cpp)
+* [12 - Getting features and properties of a physical device](./Library/Source%20Files/01%20Instance%20and%20Devices/12%20Getting%20features%20and%20properties%20of%20a%20physical%20device.cpp)
 
-* ### [13 - Checking available queue families and their properties](./Library/Source%20Files/01%20Instance%20and%20Devices/13%20Checking%20available%20queue%20families%20and%20their%20properties.cpp)
+* [13 - Checking available queue families and their properties](./Library/Source%20Files/01%20Instance%20and%20Devices/13%20Checking%20available%20queue%20families%20and%20their%20properties.cpp)
 
-* ### [14 - Selecting index of a queue family with desired capabilities](./Library/Source%20Files/01%20Instance%20and%20Devices/14%20Selecting%20index%20of%20a%20queue%20family%20with%20desired%20capabilities.cpp)
+* [14 - Selecting index of a queue family with desired capabilities](./Library/Source%20Files/01%20Instance%20and%20Devices/14%20Selecting%20index%20of%20a%20queue%20family%20with%20desired%20capabilities.cpp)
 
-* ### [15 - Creating a logical device](./Library/Source%20Files/01%20Instance%20and%20Devices/15%20Creating%20a%20logical%20device.cpp)
+* [15 - Creating a logical device](./Library/Source%20Files/01%20Instance%20and%20Devices/15%20Creating%20a%20logical%20device.cpp)
 
-* ### [16 - Loading device-level functions](./Library/Source%20Files/01%20Instance%20and%20Devices/16%20Loading%20device-level%20functions.cpp)
+* [16 - Loading device-level functions](./Library/Source%20Files/01%20Instance%20and%20Devices/16%20Loading%20device-level%20functions.cpp)
 
-* ### [17 - Getting a device queue](./Library/Source%20Files/01%20Instance%20and%20Devices/17%20Getting%20a%20device%20queue.cpp)
+* [17 - Getting a device queue](./Library/Source%20Files/01%20Instance%20and%20Devices/17%20Getting%20a%20device%20queue.cpp)
 
-* ### [18 - Creating a logical device with geometry shaders and graphics queue](./Library/Source%20Files/01%20Instance%20and%20Devices/18%20Creating%20a%20logical%20device%20with%20geometry%20shaders%20and%20graphics%20queue.cpp)
+* [18 - Creating a logical device with geometry shaders and graphics queue](./Library/Source%20Files/01%20Instance%20and%20Devices/18%20Creating%20a%20logical%20device%20with%20geometry%20shaders%20and%20graphics%20queue.cpp)
 
-* ### [19 - Destroying a logical device](./Library/Source%20Files/01%20Instance%20and%20Devices/19%20Destroying%20a%20logical%20device.cpp)
+* [19 - Destroying a logical device](./Library/Source%20Files/01%20Instance%20and%20Devices/19%20Destroying%20a%20logical%20device.cpp)
 
-* ### [20 - Destroying a Vulkan Instance](./Library/Source%20Files/01%20Instance%20and%20Devices/20%20Destroying%20a%20Vulkan%20Instance.cpp)
+* [20 - Destroying a Vulkan Instance](./Library/Source%20Files/01%20Instance%20and%20Devices/20%20Destroying%20a%20Vulkan%20Instance.cpp)
 
-* ### [21 - Releasing a Vulkan Loader library](./Library/Source%20Files/01%20Instance%20and%20Devices/21%20Releasing%20a%20Vulkan%20Loader%20library.cpp)
+* [21 - Releasing a Vulkan Loader library](./Library/Source%20Files/01%20Instance%20and%20Devices/21%20Releasing%20a%20Vulkan%20Loader%20library.cpp)
 
 ## [Chapter 02 - Image Presentation](./Library/Source%20Files/02%20Image%20Presentation/)
+
+* [01 - Creating a Vulkan Instance with WSI extensions enabled](./Library/Source%20Files/01%20Instance%20and%20Devices/01%20Creating%20a%20Vulkan%20Instance%20with%20WSI%20extensions%20enabled.cpp)
+
+* [02 - Creating a presentation surface](./Library/Source%20Files/01%20Instance%20and%20Devices/02%20Creating%20a%20presentation%20surface.cpp)
+
+* [03 - Selecting a queue family that supports presentation to a given surface](./Library/Source%20Files/01%20Instance%20and%20Devices/03%20Selecting%20a%20queue%20family%20that%20supports%20presentation%20to%20a%20given%20surface.cpp)
+
+* [04 - Creating a logical device with WSI extensions enabled](./Library/Source%20Files/01%20Instance%20and%20Devices/04%20Creating%20a%20logical%20device%20with%20WSI%20extensions%20enabled.cpp)
+
+* [05 - Selecting a desired presentation mode](./Library/Source%20Files/01%20Instance%20and%20Devices/05%20Selecting%20a%20desired%20presentation%20mode.cpp)
+
+* [06 - Getting capabilities of a presentation surface](./Library/Source%20Files/01%20Instance%20and%20Devices/06%20Getting%20capabilities%20of%20a%20presentation%20surface.cpp)
+
+* [07 - Selecting a number of swapchain images](./Library/Source%20Files/01%20Instance%20and%20Devices/07%20Selecting%20a%20number%20of%20swapchain%20images.cpp)
+
+* [08 - Choosing a size of swapchain images](./Library/Source%20Files/01%20Instance%20and%20Devices/08%20Choosing%20a%20size%20of%20swapchain%20images.cpp)
+
+* [09 - Selecting desired usage scenarios of swapchain images](./Library/Source%20Files/01%20Instance%20and%20Devices/09%20Selecting%20desired%20usage%20scenarios%20of%20swapchain%20images.cpp)
+
+* [10 - Selecting a transformation of swapchain images](./Library/Source%20Files/01%20Instance%20and%20Devices/10%20Selecting%20a%20transformation%20of%20swapchain%20images.cpp)
+
+* [11 - Selecting a format of swapchain images](./Library/Source%20Files/01%20Instance%20and%20Devices/11%20Selecting%20a%20format%20of%20swapchain%20images.cpp)
+
+* [12 - Creating a swapchain](./Library/Source%20Files/01%20Instance%20and%20Devices/12%20Creating%20a%20swapchain.cpp)
+
+* [13 - Getting handles of swapchain images](./Library/Source%20Files/01%20Instance%20and%20Devices/13%20Getting%20handles%20of%20swapchain%20images.cpp)
+
+* [14 - Creating a swapchain with R8G8B8A8 format and a MAILBOX present mode](./Library/Source%20Files/01%20Instance%20and%20Devices/14%20Creating%20a%20swapchain%20with%20R8G8B8A8%20format%20and%20a%20MAILBOX%20present%20mode.cpp)
+
+* [15 - Acquiring a swapchain image](./Library/Source%20Files/01%20Instance%20and%20Devices/15%20Acquiring%20a%20swapchain%20image.cpp)
+
+* [16 - Presenting an image](./Library/Source%20Files/01%20Instance%20and%20Devices/16%20Presenting%20an%20image.cpp)
+
+* [17 - Destroying a swapchain](./Library/Source%20Files/01%20Instance%20and%20Devices/17%20Destroying%20a%20swapchain.cpp)
+
+* [18 - Destroying a presentation surface](./Library/Source%20Files/01%20Instance%20and%20Devices/18%20Destroying%20a%20presentation%20surface.cpp)
 
 ## [Chapter 03 - Command Buffers and Synchronization](./Library/Source%20Files/03%20Command%20Buffers%20and%20Synchronization/)
 
