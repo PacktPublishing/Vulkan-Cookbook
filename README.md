@@ -17,6 +17,11 @@ Vulkan is the next generation graphics API released by the Khronos group. It is 
 
 <hr>
 
+# Please note!
+## Currently only Windows operating system is supported. Linux version is being prepared and should be ready soon.
+
+<hr>
+
 # [Samples](./Samples/Source%20Files/)
 
 ## [Chapter 11 - Lighting](./Samples/Source%20Files/11%20Lighting/)
