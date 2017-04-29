@@ -17,8 +17,8 @@ Vulkan is the next generation graphics API released by the Khronos group. It is 
 
 <hr>
 
-# Please note!
-## Currently only Windows operating system is supported. Linux version is being prepared and should be ready soon.
+## Please note!
+### Currently only Windows operating system is supported. Linux version is being prepared and should be ready soon.
 
 <hr>
 
@@ -261,6 +261,44 @@ In this example we can see how to setup a render pass, framebufer and a graphics
 * [18 - Destroying a presentation surface](./Library/Source%20Files/02%20Image%20Presentation/18%20Destroying%20a%20presentation%20surface.cpp)
 
 ## [Chapter 03 - Command Buffers and Synchronization](./Library/Source%20Files/03%20Command%20Buffers%20and%20Synchronization/)
+
+* [01 - Creating a command pool](./Library/Source%20Files/03%20Command%20Buffers%20and%20Synchronization/01%20Creating%20a%20command%20pool.cpp)
+
+* [02 - Allocating command buffers](./Library/Source%20Files/03%20Command%20Buffers%20and%20Synchronization/02%20Allocating%20command%20buffers.cpp)
+
+* [03 - Beginning a command buffer recording operation](./Library/Source%20Files/03%20Command%20Buffers%20and%20Synchronization/03%20Beginning%20a%20command%20buffer%20recording%20operation.cpp)
+
+* [04 - Ending a command buffer recording operation](./Library/Source%20Files/03%20Command%20Buffers%20and%20Synchronization/04%20Ending%20a%20command%20buffer%20recording%20operation.cpp)
+
+* [05 - Resetting a command buffer](./Library/Source%20Files/03%20Command%20Buffers%20and%20Synchronization/05%20Resetting%20a%20command%20buffer.cpp)
+
+* [06 - Resetting a command pool](./Library/Source%20Files/03%20Command%20Buffers%20and%20Synchronization/06%20Resetting%20a%20command%20pool.cpp)
+
+* [07 - Creating a semaphore](./Library/Source%20Files/03%20Command%20Buffers%20and%20Synchronization/07%20Creating%20a%20semaphore.cpp)
+
+* [08 - Creating a fence](./Library/Source%20Files/03%20Command%20Buffers%20and%20Synchronization/08%20Creating%20a%20fence.cpp)
+
+* [09 - Waiting for fences](./Library/Source%20Files/03%20Command%20Buffers%20and%20Synchronization/09%20Waiting%20for%20fences.cpp)
+
+* [10 - Resetting fences](./Library/Source%20Files/03%20Command%20Buffers%20and%20Synchronization/10%20Resetting%20fences.cpp)
+
+* [11 - Submitting command buffers to the queue](./Library/Source%20Files/03%20Command%20Buffers%20and%20Synchronization/11%20Submitting%20command%20buffers%20to%20the%20queue.cpp)
+
+* [12 - Synchronizing two command buffers](./Library/Source%20Files/03%20Command%20Buffers%20and%20Synchronization/12%20Synchronizing%20two%20command%20buffers.cpp)
+
+* [13 - Checking if processing of a submitted command buffer has finished](./Library/Source%20Files/03%20Command%20Buffers%20and%20Synchronization/13%20Checking%20if%20processing%20of%20a%20submitted%20command%20buffer%20has%20finished.cpp)
+
+* [14 - Waiting until all commands submitted to a queue are finished](./Library/Source%20Files/03%20Command%20Buffers%20and%20Synchronization/14%20Waiting%20until%20all%20commands%20submitted%20to%20a%20queue%20are%20finished.cpp)
+
+* [15 - Waiting for all submitted commands to be finished](./Library/Source%20Files/03%20Command%20Buffers%20and%20Synchronization/15%20Waiting%20for%20all%20submitted%20commands%20to%20be%20finished.cpp)
+
+* [16 - Destroying a fence](./Library/Source%20Files/03%20Command%20Buffers%20and%20Synchronization/16%20Destroying%20a%20fence.cpp)
+
+* [17 - Destroying a semaphore](./Library/Source%20Files/03%20Command%20Buffers%20and%20Synchronization/17%20Destroying%20a%20semaphore.cpp)
+
+* [18 - Freeing command buffers](./Library/Source%20Files/03%20Command%20Buffers%20and%20Synchronization/18%20Freeing%20command%20buffers.cpp)
+
+* [19 - Destroying a command pool](./Library/Source%20Files/03%20Command%20Buffers%20and%20Synchronization/19%20Destroying%20a%20command%20pool.cpp)
 
 ## [Chapter 04 - Resources and Memory](./Library/Source%20Files/04%20Resources%20and%20Memory/)
 
