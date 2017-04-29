@@ -181,6 +181,42 @@ In this example we can see how to setup a render pass, framebufer and a graphics
 
 ## [Chapter 01 - Instance and Devices](./Library/Source%20Files/01%20Instance%20and%20Devices/)
 
+* ### [03 - Connecting with a Vulkan Loader library](./Library/Source%20Files/01%20Instance%20and%20Devices/03%20Connecting%20with%20a%20Vulkan%20Loader%20library.cpp)
+
+* ### [05 - Loading function exported from a Vulkan Loader library](./Library/Source%20Files/01%20Instance%20and%20Devices/05%20Loading%20function%20exported%20from%20a%20Vulkan%20Loader%20library.cpp)
+
+* ### [06 - Loading global-level functions](./Library/Source%20Files/01%20Instance%20and%20Devices/06%20Loading%20global-level%20functions.cpp)
+
+* ### [07 - Checking available Instance extensions](./Library/Source%20Files/01%20Instance%20and%20Devices/07%20Checking%20available%20Instance%20extensions.cpp)
+
+* ### [08 - Creating a Vulkan Instance](./Library/Source%20Files/01%20Instance%20and%20Devices/08%20Creating%20a%20Vulkan%20Instance.cpp)
+
+* ### [09 - Loading instance-level functions](./Library/Source%20Files/01%20Instance%20and%20Devices/09%20Loading%20instance-level%20functions.cpp)
+
+* ### [10 - Enumerating available physical devices](./Library/Source%20Files/01%20Instance%20and%20Devices/10%20Enumerating%20available%20physical%20devices.cpp)
+
+* ### [11 - Checking available device extensions](./Library/Source%20Files/01%20Instance%20and%20Devices/11%20Checking%20available%20device%20extensions.cpp)
+
+* ### [12 - Getting features and properties of a physical device](./Library/Source%20Files/01%20Instance%20and%20Devices/12%20Getting%20features%20and%20properties%20of%20a%20physical%20device.cpp)
+
+* ### [13 - Checking available queue families and their properties](./Library/Source%20Files/01%20Instance%20and%20Devices/13%20Checking%20available%20queue%20families%20and%20their%20properties.cpp)
+
+* ### [14 - Selecting index of a queue family with desired capabilities](./Library/Source%20Files/01%20Instance%20and%20Devices/14%20Selecting%20index%20of%20a%20queue%20family%20with%20desired%20capabilities.cpp)
+
+* ### [15 - Creating a logical device](./Library/Source%20Files/01%20Instance%20and%20Devices/15%20Creating%20a%20logical%20device.cpp)
+
+* ### [16 - Loading device-level functions](./Library/Source%20Files/01%20Instance%20and%20Devices/16%20Loading%20device-level%20functions.cpp)
+
+* ### [17 - Getting a device queue](./Library/Source%20Files/01%20Instance%20and%20Devices/17%20Getting%20a%20device%20queue.cpp)
+
+* ### [18 - Creating a logical device with geometry shaders and graphics queue](./Library/Source%20Files/01%20Instance%20and%20Devices/18%20Creating%20a%20logical%20device%20with%20geometry%20shaders%20and%20graphics%20queue.cpp)
+
+* ### [19 - Destroying a logical device](./Library/Source%20Files/01%20Instance%20and%20Devices/19%20Destroying%20a%20logical%20device.cpp)
+
+* ### [20 - Destroying a Vulkan Instance](./Library/Source%20Files/01%20Instance%20and%20Devices/20%20Destroying%20a%20Vulkan%20Instance.cpp)
+
+* ### [21 - Releasing a Vulkan Loader library](./Library/Source%20Files/01%20Instance%20and%20Devices/21%20Releasing%20a%20Vulkan%20Loader%20library.cpp)
+
 ## [Chapter 02 - Image Presentation](./Library/Source%20Files/02%20Image%20Presentation/)
 
 ## [Chapter 03 - Command Buffers and Synchronization](./Library/Source%20Files/03%20Command%20Buffers%20and%20Synchronization/)
