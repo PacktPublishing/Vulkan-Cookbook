@@ -219,41 +219,41 @@ In this example we can see how to setup a render pass, framebufer and a graphics
 
 ## [Chapter 02 - Image Presentation](./Library/Source%20Files/02%20Image%20Presentation/)
 
-* [01 - Creating a Vulkan Instance with WSI extensions enabled](./Library/Source%20Files/01%20Instance%20and%20Devices/01%20Creating%20a%20Vulkan%20Instance%20with%20WSI%20extensions%20enabled.cpp)
+* [01 - Creating a Vulkan Instance with WSI extensions enabled](./Library/Source%20Files/02%20Image%20Presentation/01%20Creating%20a%20Vulkan%20Instance%20with%20WSI%20extensions%20enabled.cpp)
 
-* [02 - Creating a presentation surface](./Library/Source%20Files/01%20Instance%20and%20Devices/02%20Creating%20a%20presentation%20surface.cpp)
+* [02 - Creating a presentation surface](./Library/Source%20Files/02%20Image%20Presentation/02%20Creating%20a%20presentation%20surface.cpp)
 
-* [03 - Selecting a queue family that supports presentation to a given surface](./Library/Source%20Files/01%20Instance%20and%20Devices/03%20Selecting%20a%20queue%20family%20that%20supports%20presentation%20to%20a%20given%20surface.cpp)
+* [03 - Selecting a queue family that supports presentation to a given surface](./Library/Source%20Files/02%20Image%20Presentation/03%20Selecting%20a%20queue%20family%20that%20supports%20presentation%20to%20a%20given%20surface.cpp)
 
-* [04 - Creating a logical device with WSI extensions enabled](./Library/Source%20Files/01%20Instance%20and%20Devices/04%20Creating%20a%20logical%20device%20with%20WSI%20extensions%20enabled.cpp)
+* [04 - Creating a logical device with WSI extensions enabled](./Library/Source%20Files/02%20Image%20Presentation/04%20Creating%20a%20logical%20device%20with%20WSI%20extensions%20enabled.cpp)
 
-* [05 - Selecting a desired presentation mode](./Library/Source%20Files/01%20Instance%20and%20Devices/05%20Selecting%20a%20desired%20presentation%20mode.cpp)
+* [05 - Selecting a desired presentation mode](./Library/Source%20Files/02%20Image%20Presentation/05%20Selecting%20a%20desired%20presentation%20mode.cpp)
 
-* [06 - Getting capabilities of a presentation surface](./Library/Source%20Files/01%20Instance%20and%20Devices/06%20Getting%20capabilities%20of%20a%20presentation%20surface.cpp)
+* [06 - Getting capabilities of a presentation surface](./Library/Source%20Files/02%20Image%20Presentation/06%20Getting%20capabilities%20of%20a%20presentation%20surface.cpp)
 
-* [07 - Selecting a number of swapchain images](./Library/Source%20Files/01%20Instance%20and%20Devices/07%20Selecting%20a%20number%20of%20swapchain%20images.cpp)
+* [07 - Selecting a number of swapchain images](./Library/Source%20Files/02%20Image%20Presentation/07%20Selecting%20a%20number%20of%20swapchain%20images.cpp)
 
-* [08 - Choosing a size of swapchain images](./Library/Source%20Files/01%20Instance%20and%20Devices/08%20Choosing%20a%20size%20of%20swapchain%20images.cpp)
+* [08 - Choosing a size of swapchain images](./Library/Source%20Files/02%20Image%20Presentation/08%20Choosing%20a%20size%20of%20swapchain%20images.cpp)
 
-* [09 - Selecting desired usage scenarios of swapchain images](./Library/Source%20Files/01%20Instance%20and%20Devices/09%20Selecting%20desired%20usage%20scenarios%20of%20swapchain%20images.cpp)
+* [09 - Selecting desired usage scenarios of swapchain images](./Library/Source%20Files/02%20Image%20Presentation/09%20Selecting%20desired%20usage%20scenarios%20of%20swapchain%20images.cpp)
 
-* [10 - Selecting a transformation of swapchain images](./Library/Source%20Files/01%20Instance%20and%20Devices/10%20Selecting%20a%20transformation%20of%20swapchain%20images.cpp)
+* [10 - Selecting a transformation of swapchain images](./Library/Source%20Files/02%20Image%20Presentation/10%20Selecting%20a%20transformation%20of%20swapchain%20images.cpp)
 
-* [11 - Selecting a format of swapchain images](./Library/Source%20Files/01%20Instance%20and%20Devices/11%20Selecting%20a%20format%20of%20swapchain%20images.cpp)
+* [11 - Selecting a format of swapchain images](./Library/Source%20Files/02%20Image%20Presentation/11%20Selecting%20a%20format%20of%20swapchain%20images.cpp)
 
-* [12 - Creating a swapchain](./Library/Source%20Files/01%20Instance%20and%20Devices/12%20Creating%20a%20swapchain.cpp)
+* [12 - Creating a swapchain](./Library/Source%20Files/02%20Image%20Presentation/12%20Creating%20a%20swapchain.cpp)
 
-* [13 - Getting handles of swapchain images](./Library/Source%20Files/01%20Instance%20and%20Devices/13%20Getting%20handles%20of%20swapchain%20images.cpp)
+* [13 - Getting handles of swapchain images](./Library/Source%20Files/02%20Image%20Presentation/13%20Getting%20handles%20of%20swapchain%20images.cpp)
 
-* [14 - Creating a swapchain with R8G8B8A8 format and a MAILBOX present mode](./Library/Source%20Files/01%20Instance%20and%20Devices/14%20Creating%20a%20swapchain%20with%20R8G8B8A8%20format%20and%20a%20MAILBOX%20present%20mode.cpp)
+* [14 - Creating a swapchain with R8G8B8A8 format and a MAILBOX present mode](./Library/Source%20Files/02%20Image%20Presentation/14%20Creating%20a%20swapchain%20with%20R8G8B8A8%20format%20and%20a%20MAILBOX%20present%20mode.cpp)
 
-* [15 - Acquiring a swapchain image](./Library/Source%20Files/01%20Instance%20and%20Devices/15%20Acquiring%20a%20swapchain%20image.cpp)
+* [15 - Acquiring a swapchain image](./Library/Source%20Files/02%20Image%20Presentation/15%20Acquiring%20a%20swapchain%20image.cpp)
 
-* [16 - Presenting an image](./Library/Source%20Files/01%20Instance%20and%20Devices/16%20Presenting%20an%20image.cpp)
+* [16 - Presenting an image](./Library/Source%20Files/02%20Image%20Presentation/16%20Presenting%20an%20image.cpp)
 
-* [17 - Destroying a swapchain](./Library/Source%20Files/01%20Instance%20and%20Devices/17%20Destroying%20a%20swapchain.cpp)
+* [17 - Destroying a swapchain](./Library/Source%20Files/02%20Image%20Presentation/17%20Destroying%20a%20swapchain.cpp)
 
-* [18 - Destroying a presentation surface](./Library/Source%20Files/01%20Instance%20and%20Devices/18%20Destroying%20a%20presentation%20surface.cpp)
+* [18 - Destroying a presentation surface](./Library/Source%20Files/02%20Image%20Presentation/18%20Destroying%20a%20presentation%20surface.cpp)
 
 ## [Chapter 03 - Command Buffers and Synchronization](./Library/Source%20Files/03%20Command%20Buffers%20and%20Synchronization/)
 
