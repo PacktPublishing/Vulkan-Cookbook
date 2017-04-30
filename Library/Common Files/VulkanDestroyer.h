@@ -53,7 +53,8 @@ namespace VulkanCookbook {
       Object( VK_NULL_HANDLE ) {
     }
 
-    VkDestroyer( VkDestroyer<VkDevice> const & device ) :
+    template<class VK_DEVICE>
+    VkDestroyer( VkDestroyer<VK_DEVICE> const & device ) :
       Device( *device ),
       Object( VK_NULL_HANDLE ) {
     }
@@ -63,7 +64,8 @@ namespace VulkanCookbook {
       Object( object ) {
     }
 
-    VkDestroyer( VkDestroyer<VkDevice> const & device, OBJ object ) :
+    template<class VK_DEVICE>
+    VkDestroyer( VkDestroyer<VK_DEVICE> const & device, OBJ object ) :
       Device( *device ),
       Object( object ) {
     }

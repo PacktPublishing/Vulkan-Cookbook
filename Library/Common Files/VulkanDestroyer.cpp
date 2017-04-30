@@ -30,7 +30,6 @@
 namespace VulkanCookbook {
 
 #define VK_DESTROYER_SPECIALIZATION( type, deleter )  \
-  template<>                                          \
   void VkDestroyer<type>::Destroy() {                 \
     if( nullptr != deleter ) {                        \
       deleter( Device, Object, nullptr );             \
