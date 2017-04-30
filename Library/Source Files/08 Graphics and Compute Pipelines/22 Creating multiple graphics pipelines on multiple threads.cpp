@@ -56,7 +56,7 @@ namespace VulkanCookbook {
     std::vector<std::thread> threads( graphics_pipelines_create_infos.size() );
     for( size_t i = 0; i < graphics_pipelines_create_infos.size(); ++i ) {
       graphics_pipelines[i].resize( graphics_pipelines_create_infos[i].size() );
-      threads[i] = std::thread::thread( CreateGraphicsPipelines, logical_device, graphics_pipelines_create_infos[i], *pipeline_caches[i], graphics_pipelines[i] );
+      threads[i] = std::thread( CreateGraphicsPipelines, logical_device, graphics_pipelines_create_infos[i], *pipeline_caches[i], graphics_pipelines[i] );
     }
 
     // Wait for all threads to finish

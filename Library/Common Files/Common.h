@@ -34,6 +34,8 @@
 
 #ifdef _WIN32
 #include <Windows.h>
+#elif defined __linux
+#include <dlfcn.h>
 #endif
 
 #include <iostream>
@@ -50,6 +52,8 @@ namespace VulkanCookbook {
   // Vulkan library type
 #ifdef _WIN32
 #define LIBRARY_TYPE HMODULE
+#elif defined __linux
+#define LIBRARY_TYPE void*
 #endif
 
   // OS-specific parameters
