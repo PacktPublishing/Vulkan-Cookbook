@@ -302,6 +302,48 @@ In this example we can see how to setup a render pass, framebufer and a graphics
 
 ## [Chapter 04 - Resources and Memory](./Library/Source%20Files/04%20Resources%20and%20Memory/)
 
+* [01 - Creating a buffer](./Library/Source%20Files/04%20Resources%20and%20Memory/01%20Creating%20a%20buffer.cpp)
+
+* [02 - Allocating and binding memory object to a buffer](./Library/Source%20Files/04%20Resources%20and%20Memory/02%20Allocating%20and%20binding%20memory%20object%20to%20a%20buffer.cpp)
+
+* [03 - Setting a buffer memory barrier](./Library/Source%20Files/04%20Resources%20and%20Memory/03%20Setting%20a%20buffer%20memory%20barrier.cpp)
+
+* [04 - Creating a buffer view](./Library/Source%20Files/04%20Resources%20and%20Memory/04%20Creating%20a%20buffer%20view.cpp)
+
+* [05 - Creating an image](./Library/Source%20Files/04%20Resources%20and%20Memory/05%20Creating%20an%20image.cpp)
+
+* [06 - Allocating and binding memory object to an image](./Library/Source%20Files/04%20Resources%20and%20Memory/06%20Allocating%20and%20binding%20memory%20object%20to%20an%20image.cpp)
+
+* [07 - Setting an image memory barrier](./Library/Source%20Files/04%20Resources%20and%20Memory/07%20Setting%20an%20image%20memory%20barrier.cpp)
+
+* [08 - Creating an image view](./Library/Source%20Files/04%20Resources%20and%20Memory/08%20Creating%20an%20image%20view.cpp)
+
+* [09 - Creating a 2D image and view](./Library/Source%20Files/04%20Resources%20and%20Memory/09%20Creating%20a%202D%20image%20and%20view.cpp)
+
+* [10 - Creating a layered 2D image with a CUBEMAP view](./Library/Source%20Files/04%20Resources%20and%20Memory/10%20Creating%20a%20layered%202D%20image%20with%20a%20CUBEMAP%20view.cpp)
+
+* [11 - Mapping, updating and unmapping host-visible memory](./Library/Source%20Files/04%20Resources%20and%20Memory/11%20Mapping,%20updating%20and%20unmapping%20host-visible%20memory.cpp)
+
+* [12 - Copying data between buffers](./Library/Source%20Files/04%20Resources%20and%20Memory/12%20Copying%20data%20between%20buffers.cpp)
+
+* [13 - Copying data from a buffer to an image](./Library/Source%20Files/04%20Resources%20and%20Memory/13%20Copying%20data%20from%20a%20buffer%20to%20an%20image.cpp)
+
+* [14 - Copying data from an image to a buffer](./Library/Source%20Files/04%20Resources%20and%20Memory/14%20Copying%20data%20from%20an%20image%20to%20a%20buffer.cpp)
+
+* [15 - Using staging buffer to update a buffer with a device-local memory bound](./Library/Source%20Files/04%20Resources%20and%20Memory/15%20Using%20staging%20buffer%20to%20update%20a%20buffer%20with%20a%20device-local%20memory%20bound.cpp)
+
+* [16 - Using staging buffer to update an image with a device-local memory bound](./Library/Source%20Files/04%20Resources%20and%20Memory/16%20Using%20staging%20buffer%20to%20update%20an%20image%20with%20a%20device-local%20memory%20bound.cpp)
+
+* [17 - Destroying an image view](./Library/Source%20Files/04%20Resources%20and%20Memory/17%20Destroying%20an%20image%20view.cpp)
+
+* [18 - Destroying an image](./Library/Source%20Files/04%20Resources%20and%20Memory/18%20Destroying%20an%20image.cpp)
+
+* [19 - Destroying a buffer view](./Library/Source%20Files/04%20Resources%20and%20Memory/19%20Destroying%20a%20buffer%20view.cpp)
+
+* [20 - Freeing a memory object](./Library/Source%20Files/04%20Resources%20and%20Memory/20%20Freeing%20a%20memory%20object.cpp)
+
+* [21 - Destroying a buffer](./Library/Source%20Files/04%20Resources%20and%20Memory/21%20Destroying%20a%20buffer.cpp)
+
 ## [Chapter 05 - Descriptor Sets](./Library/Source%20Files/05%20Descriptor%20Sets/)
 
 ## [Chapter 06 - Render Passes and Framebuffers](./Library/Source%20Files/06%20Render%20Passes%20and%20Framebuffers/)
