@@ -38,7 +38,7 @@ namespace VulkanCookbook {
 
     std::vector<std::thread> threads( threads_parameters.size() );
     for( size_t i = 0; i < threads_parameters.size(); ++i ) {
-      threads[i] = std::thread::thread( threads_parameters[i].RecordingFunction, threads_parameters[i].CommandBuffer );
+      threads[i] = std::thread( threads_parameters[i].RecordingFunction, threads_parameters[i].CommandBuffer );
     }
 
     std::vector<VkCommandBuffer> command_buffers( threads_parameters.size() );

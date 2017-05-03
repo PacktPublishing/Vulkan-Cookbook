@@ -44,6 +44,7 @@
 #include <string>
 #include <cstring>
 #include <thread>
+#include <cmath>
 #include <functional>
 #include "VulkanDestroyer.h"
 
