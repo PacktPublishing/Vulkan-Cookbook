@@ -346,6 +346,46 @@ In this example we can see how to setup a render pass, framebufer and a graphics
 
 ## [Chapter 05 - Descriptor Sets](./Library/Source%20Files/05%20Descriptor%20Sets/)
 
+* [01 - Creating a sampler](./Library/Source%20Files/05%20Descriptor%20Sets/01%20Creating%20a%20sampler.cpp)
+
+* [02 - Creating a sampled image](./Library/Source%20Files/05%20Descriptor%20Sets/02%20Creating%20a%20sampled%20image.cpp)
+
+* [03 - Creating a combined image sampler](./Library/Source%20Files/05%20Descriptor%20Sets/03%20Creating%20a%20combined%20image%20sampler.cpp)
+
+* [04 - Creating a storage image](./Library/Source%20Files/05%20Descriptor%20Sets/04%20Creating%20a%20storage%20image.cpp)
+
+* [05 - Creating a uniform texel buffer](./Library/Source%20Files/05%20Descriptor%20Sets/05%20Creating%20a%20uniform%20texel%20buffer.cpp)
+
+* [06 - Creating a storage texel buffer](./Library/Source%20Files/05%20Descriptor%20Sets/06%20Creating%20a%20storage%20texel%20buffer.cpp)
+
+* [07 - Creating a uniform buffer](./Library/Source%20Files/05%20Descriptor%20Sets/07%20Creating%20a%20uniform%20buffer.cpp)
+
+* [08 - Creating a storage buffer](./Library/Source%20Files/05%20Descriptor%20Sets/08%20Creating%20a%20storage%20buffer.cpp)
+
+* [09 - Creating an input attachment](./Library/Source%20Files/05%20Descriptor%20Sets/09%20Creating%20an%20input%20attachment.cpp)
+
+* [10 - Creating a descriptor set layout](./Library/Source%20Files/05%20Descriptor%20Sets/10%20Creating%20a%20descriptor%20set%20layout.cpp)
+
+* [11 - Creating a descriptor pool](./Library/Source%20Files/05%20Descriptor%20Sets/11%20Creating%20a%20descriptor%20pool.cpp)
+
+* [12 - Allocating descriptor sets](./Library/Source%20Files/05%20Descriptor%20Sets/12%20Allocating%20descriptor%20sets.cpp)
+
+* [13 - Updating descriptor sets](./Library/Source%20Files/05%20Descriptor%20Sets/13%20Updating%20descriptor%20sets.cpp)
+
+* [14 - Binding descriptor sets](./Library/Source%20Files/05%20Descriptor%20Sets/14%20Binding%20descriptor%20sets.cpp)
+
+* [15 - Creating descriptors with a texture and a uniform buffer](./Library/Source%20Files/05%20Descriptor%20Sets/15%20Creating%20descriptors%20with%20a%20texture%20and%20a%20uniform%20buffer.cpp)
+
+* [16 - Freeing descriptor sets](./Library/Source%20Files/05%20Descriptor%20Sets/16%20Freeing%20descriptor%20sets.cpp)
+
+* [17 - Resetting a descriptor pool](./Library/Source%20Files/05%20Descriptor%20Sets/17%20Resetting%20a%20descriptor%20pool.cpp)
+
+* [18 - Destroying a descriptor pool](./Library/Source%20Files/05%20Descriptor%20Sets/18%20Destroying%20a%20descriptor%20pool.cpp)
+
+* [19 - Destroying a descriptor set layout](./Library/Source%20Files/05%20Descriptor%20Sets/19%20Destroying%20a%20descriptor%20set%20layout.cpp)
+
+* [20 - Destroying a sampler](./Library/Source%20Files/05%20Descriptor%20Sets/20%20Destroying%20a%20sampler.cpp)
+
 ## [Chapter 06 - Render Passes and Framebuffers](./Library/Source%20Files/06%20Render%20Passes%20and%20Framebuffers/)
 
 ## [Chapter 08 - Graphics and Compute Pipelines](./Library/Source%20Files/08%20Graphics%20and%20Compute%20Pipelines/)
