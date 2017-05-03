@@ -414,6 +414,58 @@ In this example we can see how to setup a render pass, framebufer and a graphics
 
 ## [Chapter 08 - Graphics and Compute Pipelines](./Library/Source%20Files/08%20Graphics%20and%20Compute%20Pipelines/)
 
+* [01 - Creating a shader module](./Library/Source%20Files/08%20Graphics%20and%20Compute%20Pipelines/01%20Creating%20a%20shader%20module.cpp)
+
+* [02 - Specifying pipeline shader stages](./Library/Source%20Files/08%20Graphics%20and%20Compute%20Pipelines/02%20Specifying%20pipeline%20shader%20stages.cpp)
+
+* [03 - Specifying pipeline vertex input state](./Library/Source%20Files/08%20Graphics%20and%20Compute%20Pipelines/03%20Specifying%20pipeline%20vertex%20input%20state.cpp)
+
+* [04 - Specifying pipeline input assembly state](./Library/Source%20Files/08%20Graphics%20and%20Compute%20Pipelines/04%20Specifying%20pipeline%20input%20assembly%20state.cpp)
+
+* [05 - Specifying pipeline tessellation state](./Library/Source%20Files/08%20Graphics%20and%20Compute%20Pipelines/05%20Specifying%20pipeline%20tessellation%20state.cpp)
+
+* [06 - Specifying pipeline viewport and scissor test state](./Library/Source%20Files/08%20Graphics%20and%20Compute%20Pipelines/06%20Specifying%20pipeline%20viewport%20and%20scissor%20test%20state.cpp)
+
+* [07 - Specifying pipeline rasterization state](./Library/Source%20Files/08%20Graphics%20and%20Compute%20Pipelines/07%20Specifying%20pipeline%20rasterization%20state.cpp)
+
+* [08 - Specifying pipeline multisample state](./Library/Source%20Files/08%20Graphics%20and%20Compute%20Pipelines/08%20Specifying%20pipeline%20multisample%20state.cpp)
+
+* [09 - Specifying pipeline depth and stencil state](./Library/Source%20Files/08%20Graphics%20and%20Compute%20Pipelines/09%20Specifying%20pipeline%20depth%20and%20stencil%20state.cpp)
+
+* [10 - Specifying pipeline blend state](./Library/Source%20Files/08%20Graphics%20and%20Compute%20Pipelines/10%20Specifying%20pipeline%20blend%20state.cpp)
+
+* [11 - Specifying pipeline dynamic states](./Library/Source%20Files/08%20Graphics%20and%20Compute%20Pipelines/11%20Specifying%20pipeline%20dynamic%20states.cpp)
+
+* [12 - Creating a pipeline layout](./Library/Source%20Files/08%20Graphics%20and%20Compute%20Pipelines/12%20Creating%20a%20pipeline%20layout.cpp)
+
+* [13 - Specifying graphics pipeline creation parameters](./Library/Source%20Files/08%20Graphics%20and%20Compute%20Pipelines/13%20Specifying%20graphics%20pipeline%20creation%20parameters.cpp)
+
+* [14 - Creating a pipeline cache object](./Library/Source%20Files/08%20Graphics%20and%20Compute%20Pipelines/14%20Creating%20a%20pipeline%20cache%20object.cpp)
+
+* [15 - Retrieving data from a pipeline cache](./Library/Source%20Files/08%20Graphics%20and%20Compute%20Pipelines/15%20Retrieving%20data%20from%20a%20pipeline%20cache.cpp)
+
+* [16 - Merging multiple pipeline cache objects](./Library/Source%20Files/08%20Graphics%20and%20Compute%20Pipelines/16%20Merging%20multiple%20pipeline%20cache%20objects.cpp)
+
+* [17 - Creating graphics pipelines](./Library/Source%20Files/08%20Graphics%20and%20Compute%20Pipelines/17%20Creating%20graphics%20pipelines.cpp)
+
+* [18 - Creating a compute pipeline](./Library/Source%20Files/08%20Graphics%20and%20Compute%20Pipelines/18%20Creating%20a%20compute%20pipeline.cpp)
+
+* [19 - Binding a pipeline object](./Library/Source%20Files/08%20Graphics%20and%20Compute%20Pipelines/19%20Binding%20a%20pipeline%20object.cpp)
+
+* [20 - Creating a pipeline layout with a combined image sampler, a buffer and push constant ranges](./Library/Source%20Files/08%20Graphics%20and%20Compute%20Pipelines/20%20Creating%20a%20pipeline%20layout%20with%20a%20combined%20image%20sampler,%20a%20buffer%20and%20push%20constant%20ranges.cpp)
+
+* [21 - Creating a graphics pipeline with vertex and fragment shaders, depth test enabled, and with dynamic viewport and scissor tests](./Library/Source%20Files/08%20Graphics%20and%20Compute%20Pipelines/21%20Creating%20a%20graphics%20pipeline%20with%20vertex%20and%20fragment%20shaders,%20depth%20test%20enabled,%20and%20with%20dynamic%20viewport%20and%20scissor%20tests.cpp)
+
+* [22 - Creating multiple graphics pipelines on multiple threads](./Library/Source%20Files/08%20Graphics%20and%20Compute%20Pipelines/22%20Creating%20multiple%20graphics%20pipelines%20on%20multiple%20threads.cpp)
+
+* [23 - Destroying a pipeline](./Library/Source%20Files/08%20Graphics%20and%20Compute%20Pipelines/23%20Destroying%20a%20pipeline.cpp)
+
+* [24 - Destroying a pipeline cache](./Library/Source%20Files/08%20Graphics%20and%20Compute%20Pipelines/24%20Destroying%20a%20pipeline%20cache.cpp)
+
+* [25 - Destroying a pipeline layout](./Library/Source%20Files/08%20Graphics%20and%20Compute%20Pipelines/25%20Destroying%20a%20pipeline%20layout.cpp)
+
+* [26 - Destroying a shader module](./Library/Source%20Files/08%20Graphics%20and%20Compute%20Pipelines/26%20Destroying%20a%20shader%20module.cpp)
+
 ## [Chapter 09 - Command Recording and Drawing](./Library/Source%20Files/09%20Command%20Recording%20and%20Drawing/)
 
 ## [Chapter 10 - Helper Recipes](./Library/Source%20Files/10%20Helper%20Recipes/)
