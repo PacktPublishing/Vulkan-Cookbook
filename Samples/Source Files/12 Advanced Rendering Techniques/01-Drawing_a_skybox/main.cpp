@@ -61,8 +61,8 @@ class Sample : public VulkanCookbookSample {
 
   static const VkFormat DepthFormat = VK_FORMAT_D16_UNORM;
 
-  virtual bool Initialize( WindowParameters WindowParameters ) override {
-    if( !InitializeVulkan( WindowParameters ) ) {
+  virtual bool Initialize( WindowParameters window_parameters ) override {
+    if( !InitializeVulkan( window_parameters ) ) {
       return false;
     }
 

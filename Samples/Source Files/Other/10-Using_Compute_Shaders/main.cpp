@@ -49,8 +49,8 @@ class Sample : public VulkanCookbookSample {
   VkDestroyer<VkPipeline>             ComputePipeline;
   VkDestroyer<VkPipelineLayout>       PipelineLayout;
 
-  virtual bool Initialize( WindowParameters WindowParameters ) override {
-    if( !InitializeVulkan( WindowParameters, nullptr, VK_IMAGE_USAGE_COLOR_ATTACHMENT_BIT | VK_IMAGE_USAGE_TRANSFER_DST_BIT, false ) ) {
+  virtual bool Initialize( WindowParameters window_parameters ) override {
+    if( !InitializeVulkan( window_parameters, nullptr, VK_IMAGE_USAGE_COLOR_ATTACHMENT_BIT | VK_IMAGE_USAGE_TRANSFER_DST_BIT, false ) ) {
       return false;
     }
 

@@ -66,8 +66,8 @@ class Sample : public VulkanCookbookSample {
 
   OrbitingCamera                      Camera;
 
-  virtual bool Initialize( WindowParameters WindowParameters ) override {
-    if( !InitializeVulkan( WindowParameters ) ) {
+  virtual bool Initialize( WindowParameters window_parameters ) override {
+    if( !InitializeVulkan( window_parameters ) ) {
       return false;
     }
 

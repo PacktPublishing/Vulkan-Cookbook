@@ -62,7 +62,7 @@ class Sample : public VulkanCookbookSample {
 
   OrbitingCamera                          Camera;
 
-  virtual bool Initialize( WindowParameters WindowParameters ) override {
+  virtual bool Initialize( WindowParameters window_parameters ) override {
     CurrentPipeline = 0;
     Camera = OrbitingCamera( Vector3{ 0.0f, 0.6f, 0.0f }, 4.0f );
 
@@ -70,7 +70,7 @@ class Sample : public VulkanCookbookSample {
     device_features.tessellationShader = true;
     device_features.geometryShader = true;
     device_features.fillModeNonSolid = true;
-    if( !InitializeVulkan( WindowParameters, &device_features ) ) {
+    if( !InitializeVulkan( window_parameters, &device_features ) ) {
       return false;
     }
 

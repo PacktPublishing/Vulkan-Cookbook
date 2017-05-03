@@ -89,10 +89,10 @@ namespace VulkanCookbook {
                                     int                        width,
                                     int                        height,
                                     VulkanCookbookSampleBase & sample ) :
-    WindowParameters(),
+    WindowParams(),
     Sample( sample ),
     Created( false ) {
-    WindowParameters.HInstance = GetModuleHandle( nullptr );
+    WindowParams.HInstance = GetModuleHandle( nullptr );
 
     WNDCLASSEX window_class = {
       sizeof( WNDCLASSEX ),             // UINT         cbSize
@@ -101,7 +101,7 @@ namespace VulkanCookbook {
       WindowProcedure,                  // WNDPROC      lpfnWndProc
       0,                                // int          cbClsExtra
       0,                                // int          cbWndExtra
-      WindowParameters.HInstance,       // HINSTANCE    hInstance
+      WindowParams.HInstance,           // HINSTANCE    hInstance
       nullptr,                          // HICON        hIcon
       LoadCursor( nullptr, IDC_ARROW ), // HCURSOR      hCursor
       (HBRUSH)(COLOR_WINDOW + 1),       // HBRUSH       hbrBackground
@@ -115,8 +115,8 @@ namespace VulkanCookbook {
       return;
     }
 
-    WindowParameters.HWnd = CreateWindow( "VulkanCookbook", window_title, WS_OVERLAPPEDWINDOW, x, y, width, height, nullptr, nullptr, WindowParameters.HInstance, nullptr );
-    if( !WindowParameters.HWnd ) {
+    WindowParams.HWnd = CreateWindow( "VulkanCookbook", window_title, WS_OVERLAPPEDWINDOW, x, y, width, height, nullptr, nullptr, WindowParams.HInstance, nullptr );
+    if( !WindowParams.HWnd ) {
       return;
     }
 
@@ -124,21 +124,21 @@ namespace VulkanCookbook {
   }
 
   WindowFramework::~WindowFramework() {
-    if( WindowParameters.HWnd ) {
-      DestroyWindow( WindowParameters.HWnd );
+    if( WindowParams.HWnd ) {
+      DestroyWindow( WindowParams.HWnd );
     }
 
-    if( WindowParameters.HInstance ) {
-      UnregisterClass( "VulkanCookbook", WindowParameters.HInstance );
+    if( WindowParams.HInstance ) {
+      UnregisterClass( "VulkanCookbook", WindowParams.HInstance );
     }
   }
 
   void WindowFramework::Render() {
     if( Created &&
-        Sample.Initialize( WindowParameters ) ) {
+        Sample.Initialize( WindowParams ) ) {
 
-      ShowWindow( WindowParameters.HWnd, SW_SHOWNORMAL );
-      UpdateWindow( WindowParameters.HWnd );
+      ShowWindow( WindowParams.HWnd, SW_SHOWNORMAL );
+      UpdateWindow( WindowParams.HWnd );
 
       MSG message;
       bool loop = true;

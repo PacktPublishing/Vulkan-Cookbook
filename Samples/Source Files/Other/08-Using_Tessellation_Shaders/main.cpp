@@ -41,12 +41,12 @@ class Sample : public VulkanCookbookSample {
   VkDestroyer<VkPipelineLayout> PipelineLayout;
   VkDestroyer<VkPipeline>       GraphicsPipeline;
 
-  virtual bool Initialize( WindowParameters WindowParameters ) override {
+  virtual bool Initialize( WindowParameters window_parameters ) override {
     VkPhysicalDeviceFeatures device_features = {};
     device_features.fillModeNonSolid = true;
     device_features.tessellationShader = true;
 
-    if( !InitializeVulkan( WindowParameters, &device_features, VK_IMAGE_USAGE_COLOR_ATTACHMENT_BIT, false ) ) {
+    if( !InitializeVulkan( window_parameters, &device_features, VK_IMAGE_USAGE_COLOR_ATTACHMENT_BIT, false ) ) {
       return false;
     }
 

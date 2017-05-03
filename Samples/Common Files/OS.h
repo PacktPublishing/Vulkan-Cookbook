@@ -57,7 +57,7 @@ namespace VulkanCookbook {
     virtual void Render() final;
 
   private:
-    WindowParameters           WindowParameters;
+    WindowParameters           WindowParams;
     VulkanCookbookSampleBase & Sample;
     bool                       Created;
   };

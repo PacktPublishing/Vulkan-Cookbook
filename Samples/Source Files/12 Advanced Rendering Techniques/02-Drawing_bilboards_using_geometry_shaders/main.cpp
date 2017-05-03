@@ -60,11 +60,11 @@ class Sample : public VulkanCookbookSample {
 
   static const VkFormat DepthFormat = VK_FORMAT_D16_UNORM;
 
-  virtual bool Initialize( WindowParameters WindowParameters ) override {
+  virtual bool Initialize( WindowParameters window_parameters ) override {
     VkPhysicalDeviceFeatures device_features = {};
     device_features.geometryShader = true;
 
-    if( !InitializeVulkan( WindowParameters, &device_features ) ) {
+    if( !InitializeVulkan( window_parameters, &device_features ) ) {
       return false;
     }
 
