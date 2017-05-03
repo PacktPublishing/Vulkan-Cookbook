@@ -388,6 +388,30 @@ In this example we can see how to setup a render pass, framebufer and a graphics
 
 ## [Chapter 06 - Render Passes and Framebuffers](./Library/Source%20Files/06%20Render%20Passes%20and%20Framebuffers/)
 
+* [01 - Specifying attachments descriptions](./Library/Source%20Files/06%20Render%20Passes%20and%20Framebuffers/01%20Specifying%20attachments%20descriptions.cpp)
+
+* [02 - Specifying subpass descriptions](./Library/Source%20Files/06%20Render%20Passes%20and%20Framebuffers/02%20Specifying%20subpass%20descriptions.cpp)
+
+* [03 - Specifying dependencies between subpasses](./Library/Source%20Files/06%20Render%20Passes%20and%20Framebuffers/03%20Specifying%20dependencies%20between%20subpasses.cpp)
+
+* [04 - Creating a render pass](./Library/Source%20Files/06%20Render%20Passes%20and%20Framebuffers/04%20Creating%20a%20render%20pass.cpp)
+
+* [05 - Creating a framebuffer](./Library/Source%20Files/06%20Render%20Passes%20and%20Framebuffers/05%20Creating%20a%20framebuffer.cpp)
+
+* [06 - Preparing a render pass for geometry rendering and postprocess subpasses](./Library/Source%20Files/06%20Render%20Passes%20and%20Framebuffers/06%20Preparing%20a%20render%20pass%20for%20geometry%20rendering%20and%20postprocess%20subpasses.cpp)
+
+* [07 - Preparing a render pass and a framebuffer with color and depth attachments](./Library/Source%20Files/06%20Render%20Passes%20and%20Framebuffers/07%20Preparing%20a%20render%20pass%20and%20a%20framebuffer%20with%20color%20and%20depth%20attachments.cpp)
+
+* [08 - Beginning a render pass](./Library/Source%20Files/06%20Render%20Passes%20and%20Framebuffers/08%20Beginning%20a%20render%20pass.cpp)
+
+* [09 - Progressing to the next subpass](./Library/Source%20Files/06%20Render%20Passes%20and%20Framebuffers/09%20Progressing%20to%20the%20next%20subpass.cpp)
+
+* [10 - Ending a render pass](./Library/Source%20Files/06%20Render%20Passes%20and%20Framebuffers/10%20Ending%20a%20render%20pass.cpp)
+
+* [11 - Destroying a framebuffer](./Library/Source%20Files/06%20Render%20Passes%20and%20Framebuffers/11%20Destroying%20a%20framebuffer.cpp)
+
+* [12 - Destroying a render pass](./Library/Source%20Files/06%20Render%20Passes%20and%20Framebuffers/12%20Destroying%20a%20render%20pass.cpp)
+
 ## [Chapter 08 - Graphics and Compute Pipelines](./Library/Source%20Files/08%20Graphics%20and%20Compute%20Pipelines/)
 
 ## [Chapter 09 - Command Recording and Drawing](./Library/Source%20Files/09%20Command%20Recording%20and%20Drawing/)
