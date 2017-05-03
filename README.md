@@ -507,3 +507,17 @@ In this example we can see how to setup a render pass, framebufer and a graphics
 * [19 - Increasing the performance through increasing the number of separately rendered frames](./Library/Source%20Files/09%20Command%20Recording%20and%20Drawing/19%20Increasing%20the%20performance%20through%20increasing%20the%20number%20of%20separately%20rendered%20frames.cpp)
 
 ## [Chapter 10 - Helper Recipes](./Library/Source%20Files/10%20Helper%20Recipes/)
+
+* [01 - Preparing a translation matrix](./Library/Source%20Files/10%20Helper%20Recipes/01%20Preparing%20a%20translation%20matrix.cpp)
+
+* [02 - Preparing a rotation matrix](./Library/Source%20Files/10%20Helper%20Recipes/02%20Preparing%20a%20rotation%20matrix.cpp)
+
+* [03 - Preparing a scaling matrix](./Library/Source%20Files/10%20Helper%20Recipes/03%20Preparing%20a%20scaling%20matrix.cpp)
+
+* [04 - Preparing a perspective projection matrix](./Library/Source%20Files/10%20Helper%20Recipes/04%20Preparing%20a%20perspective%20projection%20matrix.cpp)
+
+* [05 - Preparing an orthographic projection matrix](./Library/Source%20Files/10%20Helper%20Recipes/05%20Preparing%20an%20orthographic%20projection%20matrix.cpp)
+
+* [06 - Loading texture data from a file](./Library/Source%20Files/10%20Helper%20Recipes/06%20Loading%20texture%20data%20from%20a%20file.cpp)
+
+* [07 - Loading a 3D model from an OBJ file](./Library/Source%20Files/10%20Helper%20Recipes/07%20Loading%20a%203D%20model%20from%20an%20OBJ%20file.cpp)
