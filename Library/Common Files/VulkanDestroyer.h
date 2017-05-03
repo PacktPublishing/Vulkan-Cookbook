@@ -27,7 +27,7 @@
 // Author:   Pawel Lapinski
 // LinkedIn: https://www.linkedin.com/in/pawel-lapinski-84522329
 //
-// VulkanDestroyer
+// Vulkan Destroyer
 
 #ifndef VULKAN_DESTROYER
 #define VULKAN_DESTROYER
@@ -38,7 +38,7 @@
 
 namespace VulkanCookbook {
 
-  // Wrapper for automatic object destruction
+  // VkDestroyer<> - wrapper for automatic object destruction
 
   template <class OBJ>
   class VkDestroyer {
@@ -127,7 +127,7 @@ namespace VulkanCookbook {
     OBJ       Object;
   };
 
-  // VkInstance specialization for VkDestroyer
+  // VkInstance specialization for VkDestroyer<>
 
   template <>
   class VkDestroyer<VkInstance> {
@@ -185,12 +185,17 @@ namespace VulkanCookbook {
   private:
     VkDestroyer( VkDestroyer<VkInstance> const & );
     VkDestroyer& operator=( VkDestroyer<VkInstance> const & );
-    void Destroy();
+
+    void Destroy() {
+      if( nullptr != vkDestroyInstance ) {
+        vkDestroyInstance( Instance, nullptr );
+      }
+    }
 
     VkInstance  Instance;
   };
 
-  // VkDevice specialization for VkDestroyer
+  // VkDevice specialization for VkDestroyer<>
 
   template <>
   class VkDestroyer<VkDevice> {
@@ -248,12 +253,17 @@ namespace VulkanCookbook {
   private:
     VkDestroyer( VkDestroyer<VkDevice> const & );
     VkDestroyer& operator=( VkDestroyer<VkDevice> const & );
-    void Destroy();
+
+    void Destroy() {
+      if( nullptr != vkDestroyDevice ) {
+        vkDestroyDevice( LogicalDevice, nullptr );
+      }
+    }
 
     VkDevice LogicalDevice;
   };
 
-  // VkSurfaceKHR specialization for VkDestroyer
+  // VkSurfaceKHR specialization for VkDestroyer<>
 
   template <>
   class VkDestroyer<VkSurfaceKHR> {
@@ -331,11 +341,50 @@ namespace VulkanCookbook {
   private:
     VkDestroyer( VkDestroyer<VkSurfaceKHR> const & );
     VkDestroyer& operator=( VkDestroyer<VkSurfaceKHR> const & );
-    void Destroy();
+
+    void Destroy() {
+      if( nullptr != vkDestroySurfaceKHR ) {
+        vkDestroySurfaceKHR( Instance, Object, nullptr );
+      }
+    }
 
     VkInstance    Instance;
     VkSurfaceKHR  Object;
   };
+
+  
+#define VK_DESTROYER_SPECIALIZATION( type, deleter )  \
+  template<>                                          \
+  inline void VkDestroyer<type>::Destroy() {          \
+    if( nullptr != deleter ) {                        \
+      deleter( Device, Object, nullptr );             \
+    }                                                 \
+  }
+
+  VK_DESTROYER_SPECIALIZATION( VkSemaphore, vkDestroySemaphore )
+  // VK_DESTROYER_SPECIALIZATION( VkCommandBuffer, vkFreeCommandBuffers ) <- command buffers are freed along with the pool
+  VK_DESTROYER_SPECIALIZATION( VkFence, vkDestroyFence )
+  VK_DESTROYER_SPECIALIZATION( VkDeviceMemory, vkFreeMemory )
+  VK_DESTROYER_SPECIALIZATION( VkBuffer, vkDestroyBuffer )
+  VK_DESTROYER_SPECIALIZATION( VkImage, vkDestroyImage )
+  VK_DESTROYER_SPECIALIZATION( VkEvent, vkDestroyEvent )
+  VK_DESTROYER_SPECIALIZATION( VkQueryPool, vkDestroyQueryPool )
+  VK_DESTROYER_SPECIALIZATION( VkBufferView, vkDestroyBufferView )
+  VK_DESTROYER_SPECIALIZATION( VkImageView, vkDestroyImageView )
+  VK_DESTROYER_SPECIALIZATION( VkShaderModule, vkDestroyShaderModule )
+  VK_DESTROYER_SPECIALIZATION( VkPipelineCache, vkDestroyPipelineCache )
+  VK_DESTROYER_SPECIALIZATION( VkPipelineLayout, vkDestroyPipelineLayout )
+  VK_DESTROYER_SPECIALIZATION( VkRenderPass, vkDestroyRenderPass )
+  VK_DESTROYER_SPECIALIZATION( VkPipeline, vkDestroyPipeline )
+  VK_DESTROYER_SPECIALIZATION( VkDescriptorSetLayout, vkDestroyDescriptorSetLayout )
+  VK_DESTROYER_SPECIALIZATION( VkSampler, vkDestroySampler )
+  VK_DESTROYER_SPECIALIZATION( VkDescriptorPool, vkDestroyDescriptorPool )
+  // VK_DESTROYER_SPECIALIZATION( VkDescriptorSet, vkFreeDescriptorSets ) <- descriptor sets are freed along with the pool
+  VK_DESTROYER_SPECIALIZATION( VkFramebuffer, vkDestroyFramebuffer )
+  VK_DESTROYER_SPECIALIZATION( VkCommandPool, vkDestroyCommandPool )
+  VK_DESTROYER_SPECIALIZATION( VkSwapchainKHR, vkDestroySwapchainKHR )
+
+  // Helper initialization functions
 
   template <class PARENT, class OBJ>
   void InitVkDestroyer( PARENT const & parent, OBJ obj, VkDestroyer<OBJ> & wrapper ) {
