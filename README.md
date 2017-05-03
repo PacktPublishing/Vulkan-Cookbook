@@ -468,4 +468,42 @@ In this example we can see how to setup a render pass, framebufer and a graphics
 
 ## [Chapter 09 - Command Recording and Drawing](./Library/Source%20Files/09%20Command%20Recording%20and%20Drawing/)
 
+* [01 - Clearing a color image](./Library/Source%20Files/09%20Command%20Recording%20and%20Drawing/01%20Clearing%20a%20color%20image.cpp)
+
+* [02 - Clearing a depth-stencil image](./Library/Source%20Files/09%20Command%20Recording%20and%20Drawing/02%20Clearing%20a%20depth-stencil%20image.cpp)
+
+* [03 - Clearing render pass attachments](./Library/Source%20Files/09%20Command%20Recording%20and%20Drawing/03%20Clearing%20render%20pass%20attachments.cpp)
+
+* [04 - Binding vertex buffers](./Library/Source%20Files/09%20Command%20Recording%20and%20Drawing/04%20Binding%20vertex%20buffers.cpp)
+
+* [05 - Binding an index buffer](./Library/Source%20Files/09%20Command%20Recording%20and%20Drawing/05%20Binding%20an%20index%20buffer.cpp)
+
+* [06 - Providing data to shaders through push constants](./Library/Source%20Files/09%20Command%20Recording%20and%20Drawing/06%20Providing%20data%20to%20shaders%20through%20push%20constants.cpp)
+
+* [07 - Setting viewport state dynamically](./Library/Source%20Files/09%20Command%20Recording%20and%20Drawing/07%20Setting%20viewport%20state%20dynamically.cpp)
+
+* [08 - Setting scissor state dynamically](./Library/Source%20Files/09%20Command%20Recording%20and%20Drawing/08%20Setting%20scissor%20state%20dynamically.cpp)
+
+* [09 - Setting line width state dynamically](./Library/Source%20Files/09%20Command%20Recording%20and%20Drawing/09%20Setting%20line%20width%20state%20dynamically.cpp)
+
+* [10 - Setting depth bias state dynamically](./Library/Source%20Files/09%20Command%20Recording%20and%20Drawing/10%20Setting%20depth%20bias%20state%20dynamically.cpp)
+
+* [11 - Setting blend constants state dynamically](./Library/Source%20Files/09%20Command%20Recording%20and%20Drawing/11%20Setting%20blend%20constants%20state%20dynamically.cpp)
+
+* [12 - Drawing a geometry](./Library/Source%20Files/09%20Command%20Recording%20and%20Drawing/12%20Drawing%20a%20geometry.cpp)
+
+* [13 - Drawing an indexed geometry](./Library/Source%20Files/09%20Command%20Recording%20and%20Drawing/13%20Drawing%20an%20indexed%20geometry.cpp)
+
+* [14 - Dispatching compute work](./Library/Source%20Files/09%20Command%20Recording%20and%20Drawing/14%20Dispatching%20compute%20work.cpp)
+
+* [15 - Executing secondary command buffer inside a primary command buffer](./Library/Source%20Files/09%20Command%20Recording%20and%20Drawing/15%20Executing%20secondary%20command%20buffer%20inside%20a%20primary%20command%20buffer.cpp)
+
+* [16 - Recording a command buffer that draws a geometry with dynamic viewport and scissor states](./Library/Source%20Files/09%20Command%20Recording%20and%20Drawing/16%20Recording%20a%20command%20buffer%20that%20draws%20a%20geometry%20with%20dynamic%20viewport%20and%20scissor%20states.cpp)
+
+* [17 - Recording command buffers on multiple threads](./Library/Source%20Files/09%20Command%20Recording%20and%20Drawing/17%20Recording%20command%20buffers%20on%20multiple%20threads.cpp)
+
+* [18 - Preparing a single frame of animation](./Library/Source%20Files/09%20Command%20Recording%20and%20Drawing/18%20Preparing%20a%20single%20frame%20of%20animation.cpp)
+
+* [19 - Increasing the performance through increasing the number of separately rendered frames](./Library/Source%20Files/09%20Command%20Recording%20and%20Drawing/19%20Increasing%20the%20performance%20through%20increasing%20the%20number%20of%20separately%20rendered%20frames.cpp)
+
 ## [Chapter 10 - Helper Recipes](./Library/Source%20Files/10%20Helper%20Recipes/)
