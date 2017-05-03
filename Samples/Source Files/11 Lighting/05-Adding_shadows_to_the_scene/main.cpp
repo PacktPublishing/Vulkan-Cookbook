@@ -103,7 +103,7 @@ class Sample : public VulkanCookbookSample {
 
     if( !UseStagingBufferToUpdateBufferWithDeviceLocalMemoryBound( PhysicalDevice, *LogicalDevice, sizeof( vertex_data[0] ) * vertex_data.size(),
       &vertex_data[0], *VertexBuffer, 0, 0, VK_ACCESS_TRANSFER_WRITE_BIT, VK_PIPELINE_STAGE_TOP_OF_PIPE_BIT, VK_PIPELINE_STAGE_VERTEX_INPUT_BIT,
-      GraphicsQueue.Handle, FrameResources.front().CommandBuffer, {} ) ) {
+      GraphicsQueue.Handle, FramesResources.front().CommandBuffer, {} ) ) {
       return false;
     }
 
@@ -692,7 +692,7 @@ class Sample : public VulkanCookbookSample {
     WaitForAllSubmittedCommandsToBeFinished( *LogicalDevice );
 
     return IncreasePerformanceThroughIncreasingTheNumberOfSeparatelyRenderedFrames( *LogicalDevice, GraphicsQueue.Handle, PresentQueue.Handle,
-      *Swapchain.Handle, Swapchain.Size, Swapchain.ImageViewsRaw, *SceneRenderPass, {}, prepare_frame, FrameResources );
+      *Swapchain.Handle, Swapchain.Size, Swapchain.ImageViewsRaw, *SceneRenderPass, {}, prepare_frame, FramesResources );
   }
 
   void OnMouseEvent() {

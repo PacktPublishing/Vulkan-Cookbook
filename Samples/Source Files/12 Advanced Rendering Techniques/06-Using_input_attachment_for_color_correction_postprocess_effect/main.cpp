@@ -111,7 +111,7 @@ class Sample : public VulkanCookbookSample {
 
     if( !UseStagingBufferToUpdateBufferWithDeviceLocalMemoryBound( PhysicalDevice, *LogicalDevice, sizeof( Model.Data[0] ) * Model.Data.size(),
       &Model.Data[0], *ModelVertexBuffer, 0, 0, VK_ACCESS_TRANSFER_WRITE_BIT, VK_PIPELINE_STAGE_TOP_OF_PIPE_BIT, VK_PIPELINE_STAGE_VERTEX_INPUT_BIT,
-      GraphicsQueue.Handle, FrameResources.front().CommandBuffer, {} ) ) {
+      GraphicsQueue.Handle, FramesResources.front().CommandBuffer, {} ) ) {
       return false;
     }
 
@@ -134,7 +134,7 @@ class Sample : public VulkanCookbookSample {
 
     if( !UseStagingBufferToUpdateBufferWithDeviceLocalMemoryBound( PhysicalDevice, *LogicalDevice, sizeof( Skybox.Data[0] ) * Skybox.Data.size(),
       &Skybox.Data[0], *SkyboxVertexBuffer, 0, 0, VK_ACCESS_TRANSFER_WRITE_BIT, VK_PIPELINE_STAGE_TOP_OF_PIPE_BIT, VK_PIPELINE_STAGE_VERTEX_INPUT_BIT,
-      GraphicsQueue.Handle, FrameResources.front().CommandBuffer, {} ) ) {
+      GraphicsQueue.Handle, FramesResources.front().CommandBuffer, {} ) ) {
       return false;
     }
 
@@ -161,7 +161,7 @@ class Sample : public VulkanCookbookSample {
     }
 
     if( !UseStagingBufferToUpdateBufferWithDeviceLocalMemoryBound( PhysicalDevice, *LogicalDevice, sizeof( vertices[0] ) * vertices.size(), &vertices[0], *PostprocessVertexBuffer, 0, 0,
-      VK_ACCESS_VERTEX_ATTRIBUTE_READ_BIT, VK_PIPELINE_STAGE_TOP_OF_PIPE_BIT, VK_PIPELINE_STAGE_VERTEX_INPUT_BIT, GraphicsQueue.Handle, FrameResources.front().CommandBuffer, {} ) ) {
+      VK_ACCESS_VERTEX_ATTRIBUTE_READ_BIT, VK_PIPELINE_STAGE_TOP_OF_PIPE_BIT, VK_PIPELINE_STAGE_VERTEX_INPUT_BIT, GraphicsQueue.Handle, FramesResources.front().CommandBuffer, {} ) ) {
       return false;
     }
 
@@ -227,7 +227,7 @@ class Sample : public VulkanCookbookSample {
       UseStagingBufferToUpdateImageWithDeviceLocalMemoryBound( PhysicalDevice, *LogicalDevice, image_data_size, &cubemap_image_data[0],
         *CubemapImage, image_subresource, { 0, 0, 0 }, { 1024, 1024, 1 }, VK_IMAGE_LAYOUT_UNDEFINED, VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL,
         0, VK_ACCESS_SHADER_READ_BIT, VK_IMAGE_ASPECT_COLOR_BIT, VK_PIPELINE_STAGE_TOP_OF_PIPE_BIT, VK_PIPELINE_STAGE_FRAGMENT_SHADER_BIT,
-        GraphicsQueue.Handle, FrameResources.front().CommandBuffer, {} );
+        GraphicsQueue.Handle, FramesResources.front().CommandBuffer, {} );
     }
 
     // Descriptor set
@@ -912,7 +912,7 @@ std::vector<VkSubpassDependency> subpass_dependencies = {
     };
 
     static uint32_t frame_index = 0;
-    auto & current_frame = FrameResources[frame_index];
+    auto & current_frame = FramesResources[frame_index];
 
     if( !WaitForFences( *LogicalDevice, { *SceneFence }, false, 2000000000 ) ) {
       return false;
@@ -956,7 +956,7 @@ std::vector<VkSubpassDependency> subpass_dependencies = {
       return false;
     }
 
-    frame_index = (frame_index + 1) % FrameResources.size();
+    frame_index = (frame_index + 1) % FramesResources.size();
     return true;
   }
 

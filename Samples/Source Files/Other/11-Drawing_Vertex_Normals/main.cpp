@@ -76,7 +76,7 @@ class Sample : public VulkanCookbookSample {
 
     if( !UseStagingBufferToUpdateBufferWithDeviceLocalMemoryBound( PhysicalDevice, *LogicalDevice, sizeof( Model.Data[0] ) * Model.Data.size(),
       &Model.Data[0], *VertexBuffer, 0, 0, VK_ACCESS_TRANSFER_WRITE_BIT, VK_PIPELINE_STAGE_TOP_OF_PIPE_BIT, VK_PIPELINE_STAGE_VERTEX_INPUT_BIT,
-      GraphicsQueue.Handle, FrameResources.front().CommandBuffer, {} ) ) {
+      GraphicsQueue.Handle, FramesResources.front().CommandBuffer, {} ) ) {
       return false;
     }
 
@@ -487,7 +487,7 @@ class Sample : public VulkanCookbookSample {
     };
 
     return IncreasePerformanceThroughIncreasingTheNumberOfSeparatelyRenderedFrames( *LogicalDevice, GraphicsQueue.Handle, PresentQueue.Handle,
-      *Swapchain.Handle, Swapchain.Size, Swapchain.ImageViewsRaw, *RenderPass, {}, prepare_frame, FrameResources );
+      *Swapchain.Handle, Swapchain.Size, Swapchain.ImageViewsRaw, *RenderPass, {}, prepare_frame, FramesResources );
   }
 
   bool UpdateUniformBuffer() {
@@ -499,13 +499,13 @@ class Sample : public VulkanCookbookSample {
 
     if( !UseStagingBufferToUpdateBufferWithDeviceLocalMemoryBound( PhysicalDevice, *LogicalDevice, sizeof( model_view_matrix[0] ) * model_view_matrix.size(),
       &model_view_matrix[0], *UniformBuffer, 0, 0, VK_ACCESS_UNIFORM_READ_BIT, VK_PIPELINE_STAGE_VERTEX_SHADER_BIT, VK_PIPELINE_STAGE_VERTEX_INPUT_BIT,
-      GraphicsQueue.Handle, FrameResources.front().CommandBuffer, {} ) ) {
+      GraphicsQueue.Handle, FramesResources.front().CommandBuffer, {} ) ) {
       return false;
     }
 
     if( !UseStagingBufferToUpdateBufferWithDeviceLocalMemoryBound( PhysicalDevice, *LogicalDevice, sizeof( perspective_matrix[0] ) * perspective_matrix.size(),
       &perspective_matrix[0], *UniformBuffer, 16 * sizeof( float ), 0, VK_ACCESS_UNIFORM_READ_BIT, VK_PIPELINE_STAGE_VERTEX_SHADER_BIT, VK_PIPELINE_STAGE_VERTEX_INPUT_BIT,
-      GraphicsQueue.Handle, FrameResources.front().CommandBuffer, {} ) ) {
+      GraphicsQueue.Handle, FramesResources.front().CommandBuffer, {} ) ) {
       return false;
     }
 

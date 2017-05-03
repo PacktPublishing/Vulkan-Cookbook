@@ -33,7 +33,7 @@
 
 namespace VulkanCookbook {
 
-  MouseState::MouseState() {
+  MouseStateParameters::MouseStateParameters() {
     Buttons[0].IsPressed = false;
     Buttons[0].WasClicked = false;
     Buttons[0].WasRelease = false;
@@ -48,30 +48,30 @@ namespace VulkanCookbook {
     Wheel.Distance = 0.0f;
   }
 
-  MouseState::~MouseState() {
+  MouseStateParameters::~MouseStateParameters() {
   }
 
-  float TimerState::GetTime() const {
+  float TimerStateParameters::GetTime() const {
     auto duration = Time.time_since_epoch();
     auto milliseconds = std::chrono::duration_cast<std::chrono::milliseconds>(duration).count();
     return static_cast<float>(milliseconds * 0.001f);
   }
 
-  float TimerState::GetDeltaTime() const {
+  float TimerStateParameters::GetDeltaTime() const {
     return DeltaTime.count();
   }
 
-  void TimerState::Update() {
+  void TimerStateParameters::Update() {
     auto previous_time = Time;
     Time = std::chrono::high_resolution_clock::now();
     DeltaTime = std::chrono::high_resolution_clock::now() - previous_time;
   }
 
-  TimerState::TimerState() {
+  TimerStateParameters::TimerStateParameters() {
     Update();
   }
 
-  TimerState::~TimerState() {
+  TimerStateParameters::~TimerStateParameters() {
   }
 
   VulkanCookbookSampleBase::VulkanCookbookSampleBase() :
@@ -229,7 +229,7 @@ namespace VulkanCookbook {
         return false;
       }
 
-      FrameResources.push_back( {
+      FramesResources.push_back( {
         command_buffer[0],
         std::move( image_acquired_semaphore ),
         std::move( ready_to_present_semaphore ),
@@ -283,11 +283,11 @@ namespace VulkanCookbook {
       for( uint32_t i = 0; i < FramesCount; ++i ) {
         DepthImages.emplace_back( LogicalDevice );
         DepthImagesMemory.emplace_back( LogicalDevice );
-        InitVkDestroyer( LogicalDevice, FrameResources[i].DepthAttachment );
+        InitVkDestroyer( LogicalDevice, FramesResources[i].DepthAttachment );
 
         if( !Create2DImageAndView( PhysicalDevice, *LogicalDevice, DepthFormat, Swapchain.Size, 1, 1, VK_SAMPLE_COUNT_1_BIT,
           VK_IMAGE_USAGE_DEPTH_STENCIL_ATTACHMENT_BIT, VK_IMAGE_ASPECT_DEPTH_BIT, *DepthImages.back(), *DepthImagesMemory.back(),
-          *FrameResources[i].DepthAttachment ) ) {
+          *FramesResources[i].DepthAttachment ) ) {
           return false;
         }
       }

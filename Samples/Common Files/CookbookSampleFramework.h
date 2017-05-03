@@ -41,7 +41,7 @@ namespace VulkanCookbook {
 
   // Storage for mouse state parameters
 
-  class MouseState {
+  class MouseStateParameters {
   public:
     struct ButtonsState {
       bool IsPressed;
@@ -61,21 +61,21 @@ namespace VulkanCookbook {
       float Distance;
     } Wheel;
 
-      MouseState();
-     ~MouseState();
+      MouseStateParameters();
+     ~MouseStateParameters();
   };
 
   // Class for simple time manipulations
 
-  class TimerState {
+  class TimerStateParameters {
   public:
     float   GetTime() const;
     float   GetDeltaTime() const;
 
     void    Update();
 
-      TimerState();
-     ~TimerState();
+      TimerStateParameters();
+     ~TimerStateParameters();
 
   private:
     std::chrono::time_point<std::chrono::high_resolution_clock> Time;
@@ -119,10 +119,10 @@ namespace VulkanCookbook {
   protected:
     virtual void  OnMouseEvent();
 
-    LIBRARY_TYPE  VulkanLibrary;
-    bool          Ready;
-    MouseState    MouseState;
-    TimerState    TimerState;
+    LIBRARY_TYPE          VulkanLibrary;
+    bool                  Ready;
+    MouseStateParameters  MouseState;
+    TimerStateParameters  TimerState;
   };
 
   // Base class for code samples with default instance, device and swapchain creation
@@ -140,7 +140,7 @@ namespace VulkanCookbook {
     VkDestroyer<VkCommandPool>                CommandPool;
     std::vector<VkDestroyer<VkImage>>         DepthImages;
     std::vector<VkDestroyer<VkDeviceMemory>>  DepthImagesMemory;
-    std::vector<FrameResources>               FrameResources;
+    std::vector<FrameResources>               FramesResources;
     static uint32_t const                     FramesCount = 3;
     static VkFormat const                     DepthFormat = VK_FORMAT_D16_UNORM;
 
