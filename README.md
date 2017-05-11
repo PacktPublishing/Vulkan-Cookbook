@@ -17,6 +17,14 @@ Vulkan is the next generation graphics API released by the Khronos group. It is 
 
 <hr>
 
+## Credits
+### Special thanks for authors and developers of the following projects and resources:
+* [**tinyobjloader**](https://github.com/syoyo/tinyobjloader) - A single-header library for loading Wavefront OBJ files.
+* [**stb image**](https://github.com/nothings/stb) - A single-header library for loading image files (other libraries are also available).
+* [**Humus**](http://www.humus.name/index.php?page=Textures) - A large collection of cubemaps (and other resources).
+
+<hr>
+
 ## Please note!
 ### Currently only Windows operating system is supported. Linux version is being prepared and should be ready soon.
 
