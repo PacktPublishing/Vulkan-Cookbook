@@ -46,6 +46,7 @@
 #include <thread>
 #include <cmath>
 #include <functional>
+#include <memory>
 #include "VulkanDestroyer.h"
 
 namespace VulkanCookbook {
