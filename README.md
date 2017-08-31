@@ -188,6 +188,13 @@ Here a commonly used debugging technique is presented that uses geometry shaders
 
 In this example we can see how to setup a render pass, framebufer and a graphics pipeline to use depth attachment and enable depth test during drawing.
 
+<img src="./Samples/Source%20Files/Other/13-Enabling_Alpha_Blending/screenshot.png" width="150px" align="right">
+
+* ### [13 - Enabling alpha blending](./Samples/Source%20Files/Other/13-Enabling_Alpha_Blending/main.cpp)
+
+This code sample shows how to enable alpha blending (transparency) during graphics pipeline creation.<br>
+<b>Left mouse button:</b> disable/enable blending<br>
+
 <hr>
 
 # [Recipes Library](./Library/Source%20Files/)
