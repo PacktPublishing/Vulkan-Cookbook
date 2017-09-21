@@ -376,6 +376,7 @@ class Sample : public VulkanCookbookSample {
     }
     InitVkDestroyer( LogicalDevice, graphics_pipeline[0], GraphicsPipeline );
 
+    return true;
   }
 
   virtual bool Resize() override {

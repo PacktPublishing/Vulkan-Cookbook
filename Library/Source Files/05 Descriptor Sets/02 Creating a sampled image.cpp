@@ -41,6 +41,7 @@ namespace VulkanCookbook {
                            uint32_t            num_mipmaps,
                            uint32_t            num_layers,
                            VkImageUsageFlags   usage,
+                           bool                cubemap,
                            VkImageViewType     view_type,
                            VkImageAspectFlags  aspect,
                            bool                linear_filtering,
@@ -59,7 +60,7 @@ namespace VulkanCookbook {
       return false;
     }
 
-    if( !CreateImage( logical_device, type, format, size, num_mipmaps, num_layers, VK_SAMPLE_COUNT_1_BIT, usage | VK_IMAGE_USAGE_SAMPLED_BIT, false, sampled_image ) ) {
+    if( !CreateImage( logical_device, type, format, size, num_mipmaps, num_layers, VK_SAMPLE_COUNT_1_BIT, usage | VK_IMAGE_USAGE_SAMPLED_BIT, cubemap, sampled_image ) ) {
       return false;
     }
 

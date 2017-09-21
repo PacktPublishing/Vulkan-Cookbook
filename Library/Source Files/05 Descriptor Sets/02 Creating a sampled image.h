@@ -41,6 +41,7 @@ namespace VulkanCookbook {
                            uint32_t            num_mipmaps,
                            uint32_t            num_layers,
                            VkImageUsageFlags   usage,
+                           bool                cubemap,
                            VkImageViewType     view_type,
                            VkImageAspectFlags  aspect,
                            bool                linear_filtering,
