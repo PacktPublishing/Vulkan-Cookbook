@@ -32,333 +32,40 @@
 #ifndef VULKAN_DESTROYER
 #define VULKAN_DESTROYER
 
-#include <utility>
-#include <vector>
+#include <functional>
 #include "VulkanFunctions.h"
 
 namespace VulkanCookbook {
 
   // VkDestroyer<> - wrapper for automatic object destruction
 
-  template <class OBJ>
-  class VkDestroyer {
-  public:
-    VkDestroyer() :
-      Device( VK_NULL_HANDLE ),
-      Object( VK_NULL_HANDLE ) {
-    }
-
-    VkDestroyer( VkDevice device ) :
-      Device( device ),
-      Object( VK_NULL_HANDLE ) {
-    }
-
-    template<class VK_DEVICE>
-    VkDestroyer( VkDestroyer<VK_DEVICE> const & device ) :
-      Device( *device ),
-      Object( VK_NULL_HANDLE ) {
-    }
-
-    VkDestroyer( VkDevice device, OBJ object ) :
-      Device( device ),
-      Object( object ) {
-    }
-
-    template<class VK_DEVICE>
-    VkDestroyer( VkDestroyer<VK_DEVICE> const & device, OBJ object ) :
-      Device( *device ),
-      Object( object ) {
-    }
-
-    ~VkDestroyer() {
-      if( (VK_NULL_HANDLE != Device) &&
-          (VK_NULL_HANDLE != Object) ) {
-        Destroy();
-      }
-    }
-
-    VkDestroyer( VkDestroyer<OBJ> && other ) :
-      VkDestroyer() {
-      *this = std::move( other );
-    }
-
-    VkDestroyer& operator=( VkDestroyer<OBJ> && other ) {
-      if( this != &other ) {
-        VkDevice  device = Device;
-        OBJ       object = Object;
-        Device = other.Device;
-        Object = other.Object;
-        other.Device = device;
-        other.Object = object;
-      }
-      return *this;
-    }
-
-    OBJ & Get() {
-      return Object;
-    }
-
-    OBJ * GetPtr() {
-      return &Object;
-    }
-
-    OBJ & operator*() {
-      return Object;
-    }
-
-    OBJ const & operator*() const {
-      return Object;
-    }
-
-    bool operator !() const {
-      return VK_NULL_HANDLE == Object;
-    }
-
-    explicit operator bool() const {
-      return VK_NULL_HANDLE != Object;
-    }
-
-  private:
-    VkDestroyer( VkDestroyer<OBJ> const & );
-    VkDestroyer& operator=( VkDestroyer<OBJ> const & );
-    void Destroy();
-
-    VkDevice  Device;
-    OBJ       Object;
-  };
-
-  // VkInstance specialization for VkDestroyer<>
-
-  template <>
-  class VkDestroyer<VkInstance> {
-  public:
-    VkDestroyer() :
-      Instance( VK_NULL_HANDLE ) {
-    }
-
-    VkDestroyer( VkInstance object ) :
-      Instance( object ) {
-    }
-
-    ~VkDestroyer() {
-      if( (VK_NULL_HANDLE != Instance) ) {
-        Destroy();
-      }
-    }
-
-    VkDestroyer( VkDestroyer<VkInstance> && other ) {
-      *this = std::move( other );
-    }
-
-    VkDestroyer& operator=( VkDestroyer<VkInstance> && other ) {
-      if( this != &other ) {
-        Instance = other.Instance;
-        other.Instance = VK_NULL_HANDLE;
-      }
-      return *this;
-    }
-
-    VkInstance & Get() {
-      return Instance;
-    }
-
-    VkInstance * GetPtr() {
-      return &Instance;
-    }
-
-    VkInstance & operator*() {
-      return Instance;
-    }
-
-    VkInstance const & operator*() const {
-      return Instance;
-    }
-
-    bool operator !() const {
-      return VK_NULL_HANDLE == Instance;
-    }
-
-    explicit operator bool() const {
-      return VK_NULL_HANDLE != Instance;
-    }
-
-  private:
-    VkDestroyer( VkDestroyer<VkInstance> const & );
-    VkDestroyer& operator=( VkDestroyer<VkInstance> const & );
-
-    void Destroy() {
-      if( nullptr != vkDestroyInstance ) {
-        vkDestroyInstance( Instance, nullptr );
-      }
-    }
-
-    VkInstance  Instance;
-  };
-
-  // VkDevice specialization for VkDestroyer<>
-
-  template <>
-  class VkDestroyer<VkDevice> {
-  public:
-    VkDestroyer() :
-      LogicalDevice( VK_NULL_HANDLE ) {
-    }
-
-    VkDestroyer( VkDevice object ) :
-      LogicalDevice( object ) {
-    }
-
-    ~VkDestroyer() {
-      if( (VK_NULL_HANDLE != LogicalDevice) ) {
-        Destroy();
-      }
-    }
-
-    VkDestroyer( VkDestroyer<VkDevice> && other ) {
-      *this = std::move( other );
-    }
-
-    VkDestroyer& operator=( VkDestroyer<VkDevice> && other ) {
-      if( this != &other ) {
-        LogicalDevice = other.LogicalDevice;
-        other.LogicalDevice = VK_NULL_HANDLE;
-      }
-      return *this;
-    }
-
-    VkDevice & Get() {
-      return LogicalDevice;
-    }
-
-    VkDevice * GetPtr() {
-      return &LogicalDevice;
-    }
-
-    VkDevice & operator*() {
-      return LogicalDevice;
-    }
-
-    VkDevice const & operator*() const {
-      return LogicalDevice;
-    }
-
-    bool operator !() const {
-      return VK_NULL_HANDLE == LogicalDevice;
-    }
-
-    explicit operator bool() const {
-      return VK_NULL_HANDLE != LogicalDevice;
-    }
-
-  private:
-    VkDestroyer( VkDestroyer<VkDevice> const & );
-    VkDestroyer& operator=( VkDestroyer<VkDevice> const & );
-
-    void Destroy() {
-      if( nullptr != vkDestroyDevice ) {
-        vkDestroyDevice( LogicalDevice, nullptr );
-      }
-    }
-
-    VkDevice LogicalDevice;
-  };
-
-  // VkSurfaceKHR specialization for VkDestroyer<>
-
-  template <>
-  class VkDestroyer<VkSurfaceKHR> {
-  public:
-    VkDestroyer() :
-      Instance( VK_NULL_HANDLE ),
-      Object( VK_NULL_HANDLE ) {
-    }
-
-    VkDestroyer( VkInstance instance ) :
-      Instance( instance ),
-      Object( VK_NULL_HANDLE ) {
-    }
-
-    VkDestroyer( VkDestroyer<VkInstance> const & instance ) :
-      Instance( *instance ),
-      Object( VK_NULL_HANDLE ) {
-    }
-
-    VkDestroyer( VkInstance instance, VkSurfaceKHR object ) :
-      Instance( instance ),
-      Object( object ) {
-    }
-
-    VkDestroyer( VkDestroyer<VkInstance> const & instance, VkSurfaceKHR object ) :
-      Instance( *instance ),
-      Object( object ) {
-    }
-
-    ~VkDestroyer() {
-      if( (VK_NULL_HANDLE != Instance) &&
-          (VK_NULL_HANDLE != Object) ) {
-        Destroy();
-      }
-    }
-
-    VkDestroyer( VkDestroyer<VkSurfaceKHR> && other ) {
-      *this = std::move( other );
-    }
-
-    VkDestroyer& operator=( VkDestroyer<VkSurfaceKHR> && other ) {
-      if( this != &other ) {
-        Instance = other.Instance;
-        Object = other.Object;
-        other.Instance = VK_NULL_HANDLE;
-        other.Object = VK_NULL_HANDLE;
-      }
-      return *this;
-    }
-
-    VkSurfaceKHR & Get() {
-      return Object;
-    }
-
-    VkSurfaceKHR * GetPtr() {
-      return &Object;
-    }
-
-    VkSurfaceKHR & operator*() {
-      return Object;
-    }
-
-    VkSurfaceKHR const & operator*() const {
-      return Object;
-    }
-
-    bool operator !() const {
-      return VK_NULL_HANDLE == Object;
-    }
-
-    explicit operator bool() const {
-      return VK_NULL_HANDLE != Object;
-    }
-
-  private:
-    VkDestroyer( VkDestroyer<VkSurfaceKHR> const & );
-    VkDestroyer& operator=( VkDestroyer<VkSurfaceKHR> const & );
-
-    void Destroy() {
-      if( nullptr != vkDestroySurfaceKHR ) {
-        vkDestroySurfaceKHR( Instance, Object, nullptr );
-      }
-    }
-
-    VkInstance    Instance;
-    VkSurfaceKHR  Object;
-  };
-
-  
-#define VK_DESTROYER_SPECIALIZATION( type, deleter )  \
-  template<>                                          \
-  inline void VkDestroyer<type>::Destroy() {          \
-    if( nullptr != deleter ) {                        \
-      deleter( Device, Object, nullptr );             \
-    }                                                 \
+  // Deleter functions
+
+  template<class VkType>
+  void DestroyVulkanObject( VkType object );
+
+  template<>
+  inline void DestroyVulkanObject<VkInstance>( VkInstance object ) {
+    vkDestroyInstance( object, nullptr );
+  }
+
+  template<>
+  inline void DestroyVulkanObject<VkDevice>( VkDevice object ) {
+    vkDestroyDevice( object, nullptr );
+  }
+
+  template<class VkParent, class VkChild>
+  void DestroyVulkanObject( VkParent parent, VkChild object );
+
+  template<>
+  inline void DestroyVulkanObject<VkInstance, VkSurfaceKHR>( VkInstance instance, VkSurfaceKHR surface ) {
+    vkDestroySurfaceKHR( instance, surface, nullptr );
+  }
+
+#define VK_DESTROYER_SPECIALIZATION( VkChild, VkDeleter )                                 \
+  template<>                                                                              \
+  inline void DestroyVulkanObject<VkDevice, VkChild>( VkDevice device, VkChild object ) { \
+    VkDeleter( device, object, nullptr );                                                 \
   }
 
   VK_DESTROYER_SPECIALIZATION( VkSemaphore, vkDestroySemaphore )
@@ -384,16 +91,95 @@ namespace VulkanCookbook {
   VK_DESTROYER_SPECIALIZATION( VkCommandPool, vkDestroyCommandPool )
   VK_DESTROYER_SPECIALIZATION( VkSwapchainKHR, vkDestroySwapchainKHR )
 
-  // Helper initialization functions
+  // Class definition
 
-  template <class PARENT, class OBJ>
-  void InitVkDestroyer( PARENT const & parent, OBJ obj, VkDestroyer<OBJ> & wrapper ) {
-    wrapper = VkDestroyer<OBJ>( parent, obj );
+  template<class VkType>
+  class VkDestroyer {
+  public:
+    VkDestroyer() :
+      Object( VK_NULL_HANDLE ),
+      DestroyerFunction( nullptr ) {
+    }
+
+    VkDestroyer( std::function<void( VkType )> destroyer_function ) :
+      Object( VK_NULL_HANDLE ),
+      DestroyerFunction( destroyer_function ) {
+    }
+
+    VkDestroyer( VkType object, std::function<void( VkType )> destroyer_function ) :
+      Object( object ),
+      DestroyerFunction( destroyer_function ) {
+    }
+
+    ~VkDestroyer() {
+      if( DestroyerFunction && Object ) {
+        DestroyerFunction( Object );
+      }
+    }
+
+    VkDestroyer( VkDestroyer<VkType> && other ) :
+      Object( other.Object ),
+      DestroyerFunction( other.DestroyerFunction ) {
+      other.Object = VK_NULL_HANDLE;
+      other.DestroyerFunction = nullptr;
+    }
+
+    VkDestroyer& operator=(VkDestroyer<VkType> && other) {
+      if( this != &other ) {
+        VkType object = Object;
+        std::function<void( VkType )> destroyer_function = DestroyerFunction;
+
+        Object = other.Object;
+        DestroyerFunction = other.DestroyerFunction;
+
+        other.Object = object;
+        other.DestroyerFunction = destroyer_function;
+      }
+      return *this;
+    }
+
+    VkType & operator*() {
+      return Object;
+    }
+
+    VkType const & operator*() const {
+      return Object;
+    }
+
+    bool operator!() const {
+      return Object == VK_NULL_HANDLE;
+    }
+
+    operator bool() const {
+      return Object != VK_NULL_HANDLE;
+    }
+
+    VkDestroyer( VkDestroyer<VkType> const & ) = delete;
+    VkDestroyer& operator=( VkDestroyer<VkType> const & ) = delete;
+
+  private:
+    VkType Object;
+    std::function<void( VkType )> DestroyerFunction;
+  };
+
+  // Helper functions
+
+  inline void InitVkDestroyer( VkDestroyer<VkInstance> & destroyer ) {
+    destroyer = VkDestroyer<VkInstance>( std::bind( DestroyVulkanObject<VkInstance>, std::placeholders::_1 ) );
   }
 
-  template <class PARENT, class OBJ>
-  void InitVkDestroyer( PARENT const & parent, VkDestroyer<OBJ> & wrapper ) {
-    wrapper = VkDestroyer<OBJ>( parent );
+  inline void InitVkDestroyer( VkDestroyer<VkDevice> & destroyer ) {
+    destroyer = VkDestroyer<VkDevice>( std::bind( DestroyVulkanObject<VkDevice>, std::placeholders::_1 ) );
+  }
+
+  template<class VkParent, class VkType>
+  inline void InitVkDestroyer( VkParent const & parent, VkDestroyer<VkType> & destroyer ) {
+    destroyer = VkDestroyer<VkType>( std::bind( DestroyVulkanObject<VkParent, VkType>, parent, std::placeholders::_1 ) );
+  }
+
+  template<class VkParent, class VkType>
+  inline void InitVkDestroyer( VkDestroyer<VkParent> const & parent, VkDestroyer<VkType> & destroyer ) {
+    destroyer = VkDestroyer<VkType>( std::bind( DestroyVulkanObject<VkParent, VkType>, *parent, std::placeholders::_1 ) );
   }
 
 } // namespace VulkanCookbook
