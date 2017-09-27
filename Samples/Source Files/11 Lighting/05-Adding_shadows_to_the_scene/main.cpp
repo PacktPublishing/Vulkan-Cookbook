@@ -136,7 +136,7 @@ class Sample : public VulkanCookbookSample {
     InitVkDestroyer( LogicalDevice, ShadowMap.View );
     InitVkDestroyer( LogicalDevice, ShadowMapSampler );
     if( !CreateCombinedImageSampler( PhysicalDevice, *LogicalDevice, VK_IMAGE_TYPE_2D, DepthFormat, { 512, 512, 1 }, 1, 1,
-      VK_IMAGE_USAGE_DEPTH_STENCIL_ATTACHMENT_BIT | VK_IMAGE_USAGE_SAMPLED_BIT, VK_IMAGE_VIEW_TYPE_2D, VK_IMAGE_ASPECT_DEPTH_BIT, VK_FILTER_LINEAR,
+      VK_IMAGE_USAGE_DEPTH_STENCIL_ATTACHMENT_BIT | VK_IMAGE_USAGE_SAMPLED_BIT, false, VK_IMAGE_VIEW_TYPE_2D, VK_IMAGE_ASPECT_DEPTH_BIT, VK_FILTER_LINEAR,
       VK_FILTER_LINEAR, VK_SAMPLER_MIPMAP_MODE_NEAREST, VK_SAMPLER_ADDRESS_MODE_CLAMP_TO_EDGE, VK_SAMPLER_ADDRESS_MODE_CLAMP_TO_EDGE,
       VK_SAMPLER_ADDRESS_MODE_CLAMP_TO_EDGE, 0.0f, false, 1.0f, false, VK_COMPARE_OP_ALWAYS, 0.0f, 1.0f, VK_BORDER_COLOR_FLOAT_OPAQUE_BLACK,
       false, *ShadowMapSampler, *ShadowMap.Image, *ShadowMap.Memory, *ShadowMap.View ) ) {
@@ -374,7 +374,8 @@ class Sample : public VulkanCookbookSample {
       return false;
     }
 
-    VkDestroyer<VkShaderModule> scene_vertex_shader_module( LogicalDevice );
+    VkDestroyer<VkShaderModule> scene_vertex_shader_module;
+    InitVkDestroyer( LogicalDevice, scene_vertex_shader_module );
     if( !CreateShaderModule( *LogicalDevice, scene_vertex_shader_spirv, *scene_vertex_shader_module ) ) {
       return false;
     }
@@ -383,7 +384,8 @@ class Sample : public VulkanCookbookSample {
     if( !GetBinaryFileContents( "Data/Shaders/11 Lighting/05 Adding shadows to the scene/scene.frag.spv", scene_fragment_shader_spirv ) ) {
       return false;
     }
-    VkDestroyer<VkShaderModule> scene_fragment_shader_module( LogicalDevice );
+    VkDestroyer<VkShaderModule> scene_fragment_shader_module;
+    InitVkDestroyer( LogicalDevice, scene_fragment_shader_module );
     if( !CreateShaderModule( *LogicalDevice, scene_fragment_shader_spirv, *scene_fragment_shader_module ) ) {
       return false;
     }
@@ -439,7 +441,8 @@ class Sample : public VulkanCookbookSample {
       return false;
     }
 
-    VkDestroyer<VkShaderModule> shadow_vertex_shader_module( LogicalDevice );
+    VkDestroyer<VkShaderModule> shadow_vertex_shader_module;
+    InitVkDestroyer( LogicalDevice, shadow_vertex_shader_module );
     if( !CreateShaderModule( *LogicalDevice, shadow_vertex_shader_spirv, *shadow_vertex_shader_module ) ) {
       return false;
     }
@@ -553,7 +556,8 @@ class Sample : public VulkanCookbookSample {
     if( !CreateGraphicsPipelines( *LogicalDevice, { scene_pipeline_create_info }, VK_NULL_HANDLE, scene_pipeline ) ) {
       return false;
     }
-    InitVkDestroyer( LogicalDevice, scene_pipeline[0], ScenePipeline );
+    InitVkDestroyer( LogicalDevice, ScenePipeline );
+    *ScenePipeline = scene_pipeline[0];
 
     // Shadow
 
@@ -566,7 +570,8 @@ class Sample : public VulkanCookbookSample {
     if( !CreateGraphicsPipelines( *LogicalDevice, { shadow_pipeline_create_info }, VK_NULL_HANDLE, shadow_pipeline ) ) {
       return false;
     }
-    InitVkDestroyer( LogicalDevice, shadow_pipeline[0], ShadowMapPipeline );
+    InitVkDestroyer( LogicalDevice, ShadowMapPipeline );
+    *ShadowMapPipeline = shadow_pipeline[0];
 
     return true;
   }

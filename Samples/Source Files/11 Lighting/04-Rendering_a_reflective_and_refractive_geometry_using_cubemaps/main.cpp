@@ -91,7 +91,7 @@ class Sample : public VulkanCookbookSample {
     }
 
     if( !UseStagingBufferToUpdateBufferWithDeviceLocalMemoryBound( PhysicalDevice, *LogicalDevice, sizeof( Model.Data[0] ) * Model.Data.size(),
-      &Model.Data[0], *ModelVertexBuffer, 0, 0, VK_ACCESS_TRANSFER_WRITE_BIT, VK_PIPELINE_STAGE_TOP_OF_PIPE_BIT, VK_PIPELINE_STAGE_VERTEX_INPUT_BIT,
+      &Model.Data[0], *ModelVertexBuffer, 0, 0, VK_ACCESS_VERTEX_ATTRIBUTE_READ_BIT, VK_PIPELINE_STAGE_TOP_OF_PIPE_BIT, VK_PIPELINE_STAGE_VERTEX_INPUT_BIT,
       GraphicsQueue.Handle, FramesResources.front().CommandBuffer, {} ) ) {
       return false;
     }
@@ -114,7 +114,7 @@ class Sample : public VulkanCookbookSample {
     }
 
     if( !UseStagingBufferToUpdateBufferWithDeviceLocalMemoryBound( PhysicalDevice, *LogicalDevice, sizeof( Skybox.Data[0] ) * Skybox.Data.size(),
-      &Skybox.Data[0], *SkyboxVertexBuffer, 0, 0, VK_ACCESS_TRANSFER_WRITE_BIT, VK_PIPELINE_STAGE_TOP_OF_PIPE_BIT, VK_PIPELINE_STAGE_VERTEX_INPUT_BIT,
+      &Skybox.Data[0], *SkyboxVertexBuffer, 0, 0, VK_ACCESS_VERTEX_ATTRIBUTE_READ_BIT, VK_PIPELINE_STAGE_TOP_OF_PIPE_BIT, VK_PIPELINE_STAGE_VERTEX_INPUT_BIT,
       GraphicsQueue.Handle, FramesResources.front().CommandBuffer, {} ) ) {
       return false;
     }
@@ -147,7 +147,7 @@ class Sample : public VulkanCookbookSample {
     InitVkDestroyer( LogicalDevice, CubemapImageView );
     InitVkDestroyer( LogicalDevice, CubemapSampler );
     if( !CreateCombinedImageSampler( PhysicalDevice, *LogicalDevice, VK_IMAGE_TYPE_2D, VK_FORMAT_R8G8B8A8_UNORM, { 1024, 1024, 1 }, 1, 6,
-      VK_IMAGE_USAGE_SAMPLED_BIT | VK_IMAGE_USAGE_TRANSFER_DST_BIT, VK_IMAGE_VIEW_TYPE_CUBE, VK_IMAGE_ASPECT_COLOR_BIT, VK_FILTER_LINEAR,
+      VK_IMAGE_USAGE_SAMPLED_BIT | VK_IMAGE_USAGE_TRANSFER_DST_BIT, true, VK_IMAGE_VIEW_TYPE_CUBE, VK_IMAGE_ASPECT_COLOR_BIT, VK_FILTER_LINEAR,
       VK_FILTER_LINEAR, VK_SAMPLER_MIPMAP_MODE_NEAREST, VK_SAMPLER_ADDRESS_MODE_CLAMP_TO_EDGE, VK_SAMPLER_ADDRESS_MODE_CLAMP_TO_EDGE,
       VK_SAMPLER_ADDRESS_MODE_CLAMP_TO_EDGE, 0.0f, false, 1.0f, false, VK_COMPARE_OP_ALWAYS, 0.0f, 1.0f, VK_BORDER_COLOR_FLOAT_OPAQUE_BLACK,
       false, *CubemapSampler, *CubemapImage, *CubemapImageMemory, *CubemapImageView ) ) {
@@ -349,7 +349,8 @@ class Sample : public VulkanCookbookSample {
       return false;
     }
     
-    VkDestroyer<VkShaderModule> model_vertex_shader_module( LogicalDevice );
+    VkDestroyer<VkShaderModule> model_vertex_shader_module;
+    InitVkDestroyer( LogicalDevice, model_vertex_shader_module );
     if( !CreateShaderModule( *LogicalDevice, model_vertex_shader_spirv, *model_vertex_shader_module ) ) {
       return false;
     }
@@ -358,7 +359,8 @@ class Sample : public VulkanCookbookSample {
     if( !GetBinaryFileContents( "Data/Shaders/11 Lighting/04 Rendering a reflective and refractive geometry using cubemaps/model.frag.spv", model_fragment_shader_spirv ) ) {
       return false;
     }
-    VkDestroyer<VkShaderModule> model_fragment_shader_module( LogicalDevice );
+    VkDestroyer<VkShaderModule> model_fragment_shader_module;
+    InitVkDestroyer( LogicalDevice, model_fragment_shader_module );
     if( !CreateShaderModule( *LogicalDevice, model_fragment_shader_spirv, *model_fragment_shader_module ) ) {
       return false;
     }
@@ -414,7 +416,8 @@ class Sample : public VulkanCookbookSample {
       return false;
     }
 
-    VkDestroyer<VkShaderModule> skybox_vertex_shader_module( LogicalDevice );
+    VkDestroyer<VkShaderModule> skybox_vertex_shader_module;
+    InitVkDestroyer( LogicalDevice, skybox_vertex_shader_module );
     if( !CreateShaderModule( *LogicalDevice, skybox_vertex_shader_spirv, *skybox_vertex_shader_module ) ) {
       return false;
     }
@@ -423,7 +426,8 @@ class Sample : public VulkanCookbookSample {
     if( !GetBinaryFileContents( "Data/Shaders/11 Lighting/04 Rendering a reflective and refractive geometry using cubemaps/skybox.frag.spv", skybox_fragment_shader_spirv ) ) {
       return false;
     }
-    VkDestroyer<VkShaderModule> skybox_fragment_shader_module( LogicalDevice );
+    VkDestroyer<VkShaderModule> skybox_fragment_shader_module;
+    InitVkDestroyer( LogicalDevice, skybox_fragment_shader_module );
     if( !CreateShaderModule( *LogicalDevice, skybox_fragment_shader_spirv, *skybox_fragment_shader_module ) ) {
       return false;
     }
@@ -501,12 +505,12 @@ class Sample : public VulkanCookbookSample {
     // Model
 
     VkPipelineRasterizationStateCreateInfo model_rasterization_state_create_info;
-    SpecifyPipelineRasterizationState( false, false, VK_POLYGON_MODE_FILL, VK_CULL_MODE_BACK_BIT, VK_FRONT_FACE_COUNTER_CLOCKWISE, false, 0.0f, 1.0f, 0.0f, 1.0f, model_rasterization_state_create_info );
+    SpecifyPipelineRasterizationState( false, false, VK_POLYGON_MODE_FILL, VK_CULL_MODE_BACK_BIT, VK_FRONT_FACE_COUNTER_CLOCKWISE, false, 0.0f, 0.0f, 0.0f, 1.0f, model_rasterization_state_create_info );
 
     // Skybox
 
     VkPipelineRasterizationStateCreateInfo skybox_rasterization_state_create_info;
-    SpecifyPipelineRasterizationState( false, false, VK_POLYGON_MODE_FILL, VK_CULL_MODE_FRONT_BIT, VK_FRONT_FACE_COUNTER_CLOCKWISE, false, 0.0f, 1.0f, 0.0f, 1.0f, skybox_rasterization_state_create_info );
+    SpecifyPipelineRasterizationState( false, false, VK_POLYGON_MODE_FILL, VK_CULL_MODE_FRONT_BIT, VK_FRONT_FACE_COUNTER_CLOCKWISE, false, 0.0f, 0.0f, 0.0f, 1.0f, skybox_rasterization_state_create_info );
 
     // Common
 
@@ -552,7 +556,8 @@ class Sample : public VulkanCookbookSample {
     if( !CreateGraphicsPipelines( *LogicalDevice, { model_pipeline_create_info }, VK_NULL_HANDLE, model_pipeline ) ) {
       return false;
     }
-    InitVkDestroyer( LogicalDevice, model_pipeline[0], ModelPipeline );
+    InitVkDestroyer( LogicalDevice, ModelPipeline );
+    *ModelPipeline = model_pipeline[0];
 
     // Skybox
 
@@ -565,7 +570,8 @@ class Sample : public VulkanCookbookSample {
     if( !CreateGraphicsPipelines( *LogicalDevice, { skybox_pipeline_create_info }, VK_NULL_HANDLE, skybox_pipeline ) ) {
       return false;
     }
-    InitVkDestroyer( LogicalDevice, skybox_pipeline[0], SkyboxPipeline );
+    InitVkDestroyer( LogicalDevice, SkyboxPipeline );
+    *SkyboxPipeline = skybox_pipeline[0];
 
     return true;
   }
@@ -586,7 +592,7 @@ class Sample : public VulkanCookbookSample {
           VK_QUEUE_FAMILY_IGNORED,      // uint32_t         CurrentQueueFamily
           VK_QUEUE_FAMILY_IGNORED       // uint32_t         NewQueueFamily
         };
-        SetBufferMemoryBarrier( command_buffer, VK_PIPELINE_STAGE_BOTTOM_OF_PIPE_BIT, VK_PIPELINE_STAGE_TRANSFER_BIT, { pre_transfer_transition } );
+        SetBufferMemoryBarrier( command_buffer, VK_PIPELINE_STAGE_VERTEX_SHADER_BIT, VK_PIPELINE_STAGE_TRANSFER_BIT, { pre_transfer_transition } );
 
         std::vector<VkBufferCopy> regions = {
           {

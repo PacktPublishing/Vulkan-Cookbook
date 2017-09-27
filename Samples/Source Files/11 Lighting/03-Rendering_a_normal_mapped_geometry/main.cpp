@@ -76,7 +76,7 @@ class Sample : public VulkanCookbookSample {
     InitVkDestroyer( LogicalDevice, ImageMemory );
     InitVkDestroyer( LogicalDevice, ImageView );
     if( !CreateCombinedImageSampler( PhysicalDevice, *LogicalDevice, VK_IMAGE_TYPE_2D, VK_FORMAT_R8G8B8A8_UNORM, { (uint32_t)width, (uint32_t)height, 1 },
-      1, 1, VK_IMAGE_USAGE_SAMPLED_BIT | VK_IMAGE_USAGE_TRANSFER_DST_BIT, VK_IMAGE_VIEW_TYPE_2D, VK_IMAGE_ASPECT_COLOR_BIT, VK_FILTER_LINEAR,
+      1, 1, VK_IMAGE_USAGE_SAMPLED_BIT | VK_IMAGE_USAGE_TRANSFER_DST_BIT, false, VK_IMAGE_VIEW_TYPE_2D, VK_IMAGE_ASPECT_COLOR_BIT, VK_FILTER_LINEAR,
       VK_FILTER_LINEAR, VK_SAMPLER_MIPMAP_MODE_NEAREST, VK_SAMPLER_ADDRESS_MODE_REPEAT, VK_SAMPLER_ADDRESS_MODE_REPEAT,
       VK_SAMPLER_ADDRESS_MODE_REPEAT, 0.0f, false, 1.0f, false, VK_COMPARE_OP_ALWAYS, 0.0f, 1.0f, VK_BORDER_COLOR_FLOAT_OPAQUE_BLACK,
       false, *Sampler, *Image, *ImageMemory, *ImageView ) ) {
@@ -304,7 +304,8 @@ class Sample : public VulkanCookbookSample {
       return false;
     }
 
-    VkDestroyer<VkShaderModule> vertex_shader_module( LogicalDevice );
+    VkDestroyer<VkShaderModule> vertex_shader_module;
+    InitVkDestroyer( LogicalDevice, vertex_shader_module );
     if( !CreateShaderModule( *LogicalDevice, vertex_shader_spirv, *vertex_shader_module ) ) {
       return false;
     }
@@ -313,7 +314,8 @@ class Sample : public VulkanCookbookSample {
     if( !GetBinaryFileContents( "Data/Shaders/11 Lighting/03 Rendering a normal mapped geometry/shader.frag.spv", fragment_shader_spirv ) ) {
       return false;
     }
-    VkDestroyer<VkShaderModule> fragment_shader_module( LogicalDevice );
+    VkDestroyer<VkShaderModule> fragment_shader_module;
+    InitVkDestroyer( LogicalDevice, fragment_shader_module );
     if( !CreateShaderModule( *LogicalDevice, fragment_shader_spirv, *fragment_shader_module ) ) {
       return false;
     }
@@ -453,7 +455,8 @@ class Sample : public VulkanCookbookSample {
     if( !CreateGraphicsPipelines( *LogicalDevice, { pipeline_create_info }, VK_NULL_HANDLE, pipeline ) ) {
       return false;
     }
-    InitVkDestroyer( LogicalDevice, pipeline[0], Pipeline );
+    InitVkDestroyer( LogicalDevice, Pipeline );
+    *Pipeline = pipeline[0];
 
     return true;
   }
