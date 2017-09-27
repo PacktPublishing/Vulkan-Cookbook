@@ -256,7 +256,7 @@ class Sample : public VulkanCookbookSample {
     SpecifyPipelineViewportAndScissorTestState( viewport_infos, viewport_state_create_info );
 
     VkPipelineRasterizationStateCreateInfo rasterization_state_create_info;
-    SpecifyPipelineRasterizationState( false, false, VK_POLYGON_MODE_FILL, VK_CULL_MODE_BACK_BIT, VK_FRONT_FACE_COUNTER_CLOCKWISE, false, 0.0f, 1.0f, 0.0f, 1.0f, rasterization_state_create_info );
+    SpecifyPipelineRasterizationState( false, false, VK_POLYGON_MODE_FILL, VK_CULL_MODE_BACK_BIT, VK_FRONT_FACE_COUNTER_CLOCKWISE, false, 0.0f, 0.0f, 0.0f, 1.0f, rasterization_state_create_info );
 
     VkPipelineMultisampleStateCreateInfo multisample_state_create_info;
     SpecifyPipelineMultisampleState( VK_SAMPLE_COUNT_1_BIT, false, 0.0f, nullptr, false, false, multisample_state_create_info );
@@ -427,7 +427,7 @@ class Sample : public VulkanCookbookSample {
     Matrix4x4 mvp_matrix = perspective_matrix * translation_matrix * rotation_matrix;
 
     if( !UseStagingBufferToUpdateBufferWithDeviceLocalMemoryBound( PhysicalDevice, *LogicalDevice, sizeof( mvp_matrix[0] ) * mvp_matrix.size(),
-      &mvp_matrix[0], *UniformBuffer, 0, 0, VK_ACCESS_UNIFORM_READ_BIT, VK_PIPELINE_STAGE_VERTEX_SHADER_BIT, VK_PIPELINE_STAGE_VERTEX_INPUT_BIT,
+      &mvp_matrix[0], *UniformBuffer, 0, 0, VK_ACCESS_UNIFORM_READ_BIT, VK_PIPELINE_STAGE_VERTEX_SHADER_BIT, VK_PIPELINE_STAGE_VERTEX_SHADER_BIT,
       GraphicsQueue.Handle, FramesResources.front().CommandBuffer, {} ) ) {
       return false;
     }
