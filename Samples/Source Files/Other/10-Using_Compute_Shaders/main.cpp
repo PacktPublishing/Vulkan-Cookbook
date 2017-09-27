@@ -139,7 +139,8 @@ class Sample : public VulkanCookbookSample {
       return false;
     }
 
-    VkDestroyer<VkShaderModule> compute_shader_module( LogicalDevice );
+    VkDestroyer<VkShaderModule> compute_shader_module;
+    InitVkDestroyer( LogicalDevice, compute_shader_module );
     if( !CreateShaderModule( *LogicalDevice, compute_shader_spirv, *compute_shader_module ) ) {
       return false;
     }

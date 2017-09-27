@@ -109,7 +109,8 @@ class Sample : public VulkanCookbookSample {
       return false;
     }
 
-    VkDestroyer<VkShaderModule> vertex_shader_module( LogicalDevice );
+    VkDestroyer<VkShaderModule> vertex_shader_module;
+    InitVkDestroyer( LogicalDevice, vertex_shader_module );
     if( !CreateShaderModule( *LogicalDevice, vertex_shader_spirv, *vertex_shader_module ) ) {
       return false;
     }
@@ -118,7 +119,8 @@ class Sample : public VulkanCookbookSample {
     if( !GetBinaryFileContents( "Data/Shaders/Other/07 Using Push Constants/shader.frag.spv", fragment_shader_spirv ) ) {
       return false;
     }
-    VkDestroyer<VkShaderModule> fragment_shader_module( LogicalDevice );
+    VkDestroyer<VkShaderModule> fragment_shader_module;
+    InitVkDestroyer( LogicalDevice, fragment_shader_module );
     if( !CreateShaderModule( *LogicalDevice, fragment_shader_spirv, *fragment_shader_module ) ) {
       return false;
     }
@@ -241,7 +243,8 @@ class Sample : public VulkanCookbookSample {
     if( !CreateGraphicsPipelines( *LogicalDevice, { graphic_pipeline_create_info }, VK_NULL_HANDLE, graphics_pipeline ) ) {
       return false;
     }
-    InitVkDestroyer( LogicalDevice, graphics_pipeline[0], GraphicsPipeline );
+    InitVkDestroyer( LogicalDevice, GraphicsPipeline );
+    *GraphicsPipeline = graphics_pipeline[0];
 
     // Vertex data
     std::vector<float> vertices = {

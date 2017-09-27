@@ -200,7 +200,8 @@ class Sample : public VulkanCookbookSample {
       return false;
     }
 
-    VkDestroyer<VkShaderModule> vertex_shader_module( LogicalDevice );
+    VkDestroyer<VkShaderModule> vertex_shader_module;
+    InitVkDestroyer( LogicalDevice, vertex_shader_module );
     if( !CreateShaderModule( *LogicalDevice, vertex_shader_spirv, *vertex_shader_module ) ) {
       return false;
     }
@@ -209,7 +210,8 @@ class Sample : public VulkanCookbookSample {
     if( !GetBinaryFileContents( "Data/Shaders/Other/11 Drawing Vertex Normals/model.frag.spv", fragment_shader_spirv ) ) {
       return false;
     }
-    VkDestroyer<VkShaderModule> fragment_shader_module( LogicalDevice );
+    VkDestroyer<VkShaderModule> fragment_shader_module;
+    InitVkDestroyer( LogicalDevice, fragment_shader_module );
     if( !CreateShaderModule( *LogicalDevice, fragment_shader_spirv, *fragment_shader_module ) ) {
       return false;
     }
@@ -238,7 +240,8 @@ class Sample : public VulkanCookbookSample {
       return false;
     }
     
-    VkDestroyer<VkShaderModule> normals_vertex_shader_module( LogicalDevice );
+    VkDestroyer<VkShaderModule> normals_vertex_shader_module;
+    InitVkDestroyer( LogicalDevice, normals_vertex_shader_module );
     if( !CreateShaderModule( *LogicalDevice, normals_vertex_shader_spirv, *normals_vertex_shader_module ) ) {
       return false;
     }
@@ -248,7 +251,8 @@ class Sample : public VulkanCookbookSample {
       return false;
     }
     
-    VkDestroyer<VkShaderModule> normals_geometry_shader_module( LogicalDevice );
+    VkDestroyer<VkShaderModule> normals_geometry_shader_module;
+    InitVkDestroyer( LogicalDevice, normals_geometry_shader_module );
     if( !CreateShaderModule( *LogicalDevice, normals_geometry_shader_spirv, *normals_geometry_shader_module ) ) {
       return false;
     }
@@ -257,7 +261,8 @@ class Sample : public VulkanCookbookSample {
     if( !GetBinaryFileContents( "Data/Shaders/Other/11 Drawing Vertex Normals/normals.frag.spv", normals_fragment_shader_spirv ) ) {
       return false;
     }
-    VkDestroyer<VkShaderModule> normals_fragment_shader_module( LogicalDevice );
+    VkDestroyer<VkShaderModule> normals_fragment_shader_module;
+    InitVkDestroyer( LogicalDevice, normals_fragment_shader_module );
     if( !CreateShaderModule( *LogicalDevice, normals_fragment_shader_spirv, *normals_fragment_shader_module ) ) {
       return false;
     }
@@ -387,7 +392,8 @@ class Sample : public VulkanCookbookSample {
     if( !CreateGraphicsPipelines( *LogicalDevice, { model_pipeline_create_info }, VK_NULL_HANDLE, model_pipeline ) ) {
       return false;
     }
-    InitVkDestroyer( LogicalDevice, model_pipeline[0], ModelPipeline );
+    InitVkDestroyer( LogicalDevice, ModelPipeline );
+    *ModelPipeline = model_pipeline[0];
 
     VkGraphicsPipelineCreateInfo normals_pipeline_create_info;
     SpecifyGraphicsPipelineCreationParameters( 0, normals_shader_stage_create_infos, vertex_input_state_create_info, input_assembly_state_create_info,
@@ -398,7 +404,8 @@ class Sample : public VulkanCookbookSample {
     if( !CreateGraphicsPipelines( *LogicalDevice, { normals_pipeline_create_info }, VK_NULL_HANDLE, normals_pipeline ) ) {
       return false;
     }
-    InitVkDestroyer( LogicalDevice, normals_pipeline[0], NormalsPipeline );
+    InitVkDestroyer( LogicalDevice, NormalsPipeline );
+    *NormalsPipeline = normals_pipeline[0];
 
     return true;
   }
