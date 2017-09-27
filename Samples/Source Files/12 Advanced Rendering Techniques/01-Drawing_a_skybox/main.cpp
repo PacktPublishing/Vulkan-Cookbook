@@ -116,7 +116,7 @@ class Sample : public VulkanCookbookSample {
     InitVkDestroyer( LogicalDevice, CubemapImageView );
     InitVkDestroyer( LogicalDevice, CubemapSampler );
     if( !CreateCombinedImageSampler( PhysicalDevice, *LogicalDevice, VK_IMAGE_TYPE_2D, VK_FORMAT_R8G8B8A8_UNORM, { 1024, 1024, 1 }, 1, 6,
-      VK_IMAGE_USAGE_SAMPLED_BIT | VK_IMAGE_USAGE_TRANSFER_DST_BIT, VK_IMAGE_VIEW_TYPE_CUBE, VK_IMAGE_ASPECT_COLOR_BIT, VK_FILTER_LINEAR,
+      VK_IMAGE_USAGE_SAMPLED_BIT | VK_IMAGE_USAGE_TRANSFER_DST_BIT, true, VK_IMAGE_VIEW_TYPE_CUBE, VK_IMAGE_ASPECT_COLOR_BIT, VK_FILTER_LINEAR,
       VK_FILTER_LINEAR, VK_SAMPLER_MIPMAP_MODE_NEAREST, VK_SAMPLER_ADDRESS_MODE_CLAMP_TO_EDGE, VK_SAMPLER_ADDRESS_MODE_CLAMP_TO_EDGE,
       VK_SAMPLER_ADDRESS_MODE_CLAMP_TO_EDGE, 0.0f, false, 1.0f, false, VK_COMPARE_OP_ALWAYS, 0.0f, 1.0f, VK_BORDER_COLOR_FLOAT_OPAQUE_BLACK,
       false, *CubemapSampler, *CubemapImage, *CubemapImageMemory, *CubemapImageView ) ) {
@@ -302,7 +302,8 @@ class Sample : public VulkanCookbookSample {
       return false;
     }
 
-    VkDestroyer<VkShaderModule> vertex_shader_module( LogicalDevice );
+    VkDestroyer<VkShaderModule> vertex_shader_module;
+    InitVkDestroyer( LogicalDevice, vertex_shader_module );
     if( !CreateShaderModule( *LogicalDevice, vertex_shader_spirv, *vertex_shader_module ) ) {
       return false;
     }
@@ -311,7 +312,8 @@ class Sample : public VulkanCookbookSample {
     if( !GetBinaryFileContents( "Data/Shaders/12 Advanced Rendering Techniques/01 Skybox/shader.frag.spv", fragment_shader_spirv ) ) {
       return false;
     }
-    VkDestroyer<VkShaderModule> fragment_shader_module( LogicalDevice );
+    VkDestroyer<VkShaderModule> fragment_shader_module;
+    InitVkDestroyer( LogicalDevice, fragment_shader_module );
     if( !CreateShaderModule( *LogicalDevice, fragment_shader_spirv, *fragment_shader_module ) ) {
       return false;
     }
@@ -432,7 +434,8 @@ class Sample : public VulkanCookbookSample {
     if( !CreateGraphicsPipelines( *LogicalDevice, { pipeline_create_info }, VK_NULL_HANDLE, pipeline ) ) {
       return false;
     }
-    InitVkDestroyer( LogicalDevice, pipeline[0], Pipeline );
+    InitVkDestroyer( LogicalDevice, Pipeline );
+    *Pipeline = pipeline[0];
 
     return true;
   }

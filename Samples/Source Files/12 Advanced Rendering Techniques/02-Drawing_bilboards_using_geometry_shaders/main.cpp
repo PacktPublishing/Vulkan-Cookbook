@@ -242,7 +242,8 @@ class Sample : public VulkanCookbookSample {
       return false;
     }
 
-    VkDestroyer<VkShaderModule> vertex_shader_module( LogicalDevice );
+    VkDestroyer<VkShaderModule> vertex_shader_module;
+    InitVkDestroyer( LogicalDevice, vertex_shader_module );
     if( !CreateShaderModule( *LogicalDevice, vertex_shader_spirv, *vertex_shader_module ) ) {
       return false;
     }
@@ -252,7 +253,8 @@ class Sample : public VulkanCookbookSample {
       return false;
     }
     
-    VkDestroyer<VkShaderModule> geometry_shader_module( LogicalDevice );
+    VkDestroyer<VkShaderModule> geometry_shader_module;
+    InitVkDestroyer( LogicalDevice, geometry_shader_module );
     if( !CreateShaderModule( *LogicalDevice, geometry_shader_spirv, *geometry_shader_module ) ) {
       return false;
     }
@@ -261,7 +263,8 @@ class Sample : public VulkanCookbookSample {
     if( !GetBinaryFileContents( "Data/Shaders/12 Advanced Rendering Techniques/02 Drawing billboards using geometry shaders/shader.frag.spv", fragment_shader_spirv ) ) {
       return false;
     }
-    VkDestroyer<VkShaderModule> fragment_shader_module( LogicalDevice );
+    VkDestroyer<VkShaderModule> fragment_shader_module;
+    InitVkDestroyer( LogicalDevice, fragment_shader_module );
     if( !CreateShaderModule( *LogicalDevice, fragment_shader_spirv, *fragment_shader_module ) ) {
       return false;
     }
@@ -388,7 +391,8 @@ class Sample : public VulkanCookbookSample {
     if( !CreateGraphicsPipelines( *LogicalDevice, { pipeline_create_info }, VK_NULL_HANDLE, pipeline ) ) {
       return false;
     }
-    InitVkDestroyer( LogicalDevice, pipeline[0], Pipeline );
+    InitVkDestroyer( LogicalDevice, Pipeline );
+    *Pipeline = pipeline[0];
 
     return true;
   }

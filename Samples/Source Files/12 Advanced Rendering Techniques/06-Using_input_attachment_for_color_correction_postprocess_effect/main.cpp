@@ -196,7 +196,7 @@ class Sample : public VulkanCookbookSample {
     InitVkDestroyer( LogicalDevice, CubemapImageView );
     InitVkDestroyer( LogicalDevice, CubemapSampler );
     if( !CreateCombinedImageSampler( PhysicalDevice, *LogicalDevice, VK_IMAGE_TYPE_2D, VK_FORMAT_R8G8B8A8_UNORM, { 1024, 1024, 1 }, 1, 6,
-      VK_IMAGE_USAGE_SAMPLED_BIT | VK_IMAGE_USAGE_TRANSFER_DST_BIT, VK_IMAGE_VIEW_TYPE_CUBE, VK_IMAGE_ASPECT_COLOR_BIT, VK_FILTER_LINEAR,
+      VK_IMAGE_USAGE_SAMPLED_BIT | VK_IMAGE_USAGE_TRANSFER_DST_BIT, false, VK_IMAGE_VIEW_TYPE_CUBE, VK_IMAGE_ASPECT_COLOR_BIT, VK_FILTER_LINEAR,
       VK_FILTER_LINEAR, VK_SAMPLER_MIPMAP_MODE_NEAREST, VK_SAMPLER_ADDRESS_MODE_CLAMP_TO_EDGE, VK_SAMPLER_ADDRESS_MODE_CLAMP_TO_EDGE,
       VK_SAMPLER_ADDRESS_MODE_CLAMP_TO_EDGE, 0.0f, false, 1.0f, false, VK_COMPARE_OP_ALWAYS, 0.0f, 1.0f, VK_BORDER_COLOR_FLOAT_OPAQUE_BLACK,
       false, *CubemapSampler, *CubemapImage, *CubemapImageMemory, *CubemapImageView ) ) {
@@ -475,7 +475,8 @@ std::vector<VkSubpassDependency> subpass_dependencies = {
       return false;
     }
 
-    VkDestroyer<VkShaderModule> model_vertex_shader_module( LogicalDevice );
+    VkDestroyer<VkShaderModule> model_vertex_shader_module;
+    InitVkDestroyer( LogicalDevice, model_vertex_shader_module );
     if( !CreateShaderModule( *LogicalDevice, model_vertex_shader_spirv, *model_vertex_shader_module ) ) {
       return false;
     }
@@ -484,7 +485,8 @@ std::vector<VkSubpassDependency> subpass_dependencies = {
     if( !GetBinaryFileContents( "Data/Shaders/12 Advanced Rendering Techniques/06 Using input attachment for color correction postprocess effect/model.frag.spv", model_fragment_shader_spirv ) ) {
       return false;
     }
-    VkDestroyer<VkShaderModule> model_fragment_shader_module( LogicalDevice );
+    VkDestroyer<VkShaderModule> model_fragment_shader_module;
+    InitVkDestroyer( LogicalDevice, model_fragment_shader_module );
     if( !CreateShaderModule( *LogicalDevice, model_fragment_shader_spirv, *model_fragment_shader_module ) ) {
       return false;
     }
@@ -540,7 +542,8 @@ std::vector<VkSubpassDependency> subpass_dependencies = {
       return false;
     }
 
-    VkDestroyer<VkShaderModule> skybox_vertex_shader_module( LogicalDevice );
+    VkDestroyer<VkShaderModule> skybox_vertex_shader_module;
+    InitVkDestroyer( LogicalDevice, skybox_vertex_shader_module );
     if( !CreateShaderModule( *LogicalDevice, skybox_vertex_shader_spirv, *skybox_vertex_shader_module ) ) {
       return false;
     }
@@ -549,7 +552,8 @@ std::vector<VkSubpassDependency> subpass_dependencies = {
     if( !GetBinaryFileContents( "Data/Shaders/12 Advanced Rendering Techniques/06 Using input attachment for color correction postprocess effect/skybox.frag.spv", skybox_fragment_shader_spirv ) ) {
       return false;
     }
-    VkDestroyer<VkShaderModule> skybox_fragment_shader_module( LogicalDevice );
+    VkDestroyer<VkShaderModule> skybox_fragment_shader_module;
+    InitVkDestroyer( LogicalDevice, skybox_fragment_shader_module );
     if( !CreateShaderModule( *LogicalDevice, skybox_fragment_shader_spirv, *skybox_fragment_shader_module ) ) {
       return false;
     }
@@ -599,7 +603,8 @@ std::vector<VkSubpassDependency> subpass_dependencies = {
       return false;
     }
 
-    VkDestroyer<VkShaderModule> postprocess_vertex_shader_module( LogicalDevice );
+    VkDestroyer<VkShaderModule> postprocess_vertex_shader_module;
+    InitVkDestroyer( LogicalDevice, postprocess_vertex_shader_module );
     if( !CreateShaderModule( *LogicalDevice, postprocess_vertex_shader_spirv, *postprocess_vertex_shader_module ) ) {
       return false;
     }
@@ -608,7 +613,8 @@ std::vector<VkSubpassDependency> subpass_dependencies = {
     if( !GetBinaryFileContents( "Data/Shaders/12 Advanced Rendering Techniques/06 Using input attachment for color correction postprocess effect/postprocess.frag.spv", postprocess_fragment_shader_spirv ) ) {
       return false;
     }
-    VkDestroyer<VkShaderModule> postprocess_fragment_shader_module( LogicalDevice );
+    VkDestroyer<VkShaderModule> postprocess_fragment_shader_module;
+    InitVkDestroyer( LogicalDevice, postprocess_fragment_shader_module );
     if( !CreateShaderModule( *LogicalDevice, postprocess_fragment_shader_spirv, *postprocess_fragment_shader_module ) ) {
       return false;
     }
@@ -742,7 +748,8 @@ std::vector<VkSubpassDependency> subpass_dependencies = {
     if( !CreateGraphicsPipelines( *LogicalDevice, { model_pipeline_create_info }, VK_NULL_HANDLE, model_pipeline ) ) {
       return false;
     }
-    InitVkDestroyer( LogicalDevice, model_pipeline[0], ModelPipeline );
+    InitVkDestroyer( LogicalDevice, ModelPipeline );
+    *ModelPipeline = model_pipeline[0];
 
     // Skybox
 
@@ -755,7 +762,8 @@ std::vector<VkSubpassDependency> subpass_dependencies = {
     if( !CreateGraphicsPipelines( *LogicalDevice, { skybox_pipeline_create_info }, VK_NULL_HANDLE, skybox_pipeline ) ) {
       return false;
     }
-    InitVkDestroyer( LogicalDevice, skybox_pipeline[0], SkyboxPipeline );
+    InitVkDestroyer( LogicalDevice, SkyboxPipeline );
+    *SkyboxPipeline = skybox_pipeline[0];
 
     // Postprocess
 
@@ -768,7 +776,8 @@ std::vector<VkSubpassDependency> subpass_dependencies = {
     if( !CreateGraphicsPipelines( *LogicalDevice, { postprocess_pipeline_create_info }, VK_NULL_HANDLE, postprocess_pipeline ) ) {
       return false;
     }
-    InitVkDestroyer( LogicalDevice, postprocess_pipeline[0], PostprocessPipeline );
+    InitVkDestroyer( LogicalDevice, PostprocessPipeline );
+    *PostprocessPipeline = postprocess_pipeline[0];
 
     return true;
   }
