@@ -46,7 +46,8 @@ namespace VulkanCookbook {
     // Create cache for each thread, initialize its contents with data loaded from file
     std::vector<VkDestroyer<VkPipelineCache>> pipeline_caches( graphics_pipelines_create_infos.size() );
     for( size_t i = 0; i < graphics_pipelines_create_infos.size(); ++i ) {
-      pipeline_caches[i] = VkDestroyer< VkPipelineCache >( logical_device );
+      pipeline_caches[i] = VkDestroyer<VkPipelineCache>();
+      InitVkDestroyer( logical_device, pipeline_caches[i] );
       if( !CreatePipelineCacheObject( logical_device, cache_data, *pipeline_caches[i] ) ) {
         return false;
       }

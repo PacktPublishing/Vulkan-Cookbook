@@ -41,6 +41,42 @@ namespace VulkanCookbook {
     VkDestroyer<VkFence>        DrawingFinishedFence;
     VkDestroyer<VkImageView>    DepthAttachment;
     VkDestroyer<VkFramebuffer>  Framebuffer;
+
+    FrameResources( VkCommandBuffer            & command_buffer,
+                    VkDestroyer<VkSemaphore>   & image_acquired_semaphore,
+                    VkDestroyer<VkSemaphore>   & ready_to_present_semaphore,
+                    VkDestroyer<VkFence>       & drawing_finished_fence,
+                    VkDestroyer<VkImageView>   & depth_attachment,
+                    VkDestroyer<VkFramebuffer> & framebuffer ) :
+      CommandBuffer( command_buffer ),
+      ImageAcquiredSemaphore( std::move( image_acquired_semaphore ) ),
+      ReadyToPresentSemaphore( std::move( ready_to_present_semaphore ) ),
+      DrawingFinishedFence( std::move( drawing_finished_fence ) ),
+      DepthAttachment( std::move( depth_attachment ) ),
+      Framebuffer( std::move( framebuffer ) ) {
+    }
+
+    FrameResources( FrameResources && other ) {
+      *this = std::move( other );
+    }
+
+    FrameResources& operator=(FrameResources && other) {
+      if( this != &other ) {
+        VkCommandBuffer command_buffer = CommandBuffer;
+
+        CommandBuffer = other.CommandBuffer;
+        other.CommandBuffer = command_buffer;
+        ImageAcquiredSemaphore = std::move( other.ImageAcquiredSemaphore );
+        ReadyToPresentSemaphore = std::move( other.ReadyToPresentSemaphore );
+        DrawingFinishedFence = std::move( other.DrawingFinishedFence );
+        DepthAttachment = std::move( other.DepthAttachment );
+        Framebuffer = std::move( other.Framebuffer );
+      }
+      return *this;
+    }
+
+    FrameResources( FrameResources const & ) = delete;
+    FrameResources& operator=(FrameResources const &) = delete;
   };
 
   bool IncreasePerformanceThroughIncreasingTheNumberOfSeparatelyRenderedFrames( VkDevice                                                        logical_device,

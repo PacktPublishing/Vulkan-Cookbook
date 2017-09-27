@@ -61,17 +61,19 @@ namespace VulkanCookbook {
                                                                 VkCommandBuffer            command_buffer,
                                                                 std::vector<VkSemaphore>   signal_semaphores ) {
 
-    VkDestroyer<VkBuffer> staging_buffer( logical_device );
+    VkDestroyer<VkBuffer> staging_buffer;
+    InitVkDestroyer( logical_device, staging_buffer );
     if( !CreateBuffer( logical_device, data_size, VK_BUFFER_USAGE_TRANSFER_SRC_BIT, *staging_buffer ) ) {
       return false;
     }
 
-    VkDestroyer<VkDeviceMemory> memory_object( logical_device );
-    if( !AllocateAndBindMemoryObjectToBuffer( physical_device, logical_device, staging_buffer.Get(), VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT, *memory_object ) ) {
+    VkDestroyer<VkDeviceMemory> memory_object;
+    InitVkDestroyer( logical_device, memory_object );
+    if( !AllocateAndBindMemoryObjectToBuffer( physical_device, logical_device, *staging_buffer, VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT, *memory_object ) ) {
       return false;
     }
 
-    if( !MapUpdateAndUnmapHostVisibleMemory( logical_device, memory_object.Get(), 0, data_size, data, true, nullptr ) ) {
+    if( !MapUpdateAndUnmapHostVisibleMemory( logical_device, *memory_object, 0, data_size, data, true, nullptr ) ) {
       return false;
     }
 
@@ -92,7 +94,7 @@ namespace VulkanCookbook {
         destination_image_aspect                  // VkImageAspectFlags Aspect
       } } );
 
-    CopyDataFromBufferToImage( command_buffer, staging_buffer.Get(), destination_image, VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL,
+    CopyDataFromBufferToImage( command_buffer, *staging_buffer, destination_image, VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL,
     {
       {
         0,                                        // VkDeviceSize               bufferOffset
@@ -120,7 +122,8 @@ namespace VulkanCookbook {
       return false;
     }
 
-    VkDestroyer<VkFence> fence( logical_device );
+    VkDestroyer<VkFence> fence;
+    InitVkDestroyer( logical_device, fence );
     if( !CreateFence( logical_device, false, *fence ) ) {
       return false;
     }
@@ -129,7 +132,7 @@ namespace VulkanCookbook {
       return false;
     }
 
-    if( !WaitForFences( logical_device, { fence.Get() }, VK_FALSE, 500000000 ) ) {
+    if( !WaitForFences( logical_device, { *fence }, VK_FALSE, 500000000 ) ) {
       return false;
     }
 

@@ -56,12 +56,14 @@ namespace VulkanCookbook {
                                                                  VkCommandBuffer            command_buffer,
                                                                  std::vector<VkSemaphore>   signal_semaphores ) {
 
-    VkDestroyer<VkBuffer> staging_buffer( logical_device );
+    VkDestroyer<VkBuffer> staging_buffer;
+    InitVkDestroyer( logical_device, staging_buffer );
     if( !CreateBuffer( logical_device, data_size, VK_BUFFER_USAGE_TRANSFER_SRC_BIT, *staging_buffer ) ) {
       return false;
     }
 
-    VkDestroyer<VkDeviceMemory> memory_object( logical_device );
+    VkDestroyer<VkDeviceMemory> memory_object;
+    InitVkDestroyer( logical_device, memory_object );
     if( !AllocateAndBindMemoryObjectToBuffer( physical_device, logical_device, *staging_buffer, VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT, *memory_object ) ) {
       return false;
     }
@@ -84,7 +86,8 @@ namespace VulkanCookbook {
       return false;
     }
 
-    VkDestroyer<VkFence> fence( logical_device );
+    VkDestroyer<VkFence> fence;
+    InitVkDestroyer( logical_device, fence );
     if( !CreateFence( logical_device, false, *fence ) ) {
       return false;
     }
