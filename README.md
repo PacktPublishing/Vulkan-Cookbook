@@ -199,7 +199,7 @@ This code sample shows how to enable alpha blending (transparency) in a graphics
 
 * ### [14 Drawing Single Fullscreen Triangle For Postprocessing](./Samples/Source%20Files/Other/14-Drawing_Single_Fullscreen_Triangle_For_Postprocessing/main.cpp)
 
-This sample shows an alternative for performing a postprocessing with a quad (two triangles). Here a single triangle covering the whole screen is rendered.<br>
+This sample shows an alternative for performing a postprocessing with a quad (two triangles). Here a single triangle covering the whole screen is used to apply a grayscale effect.<br>
 
 <hr>
 
