@@ -27,8 +27,7 @@
 // Author:   Pawel Lapinski
 // LinkedIn: https://www.linkedin.com/in/pawel-lapinski-84522329
 //
-// Chapter: 12 Advanced Rendering Techniques
-// Recipe:  05 Rendering a fullscreen quad for postprocessing
+// Recipe:  14-Drawing_Single_Fullscreen_Triangle_For_Postprocessing
 
 #include "CookbookSampleFramework.h"
 
