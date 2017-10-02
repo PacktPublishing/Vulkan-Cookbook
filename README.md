@@ -192,8 +192,14 @@ In this example we can see how to setup a render pass, framebufer and a graphics
 
 * ### [13 - Enabling alpha blending](./Samples/Source%20Files/Other/13-Enabling_Alpha_Blending/main.cpp)
 
-This code sample shows how to enable alpha blending (transparency) during graphics pipeline creation.<br>
+This code sample shows how to enable alpha blending (transparency) in a graphics pipeline.<br>
 <b>Left mouse button:</b> disable/enable blending<br>
+
+<img src="./Samples/Source%20Files/Other/14-Drawing_Single_Fullscreen_Triangle_For_Postprocessing/screenshot.png" width="150px" align="right">
+
+* ### [14 Drawing Single Fullscreen Triangle For Postprocessing](./Samples/Source%20Files/Other/14-Drawing_Single_Fullscreen_Triangle_For_Postprocessing/main.cpp)
+
+This sample shows an alternative for performing a postprocessing with a quad (two triangles). Here a single triangle covering the whole screen is rendered.<br>
 
 <hr>
 
