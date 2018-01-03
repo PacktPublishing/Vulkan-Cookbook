@@ -41,7 +41,7 @@ namespace VulkanCookbook {
 
     for( uint32_t index = 0; index < static_cast<uint32_t>(queue_families.size()); ++index ) {
       if( (queue_families[index].queueCount > 0) &&
-          (queue_families[index].queueFlags & desired_capabilities ) ) {
+          ((queue_families[index].queueFlags & desired_capabilities) == desired_capabilities) ) {
         queue_family_index = index;
         return true;
       }
