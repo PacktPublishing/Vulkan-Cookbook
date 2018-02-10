@@ -37,33 +37,33 @@ using namespace VulkanCookbook;
 
 class Sample : public VulkanCookbookSample {
   std::array<Mesh, 2>                     Scene;
-  VkDestroyer<VkBuffer>                   VertexBuffer;
-  VkDestroyer<VkDeviceMemory>             VertexBufferMemory;
+  VkDestroyer(VkBuffer)                   VertexBuffer;
+  VkDestroyer(VkDeviceMemory)             VertexBufferMemory;
 
   struct ShadowMapParameters {
-    VkDestroyer<VkImage>                    Image;
-    VkDestroyer<VkDeviceMemory>             Memory;
-    VkDestroyer<VkImageView>                View;
-    VkDestroyer<VkFramebuffer>              Framebuffer;
+    VkDestroyer(VkImage)                    Image;
+    VkDestroyer(VkDeviceMemory)             Memory;
+    VkDestroyer(VkImageView)                View;
+    VkDestroyer(VkFramebuffer)              Framebuffer;
   }                                       ShadowMap;
-  VkDestroyer<VkSampler>                  ShadowMapSampler;
+  VkDestroyer(VkSampler)                  ShadowMapSampler;
 
-  VkDestroyer<VkDescriptorSetLayout>      DescriptorSetLayout;
-  VkDestroyer<VkDescriptorPool>           DescriptorPool;
+  VkDestroyer(VkDescriptorSetLayout)      DescriptorSetLayout;
+  VkDestroyer(VkDescriptorPool)           DescriptorPool;
   std::vector<VkDescriptorSet>            DescriptorSets;
 
-  VkDestroyer<VkPipelineLayout>           PipelineLayout;
+  VkDestroyer(VkPipelineLayout)           PipelineLayout;
 
-  VkDestroyer<VkRenderPass>               ShadowMapRenderPass;
-  VkDestroyer<VkPipeline>                 ShadowMapPipeline;
-  VkDestroyer<VkRenderPass>               SceneRenderPass;
-  VkDestroyer<VkPipeline>                 ScenePipeline;
+  VkDestroyer(VkRenderPass)               ShadowMapRenderPass;
+  VkDestroyer(VkPipeline)                 ShadowMapPipeline;
+  VkDestroyer(VkRenderPass)               SceneRenderPass;
+  VkDestroyer(VkPipeline)                 ScenePipeline;
 
-  VkDestroyer<VkBuffer>                   StagingBuffer;
-  VkDestroyer<VkDeviceMemory>             StagingBufferMemory;
+  VkDestroyer(VkBuffer)                   StagingBuffer;
+  VkDestroyer(VkDeviceMemory)             StagingBufferMemory;
   bool                                    UpdateUniformBuffer;
-  VkDestroyer<VkBuffer>                   UniformBuffer;
-  VkDestroyer<VkDeviceMemory>             UniformBufferMemory;
+  VkDestroyer(VkBuffer)                   UniformBuffer;
+  VkDestroyer(VkDeviceMemory)             UniformBufferMemory;
 
   OrbitingCamera                          LightSource;
   OrbitingCamera                          Camera;
@@ -374,7 +374,7 @@ class Sample : public VulkanCookbookSample {
       return false;
     }
 
-    VkDestroyer<VkShaderModule> scene_vertex_shader_module;
+    VkDestroyer(VkShaderModule) scene_vertex_shader_module;
     InitVkDestroyer( LogicalDevice, scene_vertex_shader_module );
     if( !CreateShaderModule( *LogicalDevice, scene_vertex_shader_spirv, *scene_vertex_shader_module ) ) {
       return false;
@@ -384,7 +384,7 @@ class Sample : public VulkanCookbookSample {
     if( !GetBinaryFileContents( "Data/Shaders/11 Lighting/05 Adding shadows to the scene/scene.frag.spv", scene_fragment_shader_spirv ) ) {
       return false;
     }
-    VkDestroyer<VkShaderModule> scene_fragment_shader_module;
+    VkDestroyer(VkShaderModule) scene_fragment_shader_module;
     InitVkDestroyer( LogicalDevice, scene_fragment_shader_module );
     if( !CreateShaderModule( *LogicalDevice, scene_fragment_shader_spirv, *scene_fragment_shader_module ) ) {
       return false;
@@ -441,7 +441,7 @@ class Sample : public VulkanCookbookSample {
       return false;
     }
 
-    VkDestroyer<VkShaderModule> shadow_vertex_shader_module;
+    VkDestroyer(VkShaderModule) shadow_vertex_shader_module;
     InitVkDestroyer( LogicalDevice, shadow_vertex_shader_module );
     if( !CreateShaderModule( *LogicalDevice, shadow_vertex_shader_spirv, *shadow_vertex_shader_module ) ) {
       return false;

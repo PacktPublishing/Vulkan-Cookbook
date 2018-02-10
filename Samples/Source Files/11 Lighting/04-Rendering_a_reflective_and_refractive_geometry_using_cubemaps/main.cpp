@@ -37,32 +37,32 @@ using namespace VulkanCookbook;
 
 class Sample : public VulkanCookbookSample {
   Mesh                                Skybox;
-  VkDestroyer<VkBuffer>               SkyboxVertexBuffer;
-  VkDestroyer<VkDeviceMemory>         SkyboxVertexBufferMemory;
+  VkDestroyer(VkBuffer)               SkyboxVertexBuffer;
+  VkDestroyer(VkDeviceMemory)         SkyboxVertexBufferMemory;
 
   Mesh                                Model;
-  VkDestroyer<VkBuffer>               ModelVertexBuffer;
-  VkDestroyer<VkDeviceMemory>         ModelVertexBufferMemory;
+  VkDestroyer(VkBuffer)               ModelVertexBuffer;
+  VkDestroyer(VkDeviceMemory)         ModelVertexBufferMemory;
 
-  VkDestroyer<VkImage>                CubemapImage;
-  VkDestroyer<VkDeviceMemory>         CubemapImageMemory;
-  VkDestroyer<VkSampler>              CubemapSampler;
-  VkDestroyer<VkImageView>            CubemapImageView;
+  VkDestroyer(VkImage)                CubemapImage;
+  VkDestroyer(VkDeviceMemory)         CubemapImageMemory;
+  VkDestroyer(VkSampler)              CubemapSampler;
+  VkDestroyer(VkImageView)            CubemapImageView;
 
-  VkDestroyer<VkDescriptorSetLayout>  DescriptorSetLayout;
-  VkDestroyer<VkDescriptorPool>       DescriptorPool;
+  VkDestroyer(VkDescriptorSetLayout)  DescriptorSetLayout;
+  VkDestroyer(VkDescriptorPool)       DescriptorPool;
   std::vector<VkDescriptorSet>        DescriptorSets;
 
-  VkDestroyer<VkRenderPass>           RenderPass;
-  VkDestroyer<VkPipelineLayout>       PipelineLayout;
-  VkDestroyer<VkPipeline>             SkyboxPipeline;
-  VkDestroyer<VkPipeline>             ModelPipeline;
+  VkDestroyer(VkRenderPass)           RenderPass;
+  VkDestroyer(VkPipelineLayout)       PipelineLayout;
+  VkDestroyer(VkPipeline)             SkyboxPipeline;
+  VkDestroyer(VkPipeline)             ModelPipeline;
 
-  VkDestroyer<VkBuffer>               StagingBuffer;
-  VkDestroyer<VkDeviceMemory>         StagingBufferMemory;
+  VkDestroyer(VkBuffer)               StagingBuffer;
+  VkDestroyer(VkDeviceMemory)         StagingBufferMemory;
   bool                                UpdateUniformBuffer;
-  VkDestroyer<VkBuffer>               UniformBuffer;
-  VkDestroyer<VkDeviceMemory>         UniformBufferMemory;
+  VkDestroyer(VkBuffer)               UniformBuffer;
+  VkDestroyer(VkDeviceMemory)         UniformBufferMemory;
 
   OrbitingCamera                      Camera;
 
@@ -349,7 +349,7 @@ class Sample : public VulkanCookbookSample {
       return false;
     }
     
-    VkDestroyer<VkShaderModule> model_vertex_shader_module;
+    VkDestroyer(VkShaderModule) model_vertex_shader_module;
     InitVkDestroyer( LogicalDevice, model_vertex_shader_module );
     if( !CreateShaderModule( *LogicalDevice, model_vertex_shader_spirv, *model_vertex_shader_module ) ) {
       return false;
@@ -359,7 +359,7 @@ class Sample : public VulkanCookbookSample {
     if( !GetBinaryFileContents( "Data/Shaders/11 Lighting/04 Rendering a reflective and refractive geometry using cubemaps/model.frag.spv", model_fragment_shader_spirv ) ) {
       return false;
     }
-    VkDestroyer<VkShaderModule> model_fragment_shader_module;
+    VkDestroyer(VkShaderModule) model_fragment_shader_module;
     InitVkDestroyer( LogicalDevice, model_fragment_shader_module );
     if( !CreateShaderModule( *LogicalDevice, model_fragment_shader_spirv, *model_fragment_shader_module ) ) {
       return false;
@@ -416,7 +416,7 @@ class Sample : public VulkanCookbookSample {
       return false;
     }
 
-    VkDestroyer<VkShaderModule> skybox_vertex_shader_module;
+    VkDestroyer(VkShaderModule) skybox_vertex_shader_module;
     InitVkDestroyer( LogicalDevice, skybox_vertex_shader_module );
     if( !CreateShaderModule( *LogicalDevice, skybox_vertex_shader_spirv, *skybox_vertex_shader_module ) ) {
       return false;
@@ -426,7 +426,7 @@ class Sample : public VulkanCookbookSample {
     if( !GetBinaryFileContents( "Data/Shaders/11 Lighting/04 Rendering a reflective and refractive geometry using cubemaps/skybox.frag.spv", skybox_fragment_shader_spirv ) ) {
       return false;
     }
-    VkDestroyer<VkShaderModule> skybox_fragment_shader_module;
+    VkDestroyer(VkShaderModule) skybox_fragment_shader_module;
     InitVkDestroyer( LogicalDevice, skybox_fragment_shader_module );
     if( !CreateShaderModule( *LogicalDevice, skybox_fragment_shader_spirv, *skybox_fragment_shader_module ) ) {
       return false;

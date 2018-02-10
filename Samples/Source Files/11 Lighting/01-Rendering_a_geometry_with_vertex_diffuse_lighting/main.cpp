@@ -36,22 +36,22 @@ using namespace VulkanCookbook;
 
 class Sample : public VulkanCookbookSample {
   Mesh                                Model;
-  VkDestroyer<VkBuffer>               VertexBuffer;
-  VkDestroyer<VkDeviceMemory>         VertexBufferMemory;
+  VkDestroyer(VkBuffer)               VertexBuffer;
+  VkDestroyer(VkDeviceMemory)         VertexBufferMemory;
 
-  VkDestroyer<VkDescriptorSetLayout>  DescriptorSetLayout;
-  VkDestroyer<VkDescriptorPool>       DescriptorPool;
+  VkDestroyer(VkDescriptorSetLayout)  DescriptorSetLayout;
+  VkDestroyer(VkDescriptorPool)       DescriptorPool;
   std::vector<VkDescriptorSet>        DescriptorSets;
 
-  VkDestroyer<VkRenderPass>           RenderPass;
-  VkDestroyer<VkPipelineLayout>       PipelineLayout;
-  VkDestroyer<VkPipeline>             Pipeline;
+  VkDestroyer(VkRenderPass)           RenderPass;
+  VkDestroyer(VkPipelineLayout)       PipelineLayout;
+  VkDestroyer(VkPipeline)             Pipeline;
 
-  VkDestroyer<VkBuffer>               StagingBuffer;
-  VkDestroyer<VkDeviceMemory>         StagingBufferMemory;
+  VkDestroyer(VkBuffer)               StagingBuffer;
+  VkDestroyer(VkDeviceMemory)         StagingBufferMemory;
   bool                                UpdateUniformBuffer;
-  VkDestroyer<VkBuffer>               UniformBuffer;
-  VkDestroyer<VkDeviceMemory>         UniformBufferMemory;
+  VkDestroyer(VkBuffer)               UniformBuffer;
+  VkDestroyer(VkDeviceMemory)         UniformBufferMemory;
 
   virtual bool Initialize( WindowParameters window_parameters ) override {
     if( !InitializeVulkan( window_parameters ) ) {
@@ -229,7 +229,7 @@ class Sample : public VulkanCookbookSample {
       return false;
     }
 
-    VkDestroyer<VkShaderModule> vertex_shader_module;
+    VkDestroyer(VkShaderModule) vertex_shader_module;
     InitVkDestroyer( LogicalDevice, vertex_shader_module );
     if( !CreateShaderModule( *LogicalDevice, vertex_shader_spirv, *vertex_shader_module ) ) {
       return false;
@@ -239,7 +239,7 @@ class Sample : public VulkanCookbookSample {
     if( !GetBinaryFileContents( "Data/Shaders/11 Lighting/01 Rendering a geometry with vertex diffuse lighting/shader.frag.spv", fragment_shader_spirv ) ) {
       return false;
     }
-    VkDestroyer<VkShaderModule> fragment_shader_module;
+    VkDestroyer(VkShaderModule) fragment_shader_module;
     InitVkDestroyer( LogicalDevice, fragment_shader_module );
     if( !CreateShaderModule( *LogicalDevice, fragment_shader_spirv, *fragment_shader_module ) ) {
       return false;
