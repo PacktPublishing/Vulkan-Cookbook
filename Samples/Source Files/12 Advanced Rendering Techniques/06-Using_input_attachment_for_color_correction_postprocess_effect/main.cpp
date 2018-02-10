@@ -37,46 +37,46 @@ using namespace VulkanCookbook;
 
 class Sample : public VulkanCookbookSample {
   Mesh                                Skybox;
-  VkDestroyer<VkBuffer>               SkyboxVertexBuffer;
-  VkDestroyer<VkDeviceMemory>         SkyboxVertexBufferMemory;
+  VkDestroyer(VkBuffer)               SkyboxVertexBuffer;
+  VkDestroyer(VkDeviceMemory)         SkyboxVertexBufferMemory;
 
   Mesh                                Model;
-  VkDestroyer<VkBuffer>               ModelVertexBuffer;
-  VkDestroyer<VkDeviceMemory>         ModelVertexBufferMemory;
+  VkDestroyer(VkBuffer)               ModelVertexBuffer;
+  VkDestroyer(VkDeviceMemory)         ModelVertexBufferMemory;
 
-  VkDestroyer<VkBuffer>               PostprocessVertexBuffer;
-  VkDestroyer<VkDeviceMemory>         PostprocessVertexBufferMemory;
+  VkDestroyer(VkBuffer)               PostprocessVertexBuffer;
+  VkDestroyer(VkDeviceMemory)         PostprocessVertexBufferMemory;
 
-  VkDestroyer<VkImage>                CubemapImage;
-  VkDestroyer<VkDeviceMemory>         CubemapImageMemory;
-  VkDestroyer<VkSampler>              CubemapSampler;
-  VkDestroyer<VkImageView>            CubemapImageView;
+  VkDestroyer(VkImage)                CubemapImage;
+  VkDestroyer(VkDeviceMemory)         CubemapImageMemory;
+  VkDestroyer(VkSampler)              CubemapSampler;
+  VkDestroyer(VkImageView)            CubemapImageView;
 
-  VkDestroyer<VkDescriptorSetLayout>  DescriptorSetLayout;
-  VkDestroyer<VkDescriptorPool>       DescriptorPool;
+  VkDestroyer(VkDescriptorSetLayout)  DescriptorSetLayout;
+  VkDestroyer(VkDescriptorPool)       DescriptorPool;
   std::vector<VkDescriptorSet>        DescriptorSets;
 
-  VkDestroyer<VkImage>                SceneImage;
-  VkDestroyer<VkDeviceMemory>         SceneImageMemory;
-  VkDestroyer<VkImageView>            SceneImageView;
-  VkDestroyer<VkFence>                SceneFence;
+  VkDestroyer(VkImage)                SceneImage;
+  VkDestroyer(VkDeviceMemory)         SceneImageMemory;
+  VkDestroyer(VkImageView)            SceneImageView;
+  VkDestroyer(VkFence)                SceneFence;
 
-  VkDestroyer<VkDescriptorSetLayout>  PostprocessDescriptorSetLayout;
-  VkDestroyer<VkDescriptorPool>       PostprocessDescriptorPool;
+  VkDestroyer(VkDescriptorSetLayout)  PostprocessDescriptorSetLayout;
+  VkDestroyer(VkDescriptorPool)       PostprocessDescriptorPool;
   std::vector<VkDescriptorSet>        PostprocessDescriptorSets;
 
-  VkDestroyer<VkRenderPass>           RenderPass;
-  VkDestroyer<VkPipelineLayout>       PipelineLayout;
-  VkDestroyer<VkPipeline>             SkyboxPipeline;
-  VkDestroyer<VkPipeline>             ModelPipeline;
-  VkDestroyer<VkPipelineLayout>       PostprocessPipelineLayout;
-  VkDestroyer<VkPipeline>             PostprocessPipeline;
+  VkDestroyer(VkRenderPass)           RenderPass;
+  VkDestroyer(VkPipelineLayout)       PipelineLayout;
+  VkDestroyer(VkPipeline)             SkyboxPipeline;
+  VkDestroyer(VkPipeline)             ModelPipeline;
+  VkDestroyer(VkPipelineLayout)       PostprocessPipelineLayout;
+  VkDestroyer(VkPipeline)             PostprocessPipeline;
 
-  VkDestroyer<VkBuffer>               StagingBuffer;
-  VkDestroyer<VkDeviceMemory>         StagingBufferMemory;
+  VkDestroyer(VkBuffer)               StagingBuffer;
+  VkDestroyer(VkDeviceMemory)         StagingBufferMemory;
   bool                                UpdateUniformBuffer;
-  VkDestroyer<VkBuffer>               UniformBuffer;
-  VkDestroyer<VkDeviceMemory>         UniformBufferMemory;
+  VkDestroyer(VkBuffer)               UniformBuffer;
+  VkDestroyer(VkDeviceMemory)         UniformBufferMemory;
 
   OrbitingCamera                      Camera;
 
@@ -475,7 +475,7 @@ std::vector<VkSubpassDependency> subpass_dependencies = {
       return false;
     }
 
-    VkDestroyer<VkShaderModule> model_vertex_shader_module;
+    VkDestroyer(VkShaderModule) model_vertex_shader_module;
     InitVkDestroyer( LogicalDevice, model_vertex_shader_module );
     if( !CreateShaderModule( *LogicalDevice, model_vertex_shader_spirv, *model_vertex_shader_module ) ) {
       return false;
@@ -485,7 +485,7 @@ std::vector<VkSubpassDependency> subpass_dependencies = {
     if( !GetBinaryFileContents( "Data/Shaders/12 Advanced Rendering Techniques/06 Using input attachment for color correction postprocess effect/model.frag.spv", model_fragment_shader_spirv ) ) {
       return false;
     }
-    VkDestroyer<VkShaderModule> model_fragment_shader_module;
+    VkDestroyer(VkShaderModule) model_fragment_shader_module;
     InitVkDestroyer( LogicalDevice, model_fragment_shader_module );
     if( !CreateShaderModule( *LogicalDevice, model_fragment_shader_spirv, *model_fragment_shader_module ) ) {
       return false;
@@ -542,7 +542,7 @@ std::vector<VkSubpassDependency> subpass_dependencies = {
       return false;
     }
 
-    VkDestroyer<VkShaderModule> skybox_vertex_shader_module;
+    VkDestroyer(VkShaderModule) skybox_vertex_shader_module;
     InitVkDestroyer( LogicalDevice, skybox_vertex_shader_module );
     if( !CreateShaderModule( *LogicalDevice, skybox_vertex_shader_spirv, *skybox_vertex_shader_module ) ) {
       return false;
@@ -552,7 +552,7 @@ std::vector<VkSubpassDependency> subpass_dependencies = {
     if( !GetBinaryFileContents( "Data/Shaders/12 Advanced Rendering Techniques/06 Using input attachment for color correction postprocess effect/skybox.frag.spv", skybox_fragment_shader_spirv ) ) {
       return false;
     }
-    VkDestroyer<VkShaderModule> skybox_fragment_shader_module;
+    VkDestroyer(VkShaderModule) skybox_fragment_shader_module;
     InitVkDestroyer( LogicalDevice, skybox_fragment_shader_module );
     if( !CreateShaderModule( *LogicalDevice, skybox_fragment_shader_spirv, *skybox_fragment_shader_module ) ) {
       return false;
@@ -603,7 +603,7 @@ std::vector<VkSubpassDependency> subpass_dependencies = {
       return false;
     }
 
-    VkDestroyer<VkShaderModule> postprocess_vertex_shader_module;
+    VkDestroyer(VkShaderModule) postprocess_vertex_shader_module;
     InitVkDestroyer( LogicalDevice, postprocess_vertex_shader_module );
     if( !CreateShaderModule( *LogicalDevice, postprocess_vertex_shader_spirv, *postprocess_vertex_shader_module ) ) {
       return false;
@@ -613,7 +613,7 @@ std::vector<VkSubpassDependency> subpass_dependencies = {
     if( !GetBinaryFileContents( "Data/Shaders/12 Advanced Rendering Techniques/06 Using input attachment for color correction postprocess effect/postprocess.frag.spv", postprocess_fragment_shader_spirv ) ) {
       return false;
     }
-    VkDestroyer<VkShaderModule> postprocess_fragment_shader_module;
+    VkDestroyer(VkShaderModule) postprocess_fragment_shader_module;
     InitVkDestroyer( LogicalDevice, postprocess_fragment_shader_module );
     if( !CreateShaderModule( *LogicalDevice, postprocess_fragment_shader_spirv, *postprocess_fragment_shader_module ) ) {
       return false;

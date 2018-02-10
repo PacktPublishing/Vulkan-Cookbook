@@ -36,33 +36,33 @@
 using namespace VulkanCookbook;
 
 class Sample : public VulkanCookbookSample {
-  VkDestroyer<VkCommandPool>                      ComputeCommandPool;
+  VkDestroyer(VkCommandPool)                      ComputeCommandPool;
   VkCommandBuffer                                 ComputeCommandBuffer;
-  VkDestroyer<VkSemaphore>                        ComputeSemaphore;
-  VkDestroyer<VkFence>                            ComputeFence;
+  VkDestroyer(VkSemaphore)                        ComputeSemaphore;
+  VkDestroyer(VkFence)                            ComputeFence;
 
   const uint32_t                                  PARTICLES_COUNT = 2000;
-  VkDestroyer<VkBuffer>                           VertexBuffer;
-  VkDestroyer<VkDeviceMemory>                     VertexBufferMemory;
-  VkDestroyer<VkBufferView>                       VertexBufferView;
+  VkDestroyer(VkBuffer)                           VertexBuffer;
+  VkDestroyer(VkDeviceMemory)                     VertexBufferMemory;
+  VkDestroyer(VkBufferView)                       VertexBufferView;
 
   bool                                            UpdateUniformBuffer;
-  VkDestroyer<VkBuffer>                           UniformBuffer;
-  VkDestroyer<VkDeviceMemory>                     UniformBufferMemory;
+  VkDestroyer(VkBuffer)                           UniformBuffer;
+  VkDestroyer(VkDeviceMemory)                     UniformBufferMemory;
 
-  std::vector<VkDestroyer<VkDescriptorSetLayout>> DescriptorSetLayout;
-  VkDestroyer<VkDescriptorPool>                   DescriptorPool;
+  std::vector<VkDestroyer(VkDescriptorSetLayout)> DescriptorSetLayout;
+  VkDestroyer(VkDescriptorPool)                   DescriptorPool;
   std::vector<VkDescriptorSet>                    DescriptorSets;
 
-  VkDestroyer<VkPipelineLayout>                   ComputePipelineLayout;
-  VkDestroyer<VkPipeline>                         ComputePipeline;
+  VkDestroyer(VkPipelineLayout)                   ComputePipelineLayout;
+  VkDestroyer(VkPipeline)                         ComputePipeline;
 
-  VkDestroyer<VkRenderPass>                       RenderPass;
-  VkDestroyer<VkPipelineLayout>                   GraphicsPipelineLayout;
-  VkDestroyer<VkPipeline>                         GraphicsPipeline;
+  VkDestroyer(VkRenderPass)                       RenderPass;
+  VkDestroyer(VkPipelineLayout)                   GraphicsPipelineLayout;
+  VkDestroyer(VkPipeline)                         GraphicsPipeline;
 
-  VkDestroyer<VkBuffer>                           StagingBuffer;
-  VkDestroyer<VkDeviceMemory>                     StagingBufferMemory;
+  VkDestroyer(VkBuffer)                           StagingBuffer;
+  VkDestroyer(VkDeviceMemory)                     StagingBufferMemory;
 
   OrbitingCamera                                  Camera;
 
@@ -307,7 +307,7 @@ class Sample : public VulkanCookbookSample {
       return false;
     }
 
-    VkDestroyer<VkShaderModule> compute_shader_module;
+    VkDestroyer(VkShaderModule) compute_shader_module;
     InitVkDestroyer( LogicalDevice, compute_shader_module );
     if( !CreateShaderModule( *LogicalDevice, compute_shader_spirv, *compute_shader_module ) ) {
       return false;
@@ -348,7 +348,7 @@ class Sample : public VulkanCookbookSample {
       return false;
     }
 
-    VkDestroyer<VkShaderModule> vertex_shader_module;
+    VkDestroyer(VkShaderModule) vertex_shader_module;
     InitVkDestroyer( LogicalDevice, vertex_shader_module );
     if( !CreateShaderModule( *LogicalDevice, vertex_shader_spirv, *vertex_shader_module ) ) {
       return false;
@@ -359,7 +359,7 @@ class Sample : public VulkanCookbookSample {
       return false;
     }
 
-    VkDestroyer<VkShaderModule> geometry_shader_module;
+    VkDestroyer(VkShaderModule) geometry_shader_module;
     InitVkDestroyer( LogicalDevice, geometry_shader_module );
     if( !CreateShaderModule( *LogicalDevice, geometry_shader_spirv, *geometry_shader_module ) ) {
       return false;
@@ -369,7 +369,7 @@ class Sample : public VulkanCookbookSample {
     if( !GetBinaryFileContents( "Data/Shaders/12 Advanced Rendering Techniques/03 Drawing particles using compute and graphics pipelines/shader.frag.spv", fragment_shader_spirv ) ) {
       return false;
     }
-    VkDestroyer<VkShaderModule> fragment_shader_module;
+    VkDestroyer(VkShaderModule) fragment_shader_module;
     InitVkDestroyer( LogicalDevice, fragment_shader_module );
     if( !CreateShaderModule( *LogicalDevice, fragment_shader_spirv, *fragment_shader_module ) ) {
       return false;
