@@ -48,7 +48,7 @@ namespace VulkanCookbook {
                                       std::function<bool(VkCommandBuffer, uint32_t, VkFramebuffer)>   record_command_buffer,
                                       VkCommandBuffer                                                 command_buffer,
                                       VkRenderPass                                                    render_pass,
-                                      VkDestroyer<VkFramebuffer>                                    & framebuffer );
+                                      VkDestroyer(VkFramebuffer)                                    & framebuffer );
 
 } // namespace VulkanCookbook
 

@@ -39,33 +39,49 @@ namespace VulkanCookbook {
 
   // VkDestroyer<> - wrapper for automatic object destruction
 
+  struct VkInstanceWrapper {
+    VkInstance Handle;
+  };
+
+  struct VkDeviceWrapper {
+    VkDevice Handle;
+  };
+
+  struct VkSurfaceKHRWrapper {
+    VkSurfaceKHR Handle;
+  };
+
   // Deleter functions
 
   template<class VkType>
   void DestroyVulkanObject( VkType object );
 
   template<>
-  inline void DestroyVulkanObject<VkInstance>( VkInstance object ) {
-    vkDestroyInstance( object, nullptr );
+  inline void DestroyVulkanObject<VkInstanceWrapper>( VkInstanceWrapper object ) {
+    vkDestroyInstance( object.Handle, nullptr );
   }
 
   template<>
-  inline void DestroyVulkanObject<VkDevice>( VkDevice object ) {
-    vkDestroyDevice( object, nullptr );
+  inline void DestroyVulkanObject<VkDeviceWrapper>( VkDeviceWrapper object ) {
+    vkDestroyDevice( object.Handle, nullptr );
   }
 
   template<class VkParent, class VkChild>
   void DestroyVulkanObject( VkParent parent, VkChild object );
 
   template<>
-  inline void DestroyVulkanObject<VkInstance, VkSurfaceKHR>( VkInstance instance, VkSurfaceKHR surface ) {
-    vkDestroySurfaceKHR( instance, surface, nullptr );
+  inline void DestroyVulkanObject<VkInstance, VkSurfaceKHRWrapper>( VkInstance instance, VkSurfaceKHRWrapper surface ) {
+    vkDestroySurfaceKHR( instance, surface.Handle, nullptr );
   }
 
-#define VK_DESTROYER_SPECIALIZATION( VkChild, VkDeleter )                                 \
-  template<>                                                                              \
-  inline void DestroyVulkanObject<VkDevice, VkChild>( VkDevice device, VkChild object ) { \
-    VkDeleter( device, object, nullptr );                                                 \
+#define VK_DESTROYER_SPECIALIZATION( VkChild, VkDeleter )                                                   \
+  struct VkChild##Wrapper {                                                                                 \
+    VkChild Handle;                                                                                         \
+  };                                                                                                        \
+                                                                                                            \
+  template<>                                                                                                \
+  inline void DestroyVulkanObject<VkDevice, VkChild##Wrapper>( VkDevice device, VkChild##Wrapper object ) { \
+    VkDeleter( device, object.Handle, nullptr );                                                            \
   }
 
   VK_DESTROYER_SPECIALIZATION( VkSemaphore, vkDestroySemaphore )
@@ -93,83 +109,87 @@ namespace VulkanCookbook {
 
   // Class definition
 
-  template<class VkType>
+  template<class VkTypeWrapper>
   class VkDestroyer {
   public:
     VkDestroyer() :
-      Object( VK_NULL_HANDLE ),
       DestroyerFunction( nullptr ) {
+      Object.Handle = VK_NULL_HANDLE;
     }
 
-    VkDestroyer( std::function<void( VkType )> destroyer_function ) :
-      Object( VK_NULL_HANDLE ),
+    VkDestroyer( std::function<void( VkTypeWrapper )> destroyer_function ) :
       DestroyerFunction( destroyer_function ) {
+      Object.Handle = VK_NULL_HANDLE;
     }
 
-    VkDestroyer( VkType object, std::function<void( VkType )> destroyer_function ) :
-      Object( object ),
+    VkDestroyer( VkTypeWrapper object, std::function<void( VkTypeWrapper )> destroyer_function ) :
       DestroyerFunction( destroyer_function ) {
+      Object.Handle = object.Handle;
     }
 
     ~VkDestroyer() {
-      if( DestroyerFunction && Object ) {
+      if( DestroyerFunction && Object.Handle ) {
         DestroyerFunction( Object );
       }
     }
 
-    VkDestroyer( VkDestroyer<VkType> && other ) :
-      Object( other.Object ),
+    VkDestroyer( VkDestroyer<VkTypeWrapper> && other ) :
       DestroyerFunction( other.DestroyerFunction ) {
-      other.Object = VK_NULL_HANDLE;
+      Object.Handle = other.Object.Handle;
+      other.Object.Handle = VK_NULL_HANDLE;
       other.DestroyerFunction = nullptr;
     }
 
-    VkDestroyer& operator=(VkDestroyer<VkType> && other) {
+    VkDestroyer& operator=( VkDestroyer<VkTypeWrapper> && other ) {
       if( this != &other ) {
-        VkType object = Object;
-        std::function<void( VkType )> destroyer_function = DestroyerFunction;
+        VkTypeWrapper object = Object;
+        std::function<void( VkTypeWrapper )> destroyer_function = DestroyerFunction;
 
-        Object = other.Object;
+        Object.Handle = other.Object.Handle;
         DestroyerFunction = other.DestroyerFunction;
 
-        other.Object = object;
+        other.Object.Handle = object.Handle;
         other.DestroyerFunction = destroyer_function;
       }
       return *this;
     }
 
-    VkType & operator*() {
-      return Object;
+    decltype(VkTypeWrapper::Handle) & operator*() {
+      return Object.Handle;
     }
 
-    VkType const & operator*() const {
-      return Object;
+    decltype(VkTypeWrapper::Handle) const & operator*() const {
+      return Object.Handle;
     }
 
     bool operator!() const {
-      return Object == VK_NULL_HANDLE;
+      return Object.Handle == VK_NULL_HANDLE;
     }
 
     operator bool() const {
-      return Object != VK_NULL_HANDLE;
+      return Object.Handle != VK_NULL_HANDLE;
     }
 
-    VkDestroyer( VkDestroyer<VkType> const & ) = delete;
-    VkDestroyer& operator=( VkDestroyer<VkType> const & ) = delete;
+    VkDestroyer( VkDestroyer<VkTypeWrapper> const & ) = delete;
+    VkDestroyer& operator=( VkDestroyer<VkTypeWrapper> const & ) = delete;
 
   private:
-    VkType Object;
-    std::function<void( VkType )> DestroyerFunction;
+    VkTypeWrapper Object;
+    std::function<void( VkTypeWrapper )> DestroyerFunction;
   };
+
+  // Helper macro
+
+#define VkDestroyer( VkType ) VkDestroyer<VkType##Wrapper>
 
   // Helper functions
 
-  inline void InitVkDestroyer( VkDestroyer<VkInstance> & destroyer ) {
-    destroyer = VkDestroyer<VkInstance>( std::bind( DestroyVulkanObject<VkInstance>, std::placeholders::_1 ) );
+  inline void InitVkDestroyer( VkDestroyer<VkInstanceWrapper> & destroyer ) {
+    destroyer = VkDestroyer<VkInstanceWrapper>( std::bind( DestroyVulkanObject<VkInstanceWrapper>, std::placeholders::_1 ) );
   }
 
-  inline void InitVkDestroyer( VkDestroyer<VkDevice> & destroyer ) {
-    destroyer = VkDestroyer<VkDevice>( std::bind( DestroyVulkanObject<VkDevice>, std::placeholders::_1 ) );
+  inline void InitVkDestroyer( VkDestroyer<VkDeviceWrapper> & destroyer ) {
+    destroyer = VkDestroyer<VkDeviceWrapper>( std::bind( DestroyVulkanObject<VkDeviceWrapper>, std::placeholders::_1 ) );
   }
 
   template<class VkParent, class VkType>
@@ -179,7 +199,7 @@ namespace VulkanCookbook {
 
   template<class VkParent, class VkType>
   inline void InitVkDestroyer( VkDestroyer<VkParent> const & parent, VkDestroyer<VkType> & destroyer ) {
-    destroyer = VkDestroyer<VkType>( std::bind( DestroyVulkanObject<VkParent, VkType>, *parent, std::placeholders::_1 ) );
+    destroyer = VkDestroyer<VkType>( std::bind( DestroyVulkanObject<decltype(VkParent::Handle), VkType>, *parent, std::placeholders::_1 ) );
   }
 
 } // namespace VulkanCookbook

@@ -90,11 +90,11 @@ namespace VulkanCookbook {
   };
 
   struct SwapchainParameters {
-    VkDestroyer<VkSwapchainKHR>             Handle;
+    VkDestroyer(VkSwapchainKHR)             Handle;
     VkFormat                                Format;
     VkExtent2D                              Size;
     std::vector<VkImage>                    Images;
-    std::vector<VkDestroyer<VkImageView>>   ImageViews;
+    std::vector<VkDestroyer(VkImageView)>   ImageViews;
     std::vector<VkImageView>                ImageViewsRaw;
   };
 
@@ -129,17 +129,17 @@ namespace VulkanCookbook {
 
   class VulkanCookbookSample : public VulkanCookbookSampleBase {
   public:
-    VkDestroyer<VkInstance>                   Instance;
+    VkDestroyer(VkInstance)                   Instance;
     VkPhysicalDevice                          PhysicalDevice;
-    VkDestroyer<VkDevice>                     LogicalDevice;
-    VkDestroyer<VkSurfaceKHR>                 PresentationSurface;
+    VkDestroyer(VkDevice)                     LogicalDevice;
+    VkDestroyer(VkSurfaceKHR)                 PresentationSurface;
     QueueParameters                           GraphicsQueue;
     QueueParameters                           ComputeQueue;
     QueueParameters                           PresentQueue;
     SwapchainParameters                       Swapchain;
-    VkDestroyer<VkCommandPool>                CommandPool;
-    std::vector<VkDestroyer<VkImage>>         DepthImages;
-    std::vector<VkDestroyer<VkDeviceMemory>>  DepthImagesMemory;
+    VkDestroyer(VkCommandPool)                CommandPool;
+    std::vector<VkDestroyer(VkImage)>         DepthImages;
+    std::vector<VkDestroyer(VkDeviceMemory)>  DepthImagesMemory;
     std::vector<FrameResources>               FramesResources;
     static uint32_t const                     FramesCount = 3;
     static VkFormat const                     DepthFormat = VK_FORMAT_D16_UNORM;

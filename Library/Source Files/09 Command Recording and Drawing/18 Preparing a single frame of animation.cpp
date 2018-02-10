@@ -47,7 +47,7 @@ namespace VulkanCookbook {
                                       std::function<bool(VkCommandBuffer, uint32_t, VkFramebuffer)>   record_command_buffer,
                                       VkCommandBuffer                                                 command_buffer,
                                       VkRenderPass                                                    render_pass,
-                                      VkDestroyer<VkFramebuffer>                                    & framebuffer ) {
+                                      VkDestroyer(VkFramebuffer)                                    & framebuffer ) {
     uint32_t image_index;
     if( !AcquireSwapchainImage( logical_device, swapchain, image_acquired_semaphore, VK_NULL_HANDLE, image_index ) ) {
       return false;

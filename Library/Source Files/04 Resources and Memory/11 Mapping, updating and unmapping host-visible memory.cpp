@@ -45,7 +45,7 @@ namespace VulkanCookbook {
       return false;
     }
 
-    std::memcpy( local_pointer, data, data_size );
+    std::memcpy( local_pointer, data, static_cast<size_t>(data_size) );
 
     std::vector<VkMappedMemoryRange> memory_ranges = {
       {

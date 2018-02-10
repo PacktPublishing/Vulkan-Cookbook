@@ -213,13 +213,13 @@ namespace VulkanCookbook {
 
     for( uint32_t i = 0; i < FramesCount; ++i ) {
       std::vector<VkCommandBuffer> command_buffer;
-      VkDestroyer<VkSemaphore> image_acquired_semaphore;
+      VkDestroyer(VkSemaphore) image_acquired_semaphore;
       InitVkDestroyer( LogicalDevice, image_acquired_semaphore );
-      VkDestroyer<VkSemaphore> ready_to_present_semaphore;
+      VkDestroyer(VkSemaphore) ready_to_present_semaphore;
       InitVkDestroyer( LogicalDevice, ready_to_present_semaphore );
-      VkDestroyer<VkFence> drawing_finished_fence;
+      VkDestroyer(VkFence) drawing_finished_fence;
       InitVkDestroyer( LogicalDevice, drawing_finished_fence );
-      VkDestroyer<VkImageView> depth_attachment;
+      VkDestroyer(VkImageView) depth_attachment;
       InitVkDestroyer( LogicalDevice, depth_attachment );
 
       if( !AllocateCommandBuffers( *LogicalDevice, *CommandPool, VK_COMMAND_BUFFER_LEVEL_PRIMARY, 1, command_buffer ) ) {
@@ -241,7 +241,7 @@ namespace VulkanCookbook {
         std::move( ready_to_present_semaphore ),
         std::move( drawing_finished_fence ),
         std::move( depth_attachment ),
-        VkDestroyer<VkFramebuffer>()
+        VkDestroyer(VkFramebuffer)()
       );
     }
 
@@ -266,7 +266,7 @@ namespace VulkanCookbook {
     if (!Swapchain.Handle) {
       InitVkDestroyer(LogicalDevice, Swapchain.Handle);
     }
-    VkDestroyer<VkSwapchainKHR> old_swapchain = std::move( Swapchain.Handle );
+    VkDestroyer(VkSwapchainKHR) old_swapchain = std::move( Swapchain.Handle );
     InitVkDestroyer( LogicalDevice, Swapchain.Handle );
     if( !CreateSwapchainWithR8G8B8A8FormatAndMailboxPresentMode( PhysicalDevice, *PresentationSurface, *LogicalDevice, swapchain_image_usage, Swapchain.Size, Swapchain.Format, *old_swapchain, *Swapchain.Handle, Swapchain.Images ) ) {
       return false;
@@ -276,7 +276,7 @@ namespace VulkanCookbook {
     }
 
     for( size_t i = 0; i < Swapchain.Images.size(); ++i ) {
-      Swapchain.ImageViews.emplace_back( VkDestroyer<VkImageView>() );
+      Swapchain.ImageViews.emplace_back( VkDestroyer(VkImageView)() );
       InitVkDestroyer( LogicalDevice, Swapchain.ImageViews.back() );
       if( !CreateImageView( *LogicalDevice, Swapchain.Images[i], VK_IMAGE_VIEW_TYPE_2D, Swapchain.Format, VK_IMAGE_ASPECT_COLOR_BIT, *Swapchain.ImageViews.back() ) ) {
         return false;
@@ -291,9 +291,9 @@ namespace VulkanCookbook {
 
     if( use_depth ) {
       for( uint32_t i = 0; i < FramesCount; ++i ) {
-        DepthImages.emplace_back( VkDestroyer<VkImage>() );
+        DepthImages.emplace_back( VkDestroyer(VkImage)() );
         InitVkDestroyer( LogicalDevice, DepthImages.back() );
-        DepthImagesMemory.emplace_back( VkDestroyer<VkDeviceMemory>() );
+        DepthImagesMemory.emplace_back( VkDestroyer(VkDeviceMemory)() );
         InitVkDestroyer( LogicalDevice, DepthImagesMemory.back() );
         InitVkDestroyer( LogicalDevice, FramesResources[i].DepthAttachment );
 

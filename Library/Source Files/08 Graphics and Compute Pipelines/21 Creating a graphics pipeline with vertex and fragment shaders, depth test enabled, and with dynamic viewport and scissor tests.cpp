@@ -69,7 +69,7 @@ namespace VulkanCookbook {
       return false;
     }
 
-    VkDestroyer<VkShaderModule> vertex_shader_module;
+    VkDestroyer(VkShaderModule) vertex_shader_module;
     InitVkDestroyer( logical_device, vertex_shader_module );
     if( !CreateShaderModule( logical_device, vertex_shader_spirv, *vertex_shader_module ) ) {
       return false;
@@ -79,7 +79,7 @@ namespace VulkanCookbook {
     if( !GetBinaryFileContents( fragment_shader_filename, fragment_shader_spirv ) ) {
       return false;
     }
-    VkDestroyer<VkShaderModule> fragment_shader_module;
+    VkDestroyer(VkShaderModule) fragment_shader_module;
     InitVkDestroyer( logical_device, fragment_shader_module );
     if( !CreateShaderModule( logical_device, fragment_shader_spirv, *fragment_shader_module ) ) {
       return false;
