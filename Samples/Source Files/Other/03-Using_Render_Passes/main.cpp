@@ -34,13 +34,13 @@
 using namespace VulkanCookbook;
 
 class Sample : public VulkanCookbookSample {
-  VkDestroyer<VkCommandPool>  CommandPool;
+  VkDestroyer(VkCommandPool)  CommandPool;
   VkCommandBuffer             CommandBuffer;
-  VkDestroyer<VkRenderPass>   RenderPass;
-  VkDestroyer<VkFramebuffer>  Framebuffer;
-  VkDestroyer<VkFence>        DrawingFence;
-  VkDestroyer<VkSemaphore>    ImageAcquiredSemaphore;
-  VkDestroyer<VkSemaphore>    ReadyToPresentSemaphore;
+  VkDestroyer(VkRenderPass)   RenderPass;
+  VkDestroyer(VkFramebuffer)  Framebuffer;
+  VkDestroyer(VkFence)        DrawingFence;
+  VkDestroyer(VkSemaphore)    ImageAcquiredSemaphore;
+  VkDestroyer(VkSemaphore)    ReadyToPresentSemaphore;
 
   virtual bool Initialize( WindowParameters window_parameters ) override {
     if( !InitializeVulkan( window_parameters ) ) {

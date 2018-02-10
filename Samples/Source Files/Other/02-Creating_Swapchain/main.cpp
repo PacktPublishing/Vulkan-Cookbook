@@ -34,19 +34,19 @@
 using namespace VulkanCookbook;
 
 class Sample : public VulkanCookbookSampleBase {
-  VkDestroyer<VkInstance>     Instance;
+  VkDestroyer(VkInstance)     Instance;
   VkPhysicalDevice            PhysicalDevice;
-  VkDestroyer<VkSurfaceKHR>   PresentationSurface;
-  VkDestroyer<VkDevice>       LogicalDevice;
+  VkDestroyer(VkSurfaceKHR)   PresentationSurface;
+  VkDestroyer(VkDevice)       LogicalDevice;
   uint32_t                    GraphicsQueueFamilyIndex;
   uint32_t                    PresentQueueFamilyIndex;
   VkQueue                     GraphicsQueue;
   VkQueue                     PresentQueue;
-  VkDestroyer<VkSwapchainKHR> Swapchain;
+  VkDestroyer(VkSwapchainKHR) Swapchain;
   std::vector<VkImage>        SwapchainImages;
-  VkDestroyer<VkSemaphore>    ImageAcquiredSemaphore;
-  VkDestroyer<VkSemaphore>    ReadyToPresentSemaphore;
-  VkDestroyer<VkCommandPool>  CommandPool;
+  VkDestroyer(VkSemaphore)    ImageAcquiredSemaphore;
+  VkDestroyer(VkSemaphore)    ReadyToPresentSemaphore;
+  VkDestroyer(VkCommandPool)  CommandPool;
   VkCommandBuffer             CommandBuffer;
 
   virtual bool Initialize( WindowParameters window_parameters ) override {
@@ -95,7 +95,7 @@ class Sample : public VulkanCookbookSampleBase {
       if( GraphicsQueueFamilyIndex != PresentQueueFamilyIndex ) {
         requested_queues.push_back( { PresentQueueFamilyIndex, { 1.0f } } );
       }
-      VkDestroyer<VkDevice> logical_device;
+      VkDestroyer(VkDevice) logical_device;
       std::vector<char const *> device_extensions;
       if( !CreateLogicalDeviceWithWsiExtensionsEnabled( physical_device, requested_queues, device_extensions, nullptr, *logical_device ) ) {
         continue;
@@ -151,7 +151,7 @@ class Sample : public VulkanCookbookSampleBase {
 
     VkFormat swapchain_image_format;
     VkExtent2D swapchain_image_size;
-    VkDestroyer<VkSwapchainKHR> old_swapchain = std::move( Swapchain );
+    VkDestroyer(VkSwapchainKHR) old_swapchain = std::move( Swapchain );
     InitVkDestroyer( LogicalDevice, Swapchain );
     if( !CreateSwapchainWithR8G8B8A8FormatAndMailboxPresentMode( PhysicalDevice, *PresentationSurface, *LogicalDevice, VK_IMAGE_USAGE_COLOR_ATTACHMENT_BIT, swapchain_image_size, swapchain_image_format, *old_swapchain, *Swapchain, SwapchainImages ) ) {
       return false;

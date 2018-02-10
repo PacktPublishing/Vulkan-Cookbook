@@ -35,20 +35,20 @@ using namespace VulkanCookbook;
 
 class Sample : public VulkanCookbookSample {
   Mesh                                Model;
-  VkDestroyer<VkBuffer>               VertexBuffer;
-  VkDestroyer<VkDeviceMemory>         VertexBufferMemory;
+  VkDestroyer(VkBuffer)               VertexBuffer;
+  VkDestroyer(VkDeviceMemory)         VertexBufferMemory;
 
-  VkDestroyer<VkBuffer>               UniformBuffer;
-  VkDestroyer<VkDeviceMemory>         UniformBufferMemory;
+  VkDestroyer(VkBuffer)               UniformBuffer;
+  VkDestroyer(VkDeviceMemory)         UniformBufferMemory;
 
-  VkDestroyer<VkDescriptorSetLayout>  DescriptorSetLayout;
-  VkDestroyer<VkDescriptorPool>       DescriptorPool;
+  VkDestroyer(VkDescriptorSetLayout)  DescriptorSetLayout;
+  VkDestroyer(VkDescriptorPool)       DescriptorPool;
   std::vector<VkDescriptorSet>        DescriptorSets;
 
-  VkDestroyer<VkRenderPass>           RenderPass;
-  VkDestroyer<VkPipelineLayout>       PipelineLayout;
-  VkDestroyer<VkPipeline>             ModelPipeline;
-  VkDestroyer<VkPipeline>             NormalsPipeline;
+  VkDestroyer(VkRenderPass)           RenderPass;
+  VkDestroyer(VkPipelineLayout)       PipelineLayout;
+  VkDestroyer(VkPipeline)             ModelPipeline;
+  VkDestroyer(VkPipeline)             NormalsPipeline;
 
   virtual bool Initialize( WindowParameters window_parameters ) override {
     VkPhysicalDeviceFeatures device_features = {};
@@ -200,7 +200,7 @@ class Sample : public VulkanCookbookSample {
       return false;
     }
 
-    VkDestroyer<VkShaderModule> vertex_shader_module;
+    VkDestroyer(VkShaderModule) vertex_shader_module;
     InitVkDestroyer( LogicalDevice, vertex_shader_module );
     if( !CreateShaderModule( *LogicalDevice, vertex_shader_spirv, *vertex_shader_module ) ) {
       return false;
@@ -210,7 +210,7 @@ class Sample : public VulkanCookbookSample {
     if( !GetBinaryFileContents( "Data/Shaders/Other/11 Drawing Vertex Normals/model.frag.spv", fragment_shader_spirv ) ) {
       return false;
     }
-    VkDestroyer<VkShaderModule> fragment_shader_module;
+    VkDestroyer(VkShaderModule) fragment_shader_module;
     InitVkDestroyer( LogicalDevice, fragment_shader_module );
     if( !CreateShaderModule( *LogicalDevice, fragment_shader_spirv, *fragment_shader_module ) ) {
       return false;
@@ -240,7 +240,7 @@ class Sample : public VulkanCookbookSample {
       return false;
     }
     
-    VkDestroyer<VkShaderModule> normals_vertex_shader_module;
+    VkDestroyer(VkShaderModule) normals_vertex_shader_module;
     InitVkDestroyer( LogicalDevice, normals_vertex_shader_module );
     if( !CreateShaderModule( *LogicalDevice, normals_vertex_shader_spirv, *normals_vertex_shader_module ) ) {
       return false;
@@ -251,7 +251,7 @@ class Sample : public VulkanCookbookSample {
       return false;
     }
     
-    VkDestroyer<VkShaderModule> normals_geometry_shader_module;
+    VkDestroyer(VkShaderModule) normals_geometry_shader_module;
     InitVkDestroyer( LogicalDevice, normals_geometry_shader_module );
     if( !CreateShaderModule( *LogicalDevice, normals_geometry_shader_spirv, *normals_geometry_shader_module ) ) {
       return false;
@@ -261,7 +261,7 @@ class Sample : public VulkanCookbookSample {
     if( !GetBinaryFileContents( "Data/Shaders/Other/11 Drawing Vertex Normals/normals.frag.spv", normals_fragment_shader_spirv ) ) {
       return false;
     }
-    VkDestroyer<VkShaderModule> normals_fragment_shader_module;
+    VkDestroyer(VkShaderModule) normals_fragment_shader_module;
     InitVkDestroyer( LogicalDevice, normals_fragment_shader_module );
     if( !CreateShaderModule( *LogicalDevice, normals_fragment_shader_spirv, *normals_fragment_shader_module ) ) {
       return false;

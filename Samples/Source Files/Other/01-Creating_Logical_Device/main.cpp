@@ -35,8 +35,8 @@ using namespace VulkanCookbook;
 
 class Sample : public VulkanCookbookSampleBase {
   LIBRARY_TYPE            VulkanLibrary;
-  VkDestroyer<VkInstance> Instance;
-  VkDestroyer<VkDevice>   LogicalDevice;
+  VkDestroyer(VkInstance) Instance;
+  VkDestroyer(VkDevice)   LogicalDevice;
   VkQueue                 GraphicsQueue;
   VkQueue                 ComputeQueue;
 

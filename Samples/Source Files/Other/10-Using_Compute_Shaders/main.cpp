@@ -34,20 +34,20 @@
 using namespace VulkanCookbook;
 
 class Sample : public VulkanCookbookSample {
-  VkDestroyer<VkCommandPool>          CommandPool;
+  VkDestroyer(VkCommandPool)          CommandPool;
   VkCommandBuffer                     CommandBuffer;
-  VkDestroyer<VkImage>                Image;
-  VkDestroyer<VkDeviceMemory>         ImageMemory;
-  VkDestroyer<VkImageView>            ImageView;
-  VkDestroyer<VkDescriptorSetLayout>  DescriptorSetLayout;
-  VkDestroyer<VkDescriptorPool>       DescriptorPool;
+  VkDestroyer(VkImage)                Image;
+  VkDestroyer(VkDeviceMemory)         ImageMemory;
+  VkDestroyer(VkImageView)            ImageView;
+  VkDestroyer(VkDescriptorSetLayout)  DescriptorSetLayout;
+  VkDestroyer(VkDescriptorPool)       DescriptorPool;
   std::vector<VkDescriptorSet>        DescriptorSets;
-  VkDestroyer<VkFence>                DrawingFence;
-  VkDestroyer<VkSemaphore>            ImageAcquiredSemaphore;
-  VkDestroyer<VkSemaphore>            ReadyToPresentSemaphore;
-  VkDestroyer<VkFramebuffer>          Framebuffer;
-  VkDestroyer<VkPipeline>             ComputePipeline;
-  VkDestroyer<VkPipelineLayout>       PipelineLayout;
+  VkDestroyer(VkFence)                DrawingFence;
+  VkDestroyer(VkSemaphore)            ImageAcquiredSemaphore;
+  VkDestroyer(VkSemaphore)            ReadyToPresentSemaphore;
+  VkDestroyer(VkFramebuffer)          Framebuffer;
+  VkDestroyer(VkPipeline)             ComputePipeline;
+  VkDestroyer(VkPipelineLayout)       PipelineLayout;
 
   virtual bool Initialize( WindowParameters window_parameters ) override {
     if( !InitializeVulkan( window_parameters, nullptr, VK_IMAGE_USAGE_COLOR_ATTACHMENT_BIT | VK_IMAGE_USAGE_TRANSFER_DST_BIT, false ) ) {
@@ -139,7 +139,7 @@ class Sample : public VulkanCookbookSample {
       return false;
     }
 
-    VkDestroyer<VkShaderModule> compute_shader_module;
+    VkDestroyer(VkShaderModule) compute_shader_module;
     InitVkDestroyer( LogicalDevice, compute_shader_module );
     if( !CreateShaderModule( *LogicalDevice, compute_shader_spirv, *compute_shader_module ) ) {
       return false;

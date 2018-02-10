@@ -34,12 +34,12 @@
 using namespace VulkanCookbook;
 
 class Sample : public VulkanCookbookSample {
-  VkDestroyer<VkBuffer>         VertexBuffer;
-  VkDestroyer<VkDeviceMemory>   BufferMemory;
+  VkDestroyer(VkBuffer)         VertexBuffer;
+  VkDestroyer(VkDeviceMemory)   BufferMemory;
 
-  VkDestroyer<VkRenderPass>     RenderPass;
-  VkDestroyer<VkPipelineLayout> PipelineLayout;
-  VkDestroyer<VkPipeline>       GraphicsPipeline;
+  VkDestroyer(VkRenderPass)     RenderPass;
+  VkDestroyer(VkPipelineLayout) PipelineLayout;
+  VkDestroyer(VkPipeline)       GraphicsPipeline;
 
   virtual bool Initialize( WindowParameters window_parameters ) override {
     VkPhysicalDeviceFeatures device_features = {};
@@ -112,7 +112,7 @@ class Sample : public VulkanCookbookSample {
       return false;
     }
 
-    VkDestroyer<VkShaderModule> vertex_shader_module;
+    VkDestroyer(VkShaderModule) vertex_shader_module;
     InitVkDestroyer( LogicalDevice, vertex_shader_module );
     if( !CreateShaderModule( *LogicalDevice, vertex_shader_spirv, *vertex_shader_module ) ) {
       return false;
@@ -123,7 +123,7 @@ class Sample : public VulkanCookbookSample {
       return false;
     }
 
-    VkDestroyer<VkShaderModule> geometry_shader_module;
+    VkDestroyer(VkShaderModule) geometry_shader_module;
     InitVkDestroyer( LogicalDevice, geometry_shader_module );
     if( !CreateShaderModule( *LogicalDevice, geometry_shader_spirv, *geometry_shader_module ) ) {
       return false;
@@ -133,7 +133,7 @@ class Sample : public VulkanCookbookSample {
     if( !GetBinaryFileContents( "Data/Shaders/Other/09 Using Geometry Shaders/shader.frag.spv", fragment_shader_spirv ) ) {
       return false;
     }
-    VkDestroyer<VkShaderModule> fragment_shader_module;
+    VkDestroyer(VkShaderModule) fragment_shader_module;
     InitVkDestroyer( LogicalDevice, fragment_shader_module );
     if( !CreateShaderModule( *LogicalDevice, fragment_shader_spirv, *fragment_shader_module ) ) {
       return false;

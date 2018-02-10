@@ -34,11 +34,11 @@
 using namespace VulkanCookbook;
 
 class Sample : public VulkanCookbookSample {
-  VkDestroyer<VkBuffer>               VertexBuffer;
-  VkDestroyer<VkDeviceMemory>         BufferMemory;
+  VkDestroyer(VkBuffer)               VertexBuffer;
+  VkDestroyer(VkDeviceMemory)         BufferMemory;
 
-  VkDestroyer<VkRenderPass>           RenderPass;
-  VkDestroyer<VkPipeline>             GraphicsPipeline;
+  VkDestroyer(VkRenderPass)           RenderPass;
+  VkDestroyer(VkPipeline)             GraphicsPipeline;
 
   virtual bool Initialize( WindowParameters window_parameters ) override {
     if( !InitializeVulkan( window_parameters, nullptr, VK_IMAGE_USAGE_COLOR_ATTACHMENT_BIT, false ) ) {
@@ -240,7 +240,7 @@ class Sample : public VulkanCookbookSample {
       return false;
     }
 
-    VkDestroyer<VkShaderModule> vertex_shader_module;
+    VkDestroyer(VkShaderModule) vertex_shader_module;
     InitVkDestroyer( LogicalDevice, vertex_shader_module );
     if( !CreateShaderModule( *LogicalDevice, vertex_shader_spirv, *vertex_shader_module ) ) {
       return false;
@@ -250,7 +250,7 @@ class Sample : public VulkanCookbookSample {
     if( !GetBinaryFileContents( "Data/Shaders/Other/13 Enabling Alpha Blending/shader.frag.spv", fragment_shader_spirv ) ) {
       return false;
     }
-    VkDestroyer<VkShaderModule> fragment_shader_module;
+    VkDestroyer(VkShaderModule) fragment_shader_module;
     InitVkDestroyer( LogicalDevice, fragment_shader_module );
     if( !CreateShaderModule( *LogicalDevice, fragment_shader_spirv, *fragment_shader_module ) ) {
       return false;
@@ -361,7 +361,7 @@ class Sample : public VulkanCookbookSample {
     VkPipelineDynamicStateCreateInfo dynamic_state_create_info;
     SpecifyPipelineDynamicStates( dynamic_states, dynamic_state_create_info );
 
-    VkDestroyer<VkPipelineLayout> pipeline_layout;
+    VkDestroyer(VkPipelineLayout) pipeline_layout;
     InitVkDestroyer( LogicalDevice, pipeline_layout );
     if( !CreatePipelineLayout( *LogicalDevice, {}, {}, *pipeline_layout ) ) {
       return false;

@@ -34,12 +34,12 @@
 using namespace VulkanCookbook;
 
 class Sample : public VulkanCookbookSample {
-  VkDestroyer<VkBuffer>         VertexBuffer;
-  VkDestroyer<VkDeviceMemory>   BufferMemory;
+  VkDestroyer(VkBuffer)         VertexBuffer;
+  VkDestroyer(VkDeviceMemory)   BufferMemory;
 
-  VkDestroyer<VkRenderPass>     RenderPass;
-  VkDestroyer<VkPipelineLayout> PipelineLayout;
-  VkDestroyer<VkPipeline>       GraphicsPipeline;
+  VkDestroyer(VkRenderPass)     RenderPass;
+  VkDestroyer(VkPipelineLayout) PipelineLayout;
+  VkDestroyer(VkPipeline)       GraphicsPipeline;
 
   virtual bool Initialize( WindowParameters window_parameters ) override {
     VkPhysicalDeviceFeatures device_features = {};
@@ -113,7 +113,7 @@ class Sample : public VulkanCookbookSample {
       return false;
     }
 
-    VkDestroyer<VkShaderModule> vertex_shader_module;
+    VkDestroyer(VkShaderModule) vertex_shader_module;
     InitVkDestroyer( LogicalDevice, vertex_shader_module );
     if( !CreateShaderModule( *LogicalDevice, vertex_shader_spirv, *vertex_shader_module ) ) {
       return false;
@@ -124,7 +124,7 @@ class Sample : public VulkanCookbookSample {
       return false;
     }
 
-    VkDestroyer<VkShaderModule> tessellation_control_shader_module;
+    VkDestroyer(VkShaderModule) tessellation_control_shader_module;
     InitVkDestroyer( LogicalDevice, tessellation_control_shader_module );
     if( !CreateShaderModule( *LogicalDevice, tessellation_control_shader_spirv, *tessellation_control_shader_module ) ) {
       return false;
@@ -135,7 +135,7 @@ class Sample : public VulkanCookbookSample {
       return false;
     }
 
-    VkDestroyer<VkShaderModule> tessellation_evaluation_shader_module;
+    VkDestroyer(VkShaderModule) tessellation_evaluation_shader_module;
     InitVkDestroyer( LogicalDevice, tessellation_evaluation_shader_module );
     if( !CreateShaderModule( *LogicalDevice, tessellation_evaluation_shader_spirv, *tessellation_evaluation_shader_module ) ) {
       return false;
@@ -145,7 +145,7 @@ class Sample : public VulkanCookbookSample {
     if( !GetBinaryFileContents( "Data/Shaders/Other/08 Using Tessellation Shaders/shader.frag.spv", fragment_shader_spirv ) ) {
       return false;
     }
-    VkDestroyer<VkShaderModule> fragment_shader_module;
+    VkDestroyer(VkShaderModule) fragment_shader_module;
     InitVkDestroyer( LogicalDevice, fragment_shader_module );
     if( !CreateShaderModule( *LogicalDevice, fragment_shader_spirv, *fragment_shader_module ) ) {
       return false;

@@ -35,30 +35,30 @@ using namespace VulkanCookbook;
 
 class Sample : public VulkanCookbookSample {
   Mesh                                Model;
-  VkDestroyer<VkBuffer>               VertexBuffer;
-  VkDestroyer<VkDeviceMemory>         VertexBufferMemory;
+  VkDestroyer(VkBuffer)               VertexBuffer;
+  VkDestroyer(VkDeviceMemory)         VertexBufferMemory;
 
-  VkDestroyer<VkImage>                DepthAttachment;
-  VkDestroyer<VkDeviceMemory>         DepthAttachmentMemory;
-  VkDestroyer<VkImageView>            DepthAttachmentView;
+  VkDestroyer(VkImage)                DepthAttachment;
+  VkDestroyer(VkDeviceMemory)         DepthAttachmentMemory;
+  VkDestroyer(VkImageView)            DepthAttachmentView;
 
-  VkDestroyer<VkBuffer>               UniformBuffer;
-  VkDestroyer<VkDeviceMemory>         UniformBufferMemory;
+  VkDestroyer(VkBuffer)               UniformBuffer;
+  VkDestroyer(VkDeviceMemory)         UniformBufferMemory;
 
-  VkDestroyer<VkDescriptorSetLayout>  DescriptorSetLayout;
-  VkDestroyer<VkDescriptorPool>       DescriptorPool;
+  VkDestroyer(VkDescriptorSetLayout)  DescriptorSetLayout;
+  VkDestroyer(VkDescriptorPool)       DescriptorPool;
   std::vector<VkDescriptorSet>        DescriptorSets;
 
-  VkDestroyer<VkCommandPool>          CommandPool;
+  VkDestroyer(VkCommandPool)          CommandPool;
   VkCommandBuffer                     CommandBuffer;
-  VkDestroyer<VkFence>                DrawingFence;
-  VkDestroyer<VkSemaphore>            ImageAcquiredSemaphore;
-  VkDestroyer<VkSemaphore>            ReadyToPresentSemaphore;
+  VkDestroyer(VkFence)                DrawingFence;
+  VkDestroyer(VkSemaphore)            ImageAcquiredSemaphore;
+  VkDestroyer(VkSemaphore)            ReadyToPresentSemaphore;
 
-  VkDestroyer<VkRenderPass>           RenderPass;
-  VkDestroyer<VkFramebuffer>          Framebuffer;
-  VkDestroyer<VkPipelineLayout>       PipelineLayout;
-  VkDestroyer<VkPipeline>             Pipeline;
+  VkDestroyer(VkRenderPass)           RenderPass;
+  VkDestroyer(VkFramebuffer)          Framebuffer;
+  VkDestroyer(VkPipelineLayout)       PipelineLayout;
+  VkDestroyer(VkPipeline)             Pipeline;
 
   static const VkFormat DepthFormat = VK_FORMAT_D16_UNORM;
 
@@ -252,7 +252,7 @@ class Sample : public VulkanCookbookSample {
       return false;
     }
 
-    VkDestroyer<VkShaderModule> vertex_shader_module;
+    VkDestroyer(VkShaderModule) vertex_shader_module;
     InitVkDestroyer( LogicalDevice, vertex_shader_module );
     if( !CreateShaderModule( *LogicalDevice, vertex_shader_spirv, *vertex_shader_module ) ) {
       return false;
@@ -262,7 +262,7 @@ class Sample : public VulkanCookbookSample {
     if( !GetBinaryFileContents( "Data/Shaders/Other/12 Using Depth Attachments/shader.frag.spv", fragment_shader_spirv ) ) {
       return false;
     }
-    VkDestroyer<VkShaderModule> fragment_shader_module;
+    VkDestroyer(VkShaderModule) fragment_shader_module;
     InitVkDestroyer( LogicalDevice, fragment_shader_module );
     if( !CreateShaderModule( *LogicalDevice, fragment_shader_spirv, *fragment_shader_module ) ) {
       return false;
