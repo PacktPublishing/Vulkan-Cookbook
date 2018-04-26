@@ -51,7 +51,7 @@ namespace VulkanCookbook {
       std::cout << "Provided format is not supported for an input attachment." << std::endl;
       return false;
     }
-    if( (aspect & (VK_IMAGE_ASPECT_DEPTH_BIT | VK_IMAGE_ASPECT_DEPTH_BIT)) &&
+    if( (aspect & (VK_IMAGE_ASPECT_DEPTH_BIT | VK_IMAGE_ASPECT_STENCIL_BIT)) &&
       !(format_properties.optimalTilingFeatures & VK_FORMAT_FEATURE_DEPTH_STENCIL_ATTACHMENT_BIT) ) {
       std::cout << "Provided format is not supported for an input attachment." << std::endl;
       return false;
