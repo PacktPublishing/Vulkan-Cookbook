@@ -644,6 +644,8 @@ class Sample : public VulkanCookbookSample {
       // Drawing
       BeginRenderPass( command_buffer, *SceneRenderPass, framebuffer, { { 0, 0 }, Swapchain.Size }, { { 0.1f, 0.2f, 0.3f, 1.0f }, { 1.0f, 0 } }, VK_SUBPASS_CONTENTS_INLINE );
 
+      BindPipelineObject( command_buffer, VK_PIPELINE_BIND_POINT_GRAPHICS, *ScenePipeline );
+
       VkViewport viewport = {
         0.0f,                                       // float    x
         0.0f,                                       // float    y
@@ -665,8 +667,6 @@ class Sample : public VulkanCookbookSample {
         }
       };
       SetScissorStateDynamically( command_buffer, 0, { scissor } );
-
-      BindPipelineObject( command_buffer, VK_PIPELINE_BIND_POINT_GRAPHICS, *ScenePipeline );
 
       ProvideDataToShadersThroughPushConstants( command_buffer, *PipelineLayout, VK_SHADER_STAGE_VERTEX_BIT, 0, sizeof( float ) * 4, &LightSource.GetPosition()[0] );
 
