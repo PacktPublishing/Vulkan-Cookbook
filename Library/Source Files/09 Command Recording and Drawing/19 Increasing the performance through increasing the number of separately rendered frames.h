@@ -43,11 +43,11 @@ namespace VulkanCookbook {
     VkDestroyer(VkFramebuffer)  Framebuffer;
 
     FrameResources( VkCommandBuffer            & command_buffer,
-                    VkDestroyer(VkSemaphore)   & image_acquired_semaphore,
-                    VkDestroyer(VkSemaphore)   & ready_to_present_semaphore,
-                    VkDestroyer(VkFence)       & drawing_finished_fence,
-                    VkDestroyer(VkImageView)   & depth_attachment,
-                    VkDestroyer(VkFramebuffer) & framebuffer ) :
+                    VkDestroyer(VkSemaphore)   && image_acquired_semaphore,
+                    VkDestroyer(VkSemaphore)   && ready_to_present_semaphore,
+                    VkDestroyer(VkFence)       && drawing_finished_fence,
+                    VkDestroyer(VkImageView)   && depth_attachment,
+                    VkDestroyer(VkFramebuffer) && framebuffer ) :
       CommandBuffer( command_buffer ),
       ImageAcquiredSemaphore( std::move( image_acquired_semaphore ) ),
       ReadyToPresentSemaphore( std::move( ready_to_present_semaphore ) ),
