@@ -542,3 +542,7 @@ This sample shows an alternative for performing a postprocessing with a quad (tw
 * [06 - Loading texture data from a file](./Library/Source%20Files/10%20Helper%20Recipes/06%20Loading%20texture%20data%20from%20a%20file.cpp)
 
 * [07 - Loading a 3D model from an OBJ file](./Library/Source%20Files/10%20Helper%20Recipes/07%20Loading%20a%203D%20model%20from%20an%20OBJ%20file.cpp)
+### Download a free PDF
+
+ <i>If you have already purchased a print or Kindle version of this book, you can get a DRM-free PDF version at no cost.<br>Simply click on the link to download a free PDF copy of this book.</i>
+<p align="center"> <a href="https://packt.link/free-ebook/9781786468154">https://packt.link/free-ebook/9781786468154 </a> </p>
